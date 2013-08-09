@@ -1,4 +1,16 @@
 /* ------------------------------------------------------------------------------ */
+/* webfonts */
+/* ------------------------------------------------------------------------------ */
+WebFontConfig = { 
+	google: 		{ families: [ 'Merriweather:400,700:latin', 'Montserrat:400,700:latin' ] },
+	loading: 		function() { console.log('wf loading'); },
+	active: 		function() { console.log('wf active'); },
+	inactive: 		function() { console.log('wf inactive'); },
+	fontloading: 	function( familyName, fvd ) { console.log( familyName, fvd, 'loading' ); },
+	fontactive: 	function( familyName, fvd ) { console.log( familyName, fvd, 'active' ); },
+	fontinactive: 	function( familyName, fvd ) { console.log( familyName, fvd, 'inactive' ); } 
+};
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 var SelectNav, Slideshows, StaticAudios, StaticVideos;
@@ -17,15 +29,10 @@ function init(){
 	if ( $('body#home').length ) {
 		initHome();
 	} else {
-		//enhance forms
-		
 		//media
 		StaticAudios = new initStaticAudios();
 		StaticVideos = new initStaticVideos();		
 	}
-
-	//css3pie rendering
-	//initCSS3PIE();
 	
 	//debug
 	displayDebugInfo('#debugInfo');
@@ -37,7 +44,9 @@ function initHome(){
 	
 }
 /* DOM.ready */
-$(document).ready(function(){ 
+$(document).ready(function(){
+	console.log('dom ready');
+	initWebFontLoader();
 	Platform.addDOMClass();
 	init();	
 });

@@ -29,15 +29,10 @@ function init(){
 	if ( $('body#home').length ) {
 		initHome();
 	} else {
-		//enhance forms
-		
 		//media
 		StaticAudios = new initStaticAudios();
 		StaticVideos = new initStaticVideos();		
 	}
-
-	//css3pie rendering
-	//initCSS3PIE();
 	
 	//debug
 	displayDebugInfo('#debugInfo');
@@ -50,6 +45,7 @@ function initHome(){
 }
 /* DOM.ready */
 $(document).ready(function(){
+	console.log('dom ready');
 	initWebFontLoader();
 	Platform.addDOMClass();
 	init();	
