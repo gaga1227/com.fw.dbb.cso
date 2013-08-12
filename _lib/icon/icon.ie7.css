@@ -393,3 +393,21 @@
 .ie7 .icon-vk 						{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xf189;');}
 .ie7 .icon-weibo 					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xf18a;');}
 .ie7 .icon-renren 					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xf18b;');}
+
+/* ----------------------------------------------------------------------------------- 
+   fwicon styles
+   ----------------------------------------------------------------------------------- */
+.ie7 .fwicon-view					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe000;');}
+.ie7 .fwicon-video					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe001;');}
+.ie7 .fwicon-scroll					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe002;');}
+.ie7 .fwicon-pdf					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe003;');}
+.ie7 .fwicon-music					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe004;');}
+.ie7 .fwicon-link					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe005;');}
+.ie7 .fwicon-info					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe006;');}
+.ie7 .fwicon-hat					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe007;');}
+.ie7 .fwicon-group					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe008;');}
+.ie7 .fwicon-globe					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe009;');}
+.ie7 .fwicon-download				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe00a;');}
+.ie7 .fwicon-books					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe00b;');}
+.ie7 .fwicon-book-open				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe00c;');}
+.ie7 .fwicon-arrow					{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe00d;');}

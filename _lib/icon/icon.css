@@ -441,8 +441,20 @@
 /* ----------------------------------------------------------------------------------- 
    fwicon styles
    ----------------------------------------------------------------------------------- */
-
-/*.fwicon-[icon]:before							{ content: "\e000"; }*/
+.fwicon-view:before								{ content: "\e000"; }
+.fwicon-video:before							{ content: "\e001"; }
+.fwicon-scroll:before							{ content: "\e002"; }
+.fwicon-pdf:before								{ content: "\e003"; }
+.fwicon-music:before							{ content: "\e004"; }
+.fwicon-link:before								{ content: "\e005"; }
+.fwicon-info:before								{ content: "\e006"; }
+.fwicon-hat:before								{ content: "\e007"; }
+.fwicon-group:before							{ content: "\e008"; }
+.fwicon-globe:before							{ content: "\e009"; }
+.fwicon-download:before							{ content: "\e00a"; }
+.fwicon-books:before							{ content: "\e00b"; }
+.fwicon-book-open:before						{ content: "\e00c"; }
+.fwicon-arrow:before							{ content: "\e00d"; }
 
 /* -----------------------------------------------------------------------------------
    Extras
