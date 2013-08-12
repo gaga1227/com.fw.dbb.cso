@@ -93,28 +93,40 @@ body.ps {
 	
 	/* -------------------------------------------------------------------------- */
 	/* blockings */
-	#pageBg, #container, #header, #nav, #megamenu, #content, #utils, #megafooter, #footer,
-	#nav > .padder, #megamenu > .padder, #utils > .padder, #megafooter > .padder, #footerLinks { 
+	#container, 
+		#header, #nav, #banner, #content, #megafooter, #footer,
+			#header 	> .padder,
+			#nav 		> .padder,
+			#banner 	> .padder,
+			#content 	> .padder,
+			#megafooter > .padder,
+			#footer 	> .padder { 
 		position:relative; width:100%; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 		
 	/* full stretch */
-	#pageBg, #container, #header, #megamenu, #megafooter, #footer { 
+	#container, 
+		#header, #nav, #banner, #content, #megafooter, #footer, { 
 		min-width:300px; max-width:100%; }
 	
-	/* limited stretch */
-	#nav, #content, #utils { 
-		min-width:300px; max-width:980px; }
+	/* limited stretch 
+	{ min-width:300px; max-width:960px; }
+	*/
 		
 	/* padder */
-	#nav > .padder, #megamenu > .padder, #megafooter > .padder, #footerLinks {
-		min-width:0px; max-width:980px; }
+	#header 	> .padder,
+	#nav 		> .padder,
+	#banner 	> .padder,
+	#content 	> .padder,
+	#megafooter > .padder,
+	#footer 	> .padder {
+		min-width:0px; max-width:960px; }
 
 
 /* ==========================================================================
    structure - PAGEBG
    ========================================================================== */
 
-/* canvas height */
+/* html canvas */
 html, body { height:100% }
 
 /* pageBg */
@@ -141,35 +153,43 @@ html, body { height:100% }
 
 /* ------------------------------------------------------------------------------ */
 /* container */
-#header {  }
+#header { background:#ededed; }
+
+	#header > .padder { padding:35px 0; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* brand */
-	#header .brand { 
-		position:relative; width:auto; height:220px; margin:0; padding:0; overflow:hidden;
-		background:url(../img/bg-header.jpg) top center no-repeat; }
+	#header #brand { 
+		display:block; position:relative; width:450px; height:70px; margin:0; padding:0; overflow:hidden;
+		text-decoration:none!important; cursor:pointer; }
 		
-		/* brand */
-		#header .brand a { display:block; position:relative; width:auto; max-width:980px; height:220px; margin:0 auto; padding:0; overflow:hidden; }
-		
-			/* img */
-			#header .brand img { display:block; position:absolute; height:auto; }
+		/* common */
+		#header #brand span { 
+			display:block; width:auto; margin:0 0 0 110px; overflow:hidden; }
+		/* title */
+		#header #brand .title { 
+			margin-top:20px;
+			color:#1f353f; font-family:'Merriweather',sans-serif; font-weight:700; font-size:20px; line-height:25px; }
+			#header #brand .title .small { font-size:14px; font-style:normal; }
+			
+		/* subtitle */
+		#header #brand .subtitle { 
+			color:#1a9ba6; font-weight:700; font-size:12px; line-height:20px; text-transform:uppercase; }
+			
+		/* img */
+		#header #brand img { 
+			display:block; position:absolute; top:0; left:10px; width:90px; height:auto; }
 		
 /* ------------------------------------------------------------------------------ */
 /* header responsive */
 @media only screen and (max-width:640px) {
 
-	/* swap bg image */
-	#header .brand { background:url(../img/bg-header-mob.jpg) top center no-repeat; }
-	#header .brand,
-	#header .brand a { height:200px; }
+
 
 }
 @media only screen and (max-width:400px) {
 
-	/* reduce height */
-	#header .brand,
-	#header .brand a { height:180px; }
+
 	
 }
 
@@ -180,7 +200,7 @@ html, body { height:100% }
    
 /* -------------------------------------------------------------------------- */
 /* container */ 
-#nav { background:#502a33; }
+#nav { background:#1f353f; }
 	
 	/* ------------------------------------------------------------------------------ */
 	/* navSelect */
@@ -495,12 +515,21 @@ html, body { height:100% }
 
 
 /* ==========================================================================
+   structure - BANNER
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+#banner { background:#ee9021; }
+
+
+/* ==========================================================================
    structure - CONTENT SHELL
    ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#content { width:auto; background:#fff; }
+#content { width:auto; background:#ebebeb; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* common */
@@ -650,8 +679,7 @@ html, body { height:100% }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#megafooter { background:rgba(255,255,255,0.5); margin-top:4%; padding:50px 0; }
-.oldie #megafooter { background:#fbfaf8; }
+#megafooter { background:#1b2c35; border-top:8px solid #00aab8; padding:50px 0; }
 
 	/* title */
 	#megafooter .title { 
@@ -712,8 +740,7 @@ html, body { height:100% }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#footer { color:#fff; background:rgba(0,0,0,0.8); }
-.oldie #footer { background:#222; }
+#footer { color:#fff; background:#2e3e47; border-top:1px solid #3e4d56; }
 
 	/* footerLinks */
 	#footerLinks { padding:15px 0; }
