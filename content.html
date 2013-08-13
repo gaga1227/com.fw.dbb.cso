@@ -2,9 +2,8 @@
 <!--[if lt IE 7]>		  <html class="no-js ie ie6 oldie" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
 <!--[if IE 7]>			  <html class="no-js ie ie7 oldie" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
 <!--[if IE 8]>			  <html class="no-js ie ie8 oldie" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
-<!--[if IE 9]>			  <html class="no-js ie ie9 newie" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
-<!--[if IE 10]>			  <html class="no-js ie ie10 newie" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
-<!--[if (gte IE 10)><!--> <html class="no-js" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+<!--[if IE 9]>			  <html class="no-js ie ie9" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if (gte IE 9)><!-->  <html class="no-js" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -56,7 +55,7 @@
 <!-- DEBUG -->
 <div id="debugInfo" class="nfp debug" data-on="" data-width=""></div>
 <!-- PAGEBG-->
-<div id="pageBg"><div id="pageBgArt"></div></div>
+<div id="pageBg" class="nfp"><div id="pageBgArt"></div></div>
 <!-- CONTAINER -->
 <div id="container">
 	<!-- HEADER -->
@@ -69,6 +68,12 @@
 				<span class="subtitle">Diocese of Broken Bay</span>
 			</a><!-- /BRAND -->
 			<!-- SEARCH -->
+			<div id="topSearch" class="nfp">
+				<form id="topSearchForm" action="/">
+					<input size="30" placeholder="Search Site" />
+					<a class="btnSearch" href="javascript:$('#topSearchForm').submit();"><i class="icon icon-search"></i></a>
+				</form>
+			</div><!-- /SEARCH -->
 		</div>
 	</div><!-- /HEADER -->
 	<!-- NAV -->
