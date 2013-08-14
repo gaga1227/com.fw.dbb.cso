@@ -101,7 +101,7 @@ body.ps {
 			#content 	> .padder,
 			#megafooter > .padder,
 			#footer 	> .padder { 
-		position:relative; width:100%; height:auto; margin:0 auto; padding:0; overflow:hidden; }
+		position:relative; width:100%; height:auto; margin:0 auto; padding:0; }
 		
 	/* full stretch */
 	#container, 
@@ -154,18 +154,20 @@ html, body { height:100% }
 /* ------------------------------------------------------------------------------ */
 /* container */
 #header { background:#ededed; }
-
+	
+	/* padder */
 	#header > .padder { padding:35px 0; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* brand */
 	#header #brand { 
-		display:block; position:relative; width:450px; height:70px; margin:0; padding:0; overflow:hidden;
+		display:block; position:relative; width:450px; height:auto; margin:0; padding:0; overflow:hidden;
 		text-decoration:none!important; cursor:pointer; }
 		
 		/* common */
 		#header #brand span { 
 			display:block; width:auto; margin:0 0 0 110px; overflow:hidden; }
+			
 		/* title */
 		#header #brand .title { 
 			margin-top:20px;
@@ -221,14 +223,30 @@ html, body { height:100% }
 		
 /* ------------------------------------------------------------------------------ */
 /* header responsive */
-@media only screen and (max-width:640px) {
-
-
+@media only screen and (max-width:780px) {
+	
+	/* shrink brand */
+	#header #brand 				{ width:280px; }
+	#header #brand .title 		{ margin-top:12px; font-size:18px; line-height:20px; }
+	#header #brand .subtitle 	{ font-size:11px; }
+	/* shrink search */
+	#header #topSearch,
+	#header #topSearchForm 		{ width:245px; }
+	#header #topSearch input 	{ width:160px; }
 
 }
-@media only screen and (max-width:400px) {
-
-
+@media only screen and (max-width:560px) {
+	
+	/* shrink header */
+	#header > .padder 			{ padding:20px 0; }
+	/* center brand */
+	#header #brand 				{ margin:0 auto; }
+	/* shrink brand img */
+	#header #brand img 			{ width:75px; }
+	#header #brand span			{ margin-left:90px; }
+	#header #brand .title 		{ margin-top:2px; }
+	/* hide search */
+	#header #topSearch 			{ display:none; }
 	
 }
 
