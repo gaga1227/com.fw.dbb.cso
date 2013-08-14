@@ -257,121 +257,75 @@ html, body { height:100% }
    
 /* -------------------------------------------------------------------------- */
 /* container */ 
-#nav { background:#1f353f; }
-	
+#nav { overflow:hidden; background:#1f353f; }
+
+	/* padder */
+	#nav > .padder { }
+
 	/* ------------------------------------------------------------------------------ */
 	/* navSelect */
 	#navSelect { display:none; }
 	
 	/* ------------------------------------------------------------------------------ */
 	/* navItems */
-	#navItems { margin:0 18% 0 0; padding:0; overflow:hidden; }
+	#navItems { 
+		margin:0; padding:0; overflow:hidden; 
+		white-space:nowrap; text-overflow:ellipsis; text-align:center; }
 	
 		/* navItem */
 		#nav .navItem { 
-			display:inline-block; width:14%; height:53px; margin:0; padding:0; overflow:hidden; vertical-align:top;
-			color:#fff; border-top:2px solid transparent;
-			font-family:'Gentium Book Basic',serif; font-size:20px; font-weight:400; font-style:italic; line-height:53px; text-align:center;
+			display:inline-block; width:auto; height:60px; margin:0; padding:0; overflow:hidden; 
+			color:#bcbfc1; font-size:16px; font-weight:700; line-height:26px; text-align:center; vertical-align:middle;
 			text-decoration:none!important; outline:0 none!important;
 			/*transition*/
 			/*-webkit-transform:translate3d(0,0,0);*/
-			-webkit-transition:background-color 0.3s ease-in-out;
-			-moz-transition:background-color 0.3s ease-in-out;
-			-o-transition:background-color 0.3s ease-in-out;
-			transition:background-color 0.3s ease-in-out; }
+			-webkit-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+			-moz-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+			-o-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+			transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out; }
+		
+		/* oldie fix */
+		.oldie #nav .navItem { 
+			letter-spacing:-1px; }
 			
 			/* items - label */
 			#nav .navItem .label { 
-				display:block; width:auto; margin:0; padding:0 10px; 
-				white-space:nowrap;	cursor:pointer; }
+				display:block; width:auto; margin:16px 10px; padding:0 3px; 
+				white-space:nowrap;	border-bottom:2px solid transparent; }
 				
 		/* navItem - interaction */	
 		.no-touch #nav .navItem:hover,
 		.no-touch #nav .navItem:focus,
-		.touch #nav .navItem:active { background:#6d353b; }
+		.touch #nav .navItem:active { 
+			color:#fff; }
 		
 		/* navItem - selected */
 		#nav .navItem.selected,
 		#nav .navItem.selected .label,
 		.no-touch #nav .navItem.selected:hover,
 		.no-touch #nav .navItem.selected:focus,
-		.touch #nav .navItem.selected:active { background:#6d353b; border-top-color:#ee3d5a; }
-
-		/* navItem extend */
-		/*
-			moved to skin.css
-		*/
-	
-	/* ------------------------------------------------------------------------------ */
-	/* crest */	
-	#navCrest { 
-		position:absolute; top:0; right:50px; width:50px; height:55px; margin:0; padding:0; overflow:hidden;
-		color:#fff; }
-		
-		/* icon */
-		#navCrest .icon { 
-			top:0; left:0; width:100%; height:100%; margin:0;
-			font-size:38px; line-height:55px; }
-	
-	/* ------------------------------------------------------------------------------ */
-	/* navMegamenu */	
-	#navMegamenu { 
-		position:absolute; top:0; right:0; width:50px; height:55px; margin:0; padding:0; overflow:hidden;
-		color:#fff; background:#be354c;	outline:0 none!important;
-		text-decoration:none!important; cursor:pointer!important; }
-	
-	/* hover */
-	.no-touch #navMegamenu:hover,
-	.no-touch #navMegamenu:focus,
-	.touch #navMegamenu:active { 
-		background:#ee3d5a; }
-		
-	/* active */
-	#navMegamenu.active,
-	.no-touch #navMegamenu.active:hover,
-	.no-touch #navMegamenu.active:focus,
-	.touch #navMegamenu.active:active { 
-	 	background:#ee3d5a; }	
-		
-		/* icon */
-		#navMegamenu .icon { 
-			top:0; left:0; width:100%; height:100%; margin:0;
-			font-size:18px; line-height:55px; }
+		.touch #nav .navItem.selected:active { 
+			color:#fff; border-bottom-color:#06b4c3; 
+			pointer-events:none; cursor:default; }
 	
 /* ------------------------------------------------------------------------------ */
 /* nav responsive */
 @media only screen and (max-width:980px) {
 	
-	/* reduce right gap */
-	#navItems { margin-right:11%; }
+	/* reduece item size */
+	#nav .navItem .label { margin-left:8px; margin-right:8px; font-size:14px; }
 
 }
 @media only screen and (max-width:900px) {
 	
-	/* smaller text */
-	#nav .navItem { font-size:18px; }
-	
-	/* more space for label */
-	#nav .navItem .label { padding:0 5px; }
-	
-	/* smaller icons */	
-	#navCrest,
-	#navMegamenu { width:40px; }
-	#navCrest { right:40px; }
-	#navCrest .icon { font-size:28px; }
+	/* reduece item size */
+	#nav .navItem .label { margin-left:6px; margin-right:6px; font-size:13px; }
 
 }
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:760px) {
 	
-	/* hide icons */	
-	#navCrest,
-	#navMegamenu { display:none!important; }
-	
-	/* no gaps */
-	#navItems { margin-right:0; }
-	
-	/* more space for label */
-	#nav .navItem .label { padding:0 2px; }
+	/* reduece item size */
+	#nav .navItem .label { margin-left:4px; margin-right:4px; font-size:11px; }
 
 }
 @media only screen and (max-width:640px) {
@@ -381,61 +335,58 @@ html, body { height:100% }
 	#nav { 
 		width:auto; height:45px/*auto*/; 
 		/*transition*/
-		/*-webkit-transform:translate3d(0,0,0);*/
 		-webkit-transition:height 0.3s ease-in-out;
 		-moz-transition:height 0.3s ease-in-out;
 		-o-transition:height 0.3s ease-in-out;
 		transition:height 0.3s ease-in-out; }
 				
 		/* ------------------------------------------------------------------------------ */
-		/* navItem */
-		#nav #navItems { margin:0; }
-		
+		/* navItem */		
 		#nav #navSelect,
 		#nav #navItems .navItem { 
-			display:block; width:auto; height:auto/*43px*/; margin:0; padding:0; overflow:hidden;
-			color:#fff; background:none; border-bottom:1px solid #5d3137; border-top:none!important;
-			font-size:18px; line-height:43px; text-align:left;
+			display:block; width:auto; height:auto/*44px*/; margin:0; padding:0; overflow:hidden;
+			color:#fff; background:none; border-top:1px solid #324c57;
+			font-size:18px; line-height:44px; text-align:left;
 			text-decoration:none!important; }
-		#nav #navSelect .label,
-		#nav .navItem .label { display:block; width:auto; height:auto; padding:0 4%; border:none; }
-		#nav #navSelect .label { padding-right:45px; }
+		#nav #navItems .navItem { color:#bcbfc1; }
+			
+			/* label */
+			#nav #navSelect .label,
+			#nav .navItem .label 	{ margin:0; padding:0 4%; border-bottom:none!important; }
+			#nav .navItem .label 	{ font-size:15px; }
 		
-		/* navItem - interaction */	
+		/* interaction */	
 		.no-touch #nav #navItems .navItem:hover,
 		.no-touch #nav #navItems .navItem:focus,
-		.touch #nav #navItems .navItem:active { background:#ee3d5a; }
+		.touch #nav #navItems .navItem:active 				{ color:#fff; background:#06b4c3; }
 		
-		/* navItem - selected */
-		#nav .navItem.selected,
-		#nav .navItem.selected .label,
-		.no-touch #nav .navItem.selected:hover,
-		.no-touch #nav .navItem.selected:focus,
-		.touch #nav .navItem.selected:active { color:#ee3d5a; background:none!important; border-bottom-color:#5d3137; cursor:default!important; }
+		/* selected */
+		#nav #navItems .navItem.selected,
+		#nav #navItems .navItem.selected .label,
+		.no-touch #nav #navItems .navItem.selected:hover,
+		.no-touch #nav #navItems .navItem.selected:focus,
+		.touch #nav #navItems .navItem.selected:active 		{ color:#06b4c3; background:none; }
 		
 		/* ------------------------------------------------------------------------------ */
 		/* navSelect */
 		#nav #navSelect { 
 			position:relative; height:45px;
-			background:#402228; border:none;
-			font-family:'Gentium Book Basic',serif; font-size:25px; font-weight:400; font-style:italic; line-height:45px;
-			cursor:pointer!important; }
+			background:#182932; border:none;
+			font-size:18px; font-weight:700; line-height:45px;
+			outline:0 none!important; cursor:pointer!important; }
 		
 			/* icon */
 			#nav #navSelect .icon { 
 				top:0; right:0; width:45px; height:45px; margin:0; padding:0; overflow:hidden;
-				color:#fff; 
-				font-size:18px; line-height:45px; }
+				color:#fff; font-size:21px; line-height:45px; }
+			.no-touch #nav #navSelect .icon:hover,
+			.no-touch #nav #navSelect .icon:focus,
+			.touch #nav #navSelect .icon:active { 
+				background:#1a9ba6; }
 	
+	/* -------------------------------------------------------------------------- */
 	/* IE fix */
 	.ie #nav.active { height:auto!important; }
-	
-}
-@media only screen and (max-width:400px) {
-	
-	/* ------------------------------------------------------------------------------ */
-	/* navSelect - make text smaller */
-	#nav #navSelect { font-size:20px; }
 	
 }
 
@@ -736,7 +687,7 @@ html, body { height:100% }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#megafooter { background:#1b2c35; border-top:8px solid #00aab8; padding:50px 0; }
+#megafooter { display:none; background:#1b2c35; border-top:8px solid #00aab8; padding:50px 0; }
 
 	/* title */
 	#megafooter .title { 

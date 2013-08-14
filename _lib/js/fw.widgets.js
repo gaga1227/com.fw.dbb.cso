@@ -90,7 +90,7 @@ function initSelectNav() {
 		this.selectMode = false;
 		this.speed = 300;
 		this.defaultLabel = 'Menu',
-		this.iconClass = [ 'fwicon-chevron-down', 'fwicon-chevron-up' ];
+		this.iconClass = [ 'icon-reorder', 'icon-reorder' ];
 		this.csstransitions = Modernizr.csstransitions;
 		
 		//first update
