@@ -44,6 +44,12 @@ function displayDebugInfo(debug){
 			toggle();
 		};
 	
+	//exit if IE6,7
+	if ($('html').hasClass('ie6') || $('html').hasClass('ie7')) { 
+		$debug.remove();
+		return false; 
+	}
+	
 	//init and bind event
 	$debug.on('click', function(e){
 		e.preventDefault();
@@ -198,23 +204,3 @@ function initWebFontLoader() {
 		s.parentNode.insertBefore(wf, s);
 	})();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
