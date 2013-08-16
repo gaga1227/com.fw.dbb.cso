@@ -403,106 +403,127 @@ html, body { height:100% }
 /* structure - SIDENAV */
 /* ================================================================================================== */
 
-#sideNav { position:static; list-style:none; margin:0; padding:0; width:auto; height:auto; overflow:hidden; }
+/* -------------------------------------------------------------------------- */
+/* sideNavHeader */
+#sideNavHeader { 
+	position:relative; width:auto; height:auto; margin:0; padding:12px 20px; overflow:hidden;
+	color:#fff; background:#00aab8;
+	font-size:18px; font-weight:700; line-height:21px; }
+
+/* -------------------------------------------------------------------------- */
+/* container */
+#sideNav { 
+	list-style:none; margin:0; padding:0; width:auto; height:auto; overflow:hidden;
+	background:#fff; }
+	
 /* genesis contextmenu output error fix */
-#sideNav + ul { display:none; }	
+#sideNav + ul { display:none; }
 
 	/* ------------------------------------------------------------------------------ */
 	/* icon */
 	#sideNav .icon {	 
-		display:none; position:absolute; top:18px; left:6%; width:10px; height:10px; margin:0; overflow:hidden;
-		color:#9a688d; font-size:8px; line-height:10px; text-align:left; text-indent:0;
+		display:none; position:absolute; width:12px; height:12px; margin:0; overflow:hidden;
+		color:#d0d0d0; font-size:12px; line-height:12px; text-align:left; text-indent:0;
 		/*transition*/
 		/*-webkit-transform:translate3d(0,0,0);*/
 		-webkit-transition:none 0.3s ease-in-out;
 		-moz-transition:none 0.3s ease-in-out;
 		-o-transition:none 0.3s ease-in-out;
 		transition:none 0.3s ease-in-out; }
-	#sideNav li li .icon { display:block; top:11px; left:13%; }
-	#sideNav li li li .icon { left:13%; margin-left:15px; }
-	.ie7 #sideNav .icon { top:16px; }
-	.ie7 #sideNav li li .icon { top:9px; }
 	
+	/* position */
+	#sideNav li li .icon 		{ top:10px; left:20px; display:block; }
+	
+	/* interaction */
 	#sideNav a:hover .icon,
-	#sideNav a:focus .icon { }
-	#sideNav li.selected .icon { display:block; }
+	#sideNav a:focus .icon 		{ color:#fff; }
+	
+	#sideNav li.selected .icon 	{ color:#d0d0d0; display:block; }
 	#sideNav li .selected .icon { cursor:default!important; }
+	
 	#sideNav li li.selected > a .icon,
 	#sideNav li li.selected > a:hover .icon,
 	#sideNav li li.selected > a:focus .icon { color:#fff!important; }
 	
 	/* ------------------------------------------------------------------------------ */
-	/*level 1 nav items*/
+	/* level 1 */
 	#sideNav li {
 		position:relative; margin:0; padding:0; width:100%;
-		color:#222; border-bottom:1px solid #d6d6d6;
-		font-size:14px; font-weight:600; line-height:20px; }
-	/* #sideNav li:first-child { border-top:1px solid #d1d1d1; } */
+		color:#262626; border-bottom:1px solid #ededed;
+		font-size:15px; font-weight:400; line-height:21px; }
 	
-		/* IE7 extra bottom gap fix */
-		.ie7 #sideNav li { line-height:14px; vertical-align:bottom; }
+	/* IE7 extra bottom gap fix */
+	.ie7 #sideNav li { 
+		line-height:15px; vertical-align:bottom; }
 		
 		/* ------------------------------------------------------------------------------ */
-		/*level 1 links*/
+		/* links */
 		#sideNav li a,
 		#sideNav li a:link,
 		#sideNav li a:active,
 		#sideNav li a:visited {
-			display:block; position:relative; width:auto; margin:0; padding:12px 10px 12px 13%; 
-			color:#222; text-decoration:none; }		
+			display:block; position:relative; width:auto; margin:0; padding:11px 20px; 
+			color:#262626; text-decoration:none; }		
 		
-		/*level 1 links interaction*/
+		/* interaction */
 		#sideNav li a:hover,
-		#sideNav li a:focus { color:#222; background:#e6e3df; }
+		#sideNav li a:focus { 
+			text-decoration:underline; }
+		
+		/* ------------------------------------------------------------------------------ */
+		/* selected */
+		#sideNav li.selected 					{  }
+		
+		#sideNav li.selected a 					{ cursor:pointer; }
+		#sideNav li.selected a:hover,
+		#sideNav li.selected a:focus 			{  }
+		
+		#sideNav li.selected a.selected,
+		#sideNav li.selected a.selected:hover,
+		#sideNav li.selected a.selected:focus 	{ color:#fff; background:#02cee0; text-decoration:none; 
+												  cursor:default; pointer-events:none; }
 	
 	/* ------------------------------------------------------------------------------ */
-	/*level 1 selected*/
-	#sideNav li.selected { }
-	#sideNav li.selected a { color:#9a688d; cursor:pointer; }
-	#sideNav li.selected > a { font-weight:700; }
-	#sideNav li.selected a:hover,
-	#sideNav li.selected a:focus {  }
-	#sideNav li.selected a.selected,
-	#sideNav li.selected a.selected:hover,
-	#sideNav li.selected a.selected:focus { color:#fff; background:#9a688d; cursor:default; }
+	/* level 2 container */
+	#sideNav li ul 						{ display:none; padding:0 0 10px 0; }
+	#sideNav li.selected > ul 			{ display:block; }
 	
-	/* ------------------------------------------------------------------------------ */
-	/*level 2 nav items*/
-	#sideNav li ul { display:none; padding:0; }
-	#sideNav li.selected ul { display:block; }
-	
-	/*level 2 items normalize*/
+	/* normalize items */
 	#sideNav li ul,
 	#sideNav li li,
 	#sideNav li li.selected,
 	#sideNav li li a,
 	#sideNav li li.selected a,
-	#sideNav li li.selected a.selected { margin:0!important; list-style:none!important; border:none!important; background:none!important; }
+	#sideNav li li.selected a.selected 	{ margin:0!important; list-style:none!important; border:none!important; background:none!important; }
 	
-	/*level 2 item*/
-	#sideNav li li { padding:0; width:100%; text-shadow:none; font-size:14px; line-height:20px; }
-	/*
-	#sideNav li li.last-child { padding-bottom:5px; }
-	#sideNav li li:last-child { padding-bottom:5px; }
-	*/
+	/* level 2 item */
+	#sideNav li li 		{ font-size:14px; }
 		
-	/* IE7 fix */
-	.ie7 #sideNav li li { line-height:14px; }
+	/* IE7 extra bottom gap fix */
+	.ie7 #sideNav li li { line-height:21px; }
 		
-		/*level 2 links*/
+		/* links */
 		#sideNav li li a,
 		#sideNav li li a:link,
 		#sideNav li li a:active,
-		#sideNav li li a:visited { color:#222; width:auto; padding:5px 10px 5px 13%; background:none!important; cursor:pointer!important; }
-		#sideNav li li a span { display:inline-block; width:auto; margin:0 0 0 15px; }
-		#sideNav li li li a span { margin:0 0 0 30px; }
+		#sideNav li li a:visited 				{ color:#262626; width:auto; padding:5px 20px; background:none!important; cursor:pointer!important; }
 		
-		/*level 2 links - interaction*/
+		#sideNav li li a span 					{ display:inline-block; width:auto; padding-left:15px; }
+		
+		/* interaction */
 		#sideNav li li a:hover,
-		#sideNav li li a:focus { background:#e6e3df!important; }
+		#sideNav li li a:focus,
+		#sideNav li li a:hover span,
+		#sideNav li li a:focus span				{ text-decoration:underline!important; }
+		
 		#sideNav li li.selected > a,
 		#sideNav li li.selected > a:hover,
-		#sideNav li li.selected > a:focus { color:#fff!important; background:#9a688d!important; cursor:default!important; }
+		#sideNav li li.selected > a:focus 		{ color:#fff!important; background:#02cee0!important;  
+											 	  cursor:default!important; pointer-events:none; }
+		#sideNav li li.selected > a:hover,
+		#sideNav li li.selected > a:focus,
+		#sideNav li li.selected > a:hover span,
+		#sideNav li li.selected > a:focus span	{ text-decoration:none!important; }
 		
 /* ------------------------------------------------------------------------------ */
 /* responsive */
@@ -837,41 +858,51 @@ html, body { height:100% }
 }
 
 
-
-
 /* ==========================================================================
    structure - CONTENT SHELL
    ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#content { display:none; width:auto; background:#ebebeb; }
+#content { background:#ebebeb; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* common */
 	#main,
-	#aside { position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
+	#aside 	{ position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* main */
-	#main { width:66%; padding:5% 5.5% 5% 5.25%; float:right; clear:right; min-height:400px; }
+	#main 	{ width:68.75%; padding:4% 0 8% 0; float:left; clear:left; min-height:400px; }
 		
 	/* -------------------------------------------------------------------------- */
 	/* aside */
-	#aside { width:23%; padding:5% 0; float:left; clear:left; }	
+	#aside 	{ width:24.50%; padding:4% 0; float:right; clear:right; }	
 	
 /* -------------------------------------------------------------------------- */
 /* content responsive */
+@media only screen and (max-width:960px) {
+
+	/* adjust gaps for main */
+	#main 	{ padding-left:3%; }	
+
+}
 @media only screen and (max-width:800px) { 
 	 
 	/* adjust gaps */
-	#main { padding:4%; }
-	#aside { padding:0; }
+	#main 	{ padding:3%; min-height:0; }
+	#aside 	{ padding:0; }
 	
 	/* stacking order */
 	#main,
-	#aside { width:auto; float:none; clear:both; }
+	#aside 	{ width:auto; float:none; clear:both; }
 	
+}
+@media only screen and (max-width:500px) {
+
+	/* adjust gaps */
+	#main 	{ padding:5%; }
+
 } 
 
 
