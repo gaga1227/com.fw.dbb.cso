@@ -202,7 +202,7 @@ h1.heading,
 /*extend divider*/
 .dividerStump, 		.contentViewport .dividerStump 		{ border-top:5px solid #9a688d; width:28%; height:25px; margin:0 0 0 0; }
 .dividerSolid, 		.contentViewport .dividerSolid 		{ border-top:5px solid #9a688d; height:25px; margin:0 0 0 0; }
-.dividerPattern, 	.contentViewport .dividerPattern	{ background:url(../../img/bg-pattern-divider.png) 0 0 repeat; height:5px; margin:0 0 25px 0; }
+/*.dividerPattern, 	.contentViewport .dividerPattern	{ background:url(../../img/bg-pattern-divider.png) 0 0 repeat; height:5px; margin:0 0 25px 0; }*/
 .dividerLite, 		.contentViewport .dividerLite 		{ border-top:1px solid #9a688d; height:19px; margin:5px 0; }
 
 
@@ -212,8 +212,7 @@ h1.heading,
 .contentViewport .specialBox,
 .contentViewport blockquote {
 	display:block; position:relative; width:auto; height:auto; margin:0 0 20px 0; padding:20px 30px 0px 30px; overflow:hidden;
-	color:#222; background:#f7f4f0 url(../../img/bg-tile.png) 0 0; }
-	 
+	color:#222; background:#f7f4f0; }	 
 	/*title*/
 	.contentViewport .specialBox .title { 
 		color:#9a688d; font-size:16px; font-weight:800; line-height:20px; }	
