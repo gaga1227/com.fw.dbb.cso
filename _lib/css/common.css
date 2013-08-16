@@ -81,8 +81,20 @@ a {
 
 /* -------------------------------------------------------------------------- */
 /* webfont */
-.js body 			{ visibility:hidden; }
-.wf-active body  	{ visibility:visible; }
+
+/* loading */
+.js body { 
+	visibility:hidden; opacity:0;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:opacity 0.3s ease-in-out;
+	-moz-transition:opacity 0.3s ease-in-out;
+	-o-transition:opacity 0.3s ease-in-out;
+	transition:opacity 0.3s ease-in-out; }
+
+/* active */
+.wf-active body { 
+	visibility:visible; opacity:1; }
 
 /* -------------------------------------------------------------------------- */
 /* body */
@@ -335,7 +347,7 @@ html, body { height:100% }
 		-moz-transition:height 0.3s ease-in-out;
 		-o-transition:height 0.3s ease-in-out;
 		transition:height 0.3s ease-in-out; }
-				
+					
 		/* ------------------------------------------------------------------------------ */
 		/* navItem */		
 		#nav #navSelect,
