@@ -1,8 +1,3 @@
-/* ------------------------------------------------------------------------------ 
-   THIS FILE IS KEPT CONSISTENT ACROSS MMP, MMHC, MMPE SITES
-   CUSTOMISATION IS DONE WITHIN 'skin.css'
-   ------------------------------------------------------------------------------ */
-
 /* ==========================================================================
    Base styles: opinionated defaults
    Author: JX 20130127 (Adapted from HTML5 Boilerplate 4)
@@ -875,7 +870,7 @@ html, body { height:100% }
 	/* -------------------------------------------------------------------------- */
 	/* common */
 	#main,
-	#aside 	{ position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
+	#aside 	{ position:relative; width:auto; height:auto; margin:0; padding:0; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* main */
@@ -883,7 +878,7 @@ html, body { height:100% }
 		
 	/* -------------------------------------------------------------------------- */
 	/* aside */
-	#aside 	{ width:24.50%; padding:40px 0; float:right; clear:right; }
+	#aside 	{ width:24.50%; padding:40px 0; float:right; clear:right; overflow:hidden; }
 	
 	/* aside shift up */
 	#aside.shiftUp { margin-top:-85px; }

@@ -1,11 +1,6 @@
-/* ------------------------------------------------------------------------------ 
-   THIS FILE IS KEPT CONSISTENT ACROSS MMK, MMP, MMHC, MMPE SITES
-   CUSTOMISATION IS DONE WITHIN 'skin.css'
-   ------------------------------------------------------------------------------ */
-
 @charset "utf-8";
 
-/*	verticle-rhythm base value: 20px
+/*	verticle-rhythm base value: 8px
 	-----------------------------------------------------------
 	apply to all content below leaderText
 	'line-height', 'height', 'outerHeight' should equal to 
@@ -16,155 +11,162 @@
 /* ==========================================================================
    IMPORTS
    ========================================================================== */
-/* @import url("../../../private/_lib/css/core/content-viewport.css"); */
 @import url("content-viewport-img-layout.css");
 
 
 /* ==========================================================================
    RESET
    ========================================================================== */
-.contentViewport h1:first-child, .contentViewport h1.first-child,
-.contentViewport h2:first-child, .contentViewport h2.first-child,
-.contentViewport h3:first-child, .contentViewport h3.first-child,
-.contentViewport h4:first-child, .contentViewport h4.first-child,
-.contentViewport h5:first-child, .contentViewport h5.first-child,
-.contentViewport  p:first-child, .contentViewport  p.first-child,
-.contentViewport div:first-child, .contentViewport div.first-child,
+   
+/* first-child */
+.contentViewport h1:first-child,	.contentViewport h1.first-child,
+.contentViewport h2:first-child,	.contentViewport h2.first-child,
+.contentViewport h3:first-child,	.contentViewport h3.first-child,
+.contentViewport h4:first-child,	.contentViewport h4.first-child,
+.contentViewport h5:first-child,	.contentViewport h5.first-child,
+.contentViewport  p:first-child,	.contentViewport  p.first-child,
+.contentViewport div:first-child,	.contentViewport div.first-child,
 .contentViewport table:first-child, .contentViewport table.first-child { margin-top:0; }
 
-body.ps, .contentViewport { color:#222; font-family:'Montserrat',sans-serif; font-size:15px; font-weight:400; line-height:24px; }
+/* body */
+body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; font-size:15px; font-weight:400; line-height:24px; }
 
 
 /* ==========================================================================
    elem - HEADINGS and PARAGRAPH
    ========================================================================== */
 
-h1.heading,
-.contentViewport h1	{ color:#222; font-size:40px; line-height:40px; font-weight:400; font-style:italic; margin:0!important; padding:0px 0px 20px 0px; }
-.contentViewport h2	{ color:#333; font-size:25px; line-height:30px; font-weight:400; font-style:italic; margin:0!important; padding:10px 0px 10px 0px; }
-.contentViewport h3 { color:#333; font-size:20px; line-height:20px; font-weight:800; font-style:normal; margin:0!important; padding:10px 0px 10px 0px; }  
-.contentViewport h4 { color:#222; font-size:16px; line-height:20px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px 10px 0px; }  
-.contentViewport h5 { color:#222; font-size:14px; line-height:20px; font-weight:600; font-style:normal; margin:0!important; padding:10px 0px 10px 0px; }  
-.contentViewport p  { color:#222; font-size:14px; line-height:20px; font-weight:400; font-style:normal; margin:0!important; padding:0px 0px 20px 0px; }
+/* styles */
+.contentViewport h1, .h1 { color:#333; font-size:42px; line-height:54px; font-weight:400; font-style:normal; margin:0!important; padding:0px 0px 24px 0px; }
+.contentViewport h2, .h2 { color:#333; font-size:36px; line-height:45px; font-weight:400; font-style:normal; margin:0!important; padding:8px 0px  8px 0px; }
+.contentViewport h3, .h3 { color:#333; font-size:24px; line-height:32px; font-weight:400; font-style:normal; margin:0!important; padding:8px 0px  8px 0px; }  
+.contentViewport h4, .h4 { color:#333; font-size:16px; line-height:24px; font-weight:700; font-style:normal; margin:0!important; padding:8px 0px  0px 0px; }  
+.contentViewport h5, .h5 { color:#333; font-size:15px; line-height:24px; font-weight:700; font-style:normal; margin:0!important; padding:8px 0px  0px 0px; }  
+.contentViewport p,  .p  { color:#333; font-size:15px; line-height:24px; font-weight:400; font-style:normal; margin:0!important; padding:0px 0px  8px 0px; }
 
-/* headings - common */
-h1.heading,
-.contentViewport h1,
-.contentViewport h2,
-.contentViewport h3,
-.contentViewport h4,
-.contentViewport h5 { position:static; overflow:hidden; } 
-
-/* headings - fonts */ 
-h1.heading,
-.contentViewport h1	{ font-family:'Gentium Book Basic',serif; }
-.contentViewport h2 { font-family:'Gentium Book Basic',serif; }
+/* fonts */ 
+.contentViewport h1, .h1,
+.contentViewport h2, .h2,
+.contentViewport h2, .h3 { font-family:'Merriweather',serif; }
 
 
 /* ==========================================================================
    elem - LINK
    ========================================================================== */
-.contentViewport a { color:#88014e; font-weight:600; text-decoration:none; }
+.contentViewport a 			{ color:#00aab8; text-decoration:none; }
 .contentViewport a:hover,
 .contentViewport a:focus,
-.contentViewport a:active { color:#88014e; text-decoration:underline; }
+.contentViewport a:active 	{ color:#00aab8; text-decoration:underline; }
 
 
 /* ==========================================================================
    elem - LIST
    ========================================================================== */
-/*lv1(common) - list container*/
+
+/* -------------------------------------------------------------------------- */
+/* lv1 */
+
+/* container */
 .contentViewport ul,
-.contentViewport ol { margin:0px; padding:0 0 20px 0; list-style:none; }
+.contentViewport ol { margin:0px; padding:0 0 8px 0; list-style:none; }
 .contentViewport ol { margin-left:18px; list-style-type:decimal; list-style-position:outside; }
-/*lv1(common) - list item*/
-.contentViewport li { color:#222; font-size:14px; line-height:20px; margin:0 0 0 0; }
-/*lv1(common) - list item - verticle spacing*/
+
+/* item */
+.contentViewport li 			{ color:#333; font-size:15px; line-height:24px; margin:0 0 0 0; }
 .contentViewport li.first-child { margin-top:0; }
 .contentViewport li:first-child { margin-top:0; }
-/*lv1(common) - list item - bullet and spacing*/
-.contentViewport li { padding:0 0 0 18px; background:url(../../img/blt-list-lv1.png) 1px 8px no-repeat; }
-.contentViewport ol li { padding:0 0 0 0; background:none; }
 
-/*lv2(override) - list container*/
+/* item bullet */
+.contentViewport li 	{ padding:0 0 0 18px; background:url(../../img/blt-list-lv1.png) 1px 10px no-repeat; }
+.contentViewport ol li 	{ padding:0 0 0 0; background:none; }
+
+/* -------------------------------------------------------------------------- */
+/* lv2 */
+
+/* container */
 .contentViewport ul ul,
 .contentViewport ul ol,
 .contentViewport ol ol,
-.contentViewport ol ul { padding:0 0 0 1px; }
+.contentViewport ol ul { padding:0 0 0 0; }
 .contentViewport ol ol { list-style:lower-alpha; }
-/*lv2(override) - list item - verticle spacing*/
+
+/* item */
 .contentViewport li li.first-child { margin-top:0px; }
 .contentViewport li li:first-child { margin-top:0px; }
-/*lv2*(override) - list item - bullet and spacing*/
-.contentViewport li li { padding:0 0 0 18px; background:url(../../img/blt-list-lv2.png) 1px 8px no-repeat; }
-.contentViewport li ol li { padding:0 0 0 0; background:none; }
 
-/*ordered list extension(common)*/
+/* item bullet */
+.contentViewport li li 		{ padding:0 0 0 18px; background:url(../../img/blt-list-lv2.png) 1px 10px no-repeat; }
+.contentViewport li ol li 	{ padding:0 0 0 0; background:none; }
+
+/* -------------------------------------------------------------------------- */
+/* extensions */
+
+/* ol */
 .contentViewport ol.listAlpha   { list-style:lower-alpha; }
 .contentViewport ol.listRoman   { list-style:lower-roman; }
 .contentViewport ol.listDecimal { list-style:decimal; }
 
-/*basic styles for old IE*/
-.ie7 .contentViewport ul { margin-left:16px; }
-.ie7 .contentViewport ol { margin-left:22px; }
-.ie7 .contentViewport ul li { list-style:disc; background:none; padding-left:6px; } 
-.ie7 .contentViewport ol li { list-style:decimal; }
-.ie7 .contentViewport ol ul li { list-style:disc; }
-.ie7 .contentViewport ol ol li { list-style:lower-alpha; } 
-.ie7 .contentViewport li ul { margin-left:16px; }
-.ie7 .contentViewport li ol { margin-left:22px; }
-.ie7 .contentViewport li ul li { padding-left:6px; }
-.ie7 .contentViewport li ol li { padding-left:0; }
+/* -------------------------------------------------------------------------- */
+/* IE fix */
+.ie7 .contentViewport ul 		{ margin-left:16px; }
+.ie7 .contentViewport ol 		{ margin-left:22px; }
+.ie7 .contentViewport ul li 	{ list-style:disc; background:none; padding-left:6px; } 
+.ie7 .contentViewport ol li 	{ list-style:decimal; }
+.ie7 .contentViewport ol ul li 	{ list-style:disc; }
+.ie7 .contentViewport ol ol li 	{ list-style:lower-alpha; } 
+.ie7 .contentViewport li ul 	{ margin-left:16px; }
+.ie7 .contentViewport li ol 	{ margin-left:22px; }
+.ie7 .contentViewport li ul li 	{ padding-left:6px; }
+.ie7 .contentViewport li ol li 	{ padding-left:0; }
 
-.ie6 .contentViewport ul { margin-left:16px; }
-.ie6 .contentViewport ol { margin-left:22px; }
-.ie6 .contentViewport ul li { list-style:disc; background:none; padding-left:6px; } 
-.ie6 .contentViewport ol li { list-style:decimal; }
-.ie6 .contentViewport ol ul li { list-style:disc; }
-.ie6 .contentViewport ol ol li { list-style:lower-alpha; } 
-.ie6 .contentViewport li ul { margin-left:16px; }
-.ie6 .contentViewport li ol { margin-left:22px; }
-.ie6 .contentViewport li ul li { padding-left:6px; }
-.ie6 .contentViewport li ol li { padding-left:0; }
+.ie6 .contentViewport ul 		{ margin-left:16px; }
+.ie6 .contentViewport ol 		{ margin-left:22px; }
+.ie6 .contentViewport ul li 	{ list-style:disc; background:none; padding-left:6px; } 
+.ie6 .contentViewport ol li 	{ list-style:decimal; }
+.ie6 .contentViewport ol ul li 	{ list-style:disc; }
+.ie6 .contentViewport ol ol li 	{ list-style:lower-alpha; } 
+.ie6 .contentViewport li ul		{ margin-left:16px; }
+.ie6 .contentViewport li ol 	{ margin-left:22px; }
+.ie6 .contentViewport li ul li 	{ padding-left:6px; }
+.ie6 .contentViewport li ol li 	{ padding-left:0; }
 
 
 /* ==========================================================================
    style - LEADERTEXT
    ========================================================================== */
 .contentViewport .leaderText  { 
-	color:#88014e; font-size:18px; line-height:25px; font-weight:700; font-style:normal; 
-	margin:0!important; padding:0px 0px 20px 0px; }
+	color:#333; font-size:18px; line-height:24px; font-weight:700; font-style:normal; margin:0!important; padding:0px 0px 8px 0px; }
 
 
 /* ==========================================================================
    style - QUOTE
    ========================================================================== */
 .contentViewport blockquote p:before,
-.contentViewport blockquote p:after { content:''; }
+.contentViewport blockquote p:after { 
+	content:''; }
 
-.contentViewport blockquote,
-.contentViewport blockquote p,
-.contentViewport blockquote li,
-.contentViewport .quote,
-.contentViewport .blockquote { 
-	color:#222; 
-	font-family:'Gentium Book Basic',serif; font-size:17px; font-weight:400; line-height:20px; font-style:italic; }
-
-
-/* ==========================================================================
-   style - CITE
-   ========================================================================== */
-.contentViewport cite,
-.contentViewport .cite { 
-	display:inline-block; 
-	color:#222; font-size:13px; font-weight:400; font-style:normal; line-height:20px; }
-.contentViewport cite:before,
-.contentViewport .cite:before { content:'\002D\0020' }
 
 
 /* ==========================================================================
    style - TEXT
    ========================================================================== */
+
+/* quote */
+.contentViewport blockquote,
+.contentViewport blockquote p,
+.contentViewport blockquote li,
+.contentViewport .quote 	{ color:#222; font-family:'Merriweather',serif; font-size:20px; font-weight:400; line-height:24px; font-style:normal; }
+.contentViewport span.quote { background:#fff; line-height:27px; }
+
+
+
+
+
+/* cite */
+.contentViewport cite,
+.contentViewport .cite { 
+	display:block; padding:8px 0 16px 0;
+	color:#888; font-size:13px; font-weight:400; font-style:normal; line-height:16px; text-align:right; }
 
 /* acronym */
 .contentViewport acronym { border-bottom:1px dotted #666; cursor:pointer; }
