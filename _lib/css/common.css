@@ -1822,9 +1822,9 @@ a.item { cursor:pointer; }
 
 /* -------------------------------------------------------------------------- */
 /* iconInline */	
-.iconInline 		{ display:inline-block; position:relative; padding:0 10px; vertical-align:middle; }
-.iconInline.left 	{ padding-left:0; text-align:left; }
-.iconInline.right	{ padding-right:0; text-align:right; }
+.iconInline 			{ display:inline-block; position:relative; padding:0 10px; vertical-align:middle; }
+.iconInline.left 		{ padding-left:0; text-align:left; }
+.iconInline.right		{ padding-right:0; text-align:right; }
 
 /* -------------------------------------------------------------------------- */
 /* circle */
