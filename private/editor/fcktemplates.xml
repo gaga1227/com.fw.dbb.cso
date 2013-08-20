@@ -28,16 +28,6 @@
 		</Html>
 	</Template>
 	
-	<Template title="Pattern divider" image="tmpl-divider-graphic.gif">
-		<Description>Inserts a pattern divider</Description>
-		<Html>
-			<![CDATA[
-			<div class="divider dividerPattern">&nbsp;</div>
-			<p>&nbsp;</p>
-			]]>
-		</Html>
-	</Template>
-	
 	<Template title="Lite divider" image="tmpl-divider-lite.gif">
 		<Description>Inserts a lite divider</Description>
 		<Html>
@@ -53,7 +43,7 @@
 		<Description>Inserts a left aligned image cog</Description>
 		<Html>
 			<![CDATA[
-				<div class="imgWrapper leftAligned"><img src="private/_lib/editor/editor/templates/images/img-ph-200x200.gif" width="200" height="200" alt="0" title=""/><div class="caption">Caption text...</div></div>
+				<div class="imgWrapper leftAligned"><img src="private/_lib/editor/editor/templates/images/img-ph-240x240.gif" width="240" height="240" alt="0" title=""/><div class="caption">Caption text...</div></div>
 			]]>
 		</Html>
 	</Template>
@@ -62,7 +52,7 @@
 		<Description>Inserts a right aligned image cog</Description>
 		<Html>
 			<![CDATA[
-				<div class="imgWrapper rightAligned"><img src="private/_lib/editor/editor/templates/images/img-ph-200x200.gif" width="200" height="200" alt="0" title=""/><div class="caption">Caption text...</div></div>
+				<div class="imgWrapper rightAligned"><img src="private/_lib/editor/editor/templates/images/img-ph-240x240.gif" width="240" height="240" alt="0" title=""/><div class="caption">Caption text...</div></div>
 			]]>
 		</Html>
 	</Template>
@@ -75,14 +65,28 @@
 			]]>
 		</Html>
 	</Template>	
-	
+
+	<!-- BLOCKQUOTE -->
+	<Template title="Highlight Quote Box" image="tmpl-box-quote.gif">
+		<Description>Inserts a highlighted quote box</Description>
+		<Html>
+			<![CDATA[			
+			<blockquote>
+				<p>[Insert your quote message]</p>
+			</blockquote>
+			<cite>[Insert citation]</cite>
+			<p>&nbsp;</p>
+			]]>
+		</Html>
+	</Template>	
+
 	<!-- SPECIALBOX -->
 	<Template title="Special Box (Highlight)" image="tmpl-box-highlight.gif">
 		<Description>Inserts a highlighted box</Description>
 		<Html>
-			<![CDATA[
+			<![CDATA[			
 			<div class="specialBox">
-				<h4 class="title">[title]</h4>
+				<h4>[title]</h4>
 				<p>[detailed description]</p>
 				<ul>
 					<li><a href="">[item with link]</a></li>
@@ -98,9 +102,10 @@
 		<Description>Inserts a highlighted download box</Description>
 		<Html>
 			<![CDATA[
-			<div class="specialBox specialBoxDownload">
-				<i class="icon fwicon-download">&nbsp;</i>
-				<p><a href="" target="_blank">[Insert your download item link here]</a></p>
+			<div class="specialBox withHeader">
+				<div class="header">Download<i class="icon fwicon-download">&nbsp;</i></div>
+				<p>[Insert download item title here]</p>
+				<p><a href="#">[Insert download item link here]</a></p>
 			</div>
 			<p>&nbsp;</p>
 			]]>
@@ -111,9 +116,62 @@
 		<Description>Inserts a highlighted link box</Description>
 		<Html>
 			<![CDATA[
-			<div class="specialBox specialBoxLink">
-				<i class="icon fwicon-external-link">&nbsp;</i>
-				<p><a href="" target="_blank">[Insert your external link here]</a></p>
+			<div class="specialBox withHeader">
+				<div class="header">Link<i class="icon icon-laptop">&nbsp;</i></div>
+				<p>[Insert link item title here]</p>
+				<p><a href="#">[Insert link item here]</a></p>
+			</div>
+			<p>&nbsp;</p>
+			]]>
+		</Html>
+	</Template>
+	
+	<Template title="Special Box (Link)" image="tmpl-box-info.gif">
+		<Description>Inserts a highlighted link box</Description>
+		<Html>
+			<![CDATA[
+			<div class="specialBox withHeader">
+				<div class="header">Information<i class="icon fwicon-info">&nbsp;</i></div>
+				<p>[Insert info message here]</p>
+			</div>
+			<p>&nbsp;</p>
+			]]>
+		</Html>
+	</Template>
+	
+	<Template title="Special Box (Download) Small" image="tmpl-box-dl.gif">
+		<Description>Inserts a small highlighted download box</Description>
+		<Html>
+			<![CDATA[
+			<div class="specialBox withIcon">
+				<i class="icon fwicon-download">&nbsp;</i>
+				<p><a href="#">[Insert download item here]</a></p>
+			</div>
+			<p>&nbsp;</p>
+			]]>
+		</Html>
+	</Template>
+	
+	<Template title="Special Box (Link) Small" image="tmpl-box-link.gif">
+		<Description>Inserts a small highlighted link box</Description>
+		<Html>
+			<![CDATA[
+			<div class="specialBox withIcon">
+				<i class="icon icon-laptop">&nbsp;</i>
+				<p><a href="#">[Insert link item here]</a></p>
+			</div>
+			<p>&nbsp;</p>
+			]]>
+		</Html>
+	</Template>
+	
+	<Template title="Special Box (Link) Small" image="tmpl-box-info.gif">
+		<Description>Inserts a small highlighted link box</Description>
+		<Html>
+			<![CDATA[
+			<div class="specialBox withIcon">
+				<i class="icon fwicon-info">&nbsp;</i>
+				<p>[Insert info message here]</p>
 			</div>
 			<p>&nbsp;</p>
 			]]>

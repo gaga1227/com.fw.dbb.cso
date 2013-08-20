@@ -14,6 +14,7 @@
 // website requirements and design properly.
 
 CKEDITOR.stylesSet.add( 'default', [
+	
 	/* custom text styles */
 	{
 		name: 'Leader Text',
@@ -23,6 +24,43 @@ CKEDITOR.stylesSet.add( 'default', [
 		}
 	},
 	{
+		name: 'Citation',
+		element: 'p',
+		attributes: {
+			'class': 'cite'
+		}
+	},
+	{
+		name: 'Notes',
+		element: 'p',
+		attributes: {
+			'class': 'note'
+		}
+	},
+	{
+		name: 'Quote',
+		element: 'p',
+		attributes: {
+			'class': 'quote'
+		}
+	},
+	{
+		name: 'Reference',
+		element: 'p',
+		attributes: {
+			'class': 'reference'
+		}
+	},
+	{
+		name: 'Title',
+		element: 'p',
+		attributes: {
+			'class': 'title'
+		}
+	},
+	
+	/* assistive */
+	{
 		name: 'Highlighted Text',
 		element: 'span',
 		attributes: {
@@ -30,33 +68,13 @@ CKEDITOR.stylesSet.add( 'default', [
 		}
 	},
 	{
-		name: 'Citation',
+		name: 'Small Text',
 		element: 'span',
 		attributes: {
-			'class': 'cite'
+			'class': 'small'
 		}
 	},
-	{
-		name: 'Quote',
-		element: 'span',
-		attributes: {
-			'class': 'quote'
-		}
-	},
-	{
-		name: 'Reference',
-		element: 'span',
-		attributes: {
-			'class': 'reference'
-		}
-	},
-	{
-		name: 'Notes',
-		element: 'span',
-		attributes: {
-			'class': 'note'
-		}
-	},
+	
 	/* default text styles */
 	{
 		name: 'Discreet Text',
@@ -79,6 +97,7 @@ CKEDITOR.stylesSet.add( 'default', [
 			'class': 'inlineAssistanceXref'
 		}
 	},
+	
 	/* image styles */
 	{
 		name: 'Image (Full Width)',
@@ -100,30 +119,6 @@ CKEDITOR.stylesSet.add( 'default', [
 		attributes: {
 			'class': 'rightAligned'
 		}
-	},
-	/*
-	{
-		name: 'Bordered Image',
-		element: 'img',
-		attributes: {
-			'class': 'designBorderedImage'
-		}
-	},
-	{
-		name: 'Bordered Image (Left Aligned)',
-		element: 'img',
-		attributes: {
-			'class': 'designBorderedImage leftAligned'
-		}
-	},
-	{
-		name: 'Bordered Image (Right Aligned)',
-		element: 'img',
-		attributes: {
-			'class': 'designBorderedImage rightAligned'
-		}
-	},
-	*/
-
+	}
 ]);
 

@@ -4,8 +4,8 @@
 /* ------------------------------------------------------------------------------ */
 
 /* video container */
-.videoContainer { display:block; position:relative; width:100%; height:auto; margin:0px auto 20px auto!important; padding:0; overflow:hidden; }		
-.videoContainer div:first-child { margin-top:0; }
+.videoContainer { display:block; position:relative; width:100%; height:auto; margin:8px auto 16px auto!important; padding:0; overflow:hidden; }		
+.videoContainer div:first-child { margin-top:0!important; }
 
 	/* video player container */
 	.videoContainer .video,

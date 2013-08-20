@@ -147,24 +147,31 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 .contentViewport blockquote p:after { 
 	content:''; }
 	
-/* quote */
+/* container */
 .contentViewport blockquote,
-.contentViewport blockquote p,
-.contentViewport blockquote li,
-.contentViewport .quote 	{ color:#222; font-family:'Merriweather',serif; font-size:20px; font-weight:400; line-height:24px; font-style:normal; }
-.contentViewport span.quote { background:#fff; line-height:27px; }
+.contentViewport .blockquote { 
+	display:block; position:relative; width:auto; max-width:460px; height:auto; margin:8px 0 8px -4px; padding:20px 35px 12px 55px;
+	color:#262626; background:#fff url(../../img/bg-quote.png) 16px 20px no-repeat; border-left:4px solid #00aab8; }
+	
+	/* common */
+	.contentViewport blockquote,
+	.contentViewport blockquote p,
+	.contentViewport blockquote li,
+	.contentViewport blockquote span,
+	.contentViewport .blockquote,
+	.contentViewport .blockquote p,
+	.contentViewport .blockquote li,
+	.contentViewport .blockquote span { 
+		color:#262626; font-family:'Merriweather',serif; font-size:20px; font-weight:400; line-height:38px; font-style:normal; }
 
-/* cite */
-.contentViewport cite {	
-	display:block; padding:8px 0 16px 0;
-	text-align:right; }
-
-
-
-
-
-
-
+	/* cite */
+	.contentViewport blockquote + cite,
+	.contentViewport blockquote + .cite,
+	.contentViewport .blockquote + cite,
+	.contentViewport .blockquote + .cite {	
+		display:block; max-width:495px; padding:0 0 16px 55px;
+		background:#ebebeb; text-align:right; }
+		
 
 /* ==========================================================================
    style - TEXT
@@ -194,6 +201,8 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 /* quote */
 .contentViewport .quote	{ 
 	color:#222; font-family:'Merriweather',serif; font-size:18px; font-weight:400; font-style:normal; }
+.contentViewport p.quote { 
+	max-width:550px; padding:8px 0 16px 0; }
 
 /* reference */ 
 .contentViewport .reference { 
@@ -256,7 +265,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 /* -------------------------------------------------------------------------- */
 /* specialBox */
 .contentViewport .specialBox {
-	display:block; position:relative; width:auto; height:auto; margin:8px 0 16px 0; padding:20px 25px 12px 25px; overflow:hidden;
+	display:block; position:relative; width:auto; max-width:500px; height:auto; margin:8px 0 16px 0; padding:20px 25px 12px 25px; overflow:hidden;
 	color:#333; background:#fff; }	
 	
 	/*title*/
@@ -272,7 +281,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 /* extend */	
 
 /* specialBox.withHeader */
-.contentViewport .specialBox.withHeader { }
+.contentViewport .specialBox.withHeader {  }
 	
 	/* header */
 	.contentViewport .specialBox.withHeader > .header { 
@@ -289,7 +298,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 			
 /* specialBox.withIcon */
 .contentViewport .specialBox.withIcon { 
-	min-height:24px; padding:11px 40px 3px 62px; }
+	max-width:450px; min-height:24px; padding:11px 40px 3px 60px; }
 	
 	/* icon */
 	.contentViewport .specialBox.withIcon > .icon { 
@@ -307,7 +316,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 /* -------------------------------------------------------------------------- */
 /* styledTable */
 .contentViewport .styledTable {
-	display:table; width:100%; margin:0 0 23px/*24-1(border)*/ 0;
+	display:table; width:100%; margin:8px 0 16px/*24-0(border)*/ 0;
 	color:#333; background:#fff; border-bottom:none; 
 	font-size:15px; line-height:24px; }
 	
@@ -457,10 +466,22 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
    ========================================================================== */
 @media only screen and (max-width:500px) {
 
-	/* ------------------------------------------------------------------------------ */
 	/* smaller headings */
 	.contentViewport h1, .h1 { font-size:32px; line-height:40px; padding:8px 0 16px 0; } 
 	.contentViewport h2, .h2 { font-size:24px; line-height:32px; } 
 	.contentViewport h3, .h3 { font-size:18px; line-height:24px; } 
+	
+	/* smaller blockquote */
+	.contentViewport blockquote,
+	.contentViewport .blockquote { padding:20px 25px 12px 25px; background-image:none; }
+	
+	.contentViewport blockquote,
+	.contentViewport blockquote p,
+	.contentViewport blockquote li,
+	.contentViewport blockquote span,
+	.contentViewport .blockquote,
+	.contentViewport .blockquote p,
+	.contentViewport .blockquote li,
+	.contentViewport .blockquote span { font-size:18px; line-height:32px; }
 
 }
