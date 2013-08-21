@@ -36,10 +36,10 @@ th, td { vertical-align:top; }
     color:#000; background:#ccc; }
 
 /* Link styles*/
-a           { color: #666; /*grey*/ } 
-a:visited   { color: #666; /*grey*/ }
-a:hover     { color: #000; /*black*/ }
-a:focus     { color: #000; /*black*/ }
+a           { color: #00aab8; /*theme green*/ } 
+a:visited   { color: #00aab8; /*theme green*/ }
+a:hover     { color: #00aab8; /*theme green*/ }
+a:focus     { color: #00aab8; /*theme green*/ }
 
 /* Link transitions */
 a {
@@ -1294,10 +1294,12 @@ html, body { height:100% }
 /* col3 */
 .col3a,
 .col3b,
-.col3c { width:29.6%; }
-.col3a { float:left; clear:left; }
-.col3b { float:left; clear:none; margin-left:5.6%; }
-.col3c { float:right; clear:right; }
+.col3c	 					{ width:29.6%; }
+
+.col3a	 					{ float:left; clear:left; }
+.col3b, .formView .col3b 	{ float:left; clear:none; margin-left:5.6%; }
+
+.col3c 						{ float:right; clear:right; }
 
 /* -------------------------------------------------------------------------- */
 /* columns responsive */
@@ -1570,16 +1572,20 @@ html, body { height:100% }
 	.formView .col2 > .col3.col3Important > .select { width:55.25%; padding-left:14%; padding-right:30%; }
 	.formView .col2 > .col3.col3Important > .select .icon { width:30%; }
 
+	/* button */
+	.formView .btnBox,
+	.formView .btnText { 
+		display:block; margin-left:0!important; margin-right:0!important;
+		float:none!important; clear:both!important; text-align:center; }
+	
 }
 @media 	(-o-min-device-pixel-ratio: 5/4),
 		(-webkit-min-device-pixel-ratio: 1.25),
 		(min-resolution:120dpi) {
-
 	/*use @2x image*/
 	.formView span.radio,
-	.formView span.checkbox { 
-		background-image:url(../img/radio-custom@2x.png);
-		background-size:35px 140px; }
+	.formView span.checkbox { background-image:url(../img/radio-custom@2x.png); background-size:35px 140px; }
+	.formView span.checkbox { background-image:url(../img/checkbox-custom@2x.png); }
 }
 
 

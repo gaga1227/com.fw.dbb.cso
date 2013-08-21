@@ -35,6 +35,7 @@
 <link type="text/css" rel="stylesheet" media="screen" href="_lib/css/audio.css" /><!-- audio -->
 <link type="text/css" rel="stylesheet" media="screen" href="_lib/js/mejs/mediaelementplayer.css" /><!-- mejs -->
 <link type="text/css" rel="stylesheet" media="screen" href="_lib/js/mejs/mejs-fw-skin.css" /><!-- mejs skin -->
+<link type="text/css" rel="stylesheet" media="screen" href="_lib/js/jqui/jquery-ui-1.10.1.datepicker.css" /><!-- jqui -->
 <!-- CSS:CUSTOM -->
 <style type="text/css">
 	/*insert code here*/	
@@ -49,6 +50,8 @@
 <script type="text/javascript" src="_lib/js/video-js/video.js"></script><!-- videoJS -->
 <script type="text/javascript" src="_lib/js/mejs/mediaelement-and-player.js"></script><!-- mejs -->
 <script type="text/javascript" src="_lib/js/placeholders.js"></script><!-- placeholders -->
+<script type="text/javascript" src="_lib/js/custom-form-elements.js"></script><!-- custom-form-elements -->
+<script type="text/javascript" src="_lib/js/jqui/jquery-ui-1.10.1.datepicker.js"></script><!-- jQueryUI -->
 <!-- JS:FW -->
 <script type="text/javascript" src="_lib/js/fw.utils.js"></script><!-- utils -->
 <script type="text/javascript" src="_lib/js/fw.widgets.js"></script><!-- widgets -->
@@ -126,9 +129,185 @@
 				
 				<!-- COLFULL -->
 				<div class="colFull">
-					<div class="contentViewport">
 					
-					</div>
+					<!-- PRE-FORM -->
+					<div class="contentViewport">
+						<h2>Group Booking Form</h2>
+						<p class="leaderText">This page shows all form elements sliced with variations that are suitable for this site in preferred layout arrangements.</p>
+						<div class="divider dividerSolid"></div>
+					</div><!-- /PRE-FORM -->
+					
+					<!-- FORM -->
+					<form id="formSample" class="formView clearfix" action="/">
+						<fieldset class="colFull contentViewport">
+							<h3>Extras - available for additional charge:</h3>
+							<label for="fmAddress">Address *</label>
+							<input id="fmAddress" name="fmAddress" class="text" type="text" />
+						</fieldset>
+						<fieldset class="col2 col2a">
+							<label for="fmName">Given Name *</label>
+							<input id="fmName" name="fmName" class="text" type="text" />
+						</fieldset>
+						<fieldset class="col2 col2b">
+							<label for="fmSurname">Surname *</label>
+							<input id="fmSurname" name="fmSurname" class="text" type="text" />
+						</fieldset>
+						<fieldset class="col2 col2a col2Important">
+							<label for="fmEmail">Email *</label>
+							<input id="fmEmail" name="fmEmail" class="text" type="email" />
+						</fieldset>
+						<fieldset class="col2 col2b col2Important">
+							<label for="fmPhone">Phone</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<fieldset class="col3 col3a">
+							<label for="fmTimeHr">Time *</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<fieldset class="col3 col3b">
+							<label for="fmTimeHr">Time *</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<fieldset class="col3 col3c">
+							<label for="fmTimeHr">Time *</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<fieldset class="col3 col3a col3Important">
+							<label for="fmTimeHr">Time *</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<fieldset class="col3 col3b col3Important">
+							<label for="fmTimeHr">Time *</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<fieldset class="col3 col3c col3Important">
+							<label for="fmTimeHr">Time *</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<div class="clearer"></div>
+						<fieldset class="colFull">
+							<label for="fmType">Room Type *</label>
+							<select id="fmType" name="fmType" class="styled" data-icon="icon fwicon-scroll">
+								<option value="0">Single with shared bathroom</option>
+								<option value="1">Single with ensuite</option>
+								<option value="2">Double with ensuite</option>
+								<option value="3">King with ensuite</option>
+								<option value="4">Studio apartment</option>
+								<option value="5">1 bedroom apartment</option>
+								<option value="6">2 bedroom apartment</option>
+							</select>
+						</fieldset>
+						<fieldset class="col2 col2a">
+							<label for="fmOrg">Organisation *</label>
+							<input id="fmOrg" name="fmOrg" class="text" type="text" />
+						</fieldset>
+						<fieldset class="col2 col2b">
+							<label for="fmNum">Group Numbers *</label>
+							<select id="fmType" name="fmType" class="styled" data-icon="icon fwicon-scroll">
+								<option value="0">Single with shared bathroom</option>
+								<option value="1">Single with ensuite</option>
+								<option value="2">Double with ensuite</option>
+								<option value="3">King with ensuite</option>
+								<option value="4">Studio apartment</option>
+								<option value="5">1 bedroom apartment</option>
+								<option value="6">2 bedroom apartment</option>
+							</select>
+						</fieldset>						
+						<fieldset class="col2 col2a">
+							<label for="fmDate">Date *</label>
+							<input id="fmPhone" name="fmPhone" class="text" type="tel" />
+						</fieldset>
+						<fieldset class="col2 col2b clearfix">
+							<label for="fmTimeHr">Time *</label>
+							<div class="col2 col2a col2Important">
+								<select id="fmTimeHr" name="fmTimeHr" class="styled" data-icon="icon fwicon-scroll">
+									<option value="0">HR</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</div>
+							<div class="col2 col2b col2Important">
+								<select id="fmTimeAMPM" name="fmTimeAMPM" class="styled" data-icon="icon fwicon-scroll">
+									<option value="AM">AM</option>
+									<option value="PM">PM</option>
+								</select>
+							</div>
+						</fieldset>
+						<fieldset class="col2 col2a">
+							<label for="fmDate">Date *</label>
+							<input id="fmDate" name="fmDate" class="text datepicker" type="text" /><i class="icon icon-calendar btnDatepicker"></i>
+						</fieldset>
+						<fieldset class="col2 col2b clearfix">
+							<label for="fmTimeHr">Time *</label>
+							<div class="col3 col3a col3Important">
+								<select id="fmTimeHr" name="fmTimeHr" class="styled" data-icon="icon fwicon-scroll">
+									<option value="0">HR</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</div>
+							<div class="col3 col3b col3Important">
+								<select id="fmTimeMin" name="fmTimeMin" class="styled" data-icon="icon fwicon-scroll">
+									<option value="0">MIN</option>
+									<option value="00">00</option>
+									<option value="15">15</option>
+									<option value="30">30</option>
+									<option value="45">45</option>
+								</select>
+							</div>
+							<div class="col3 col3c col3Important">
+								<select id="fmTimeAMPM" name="fmTimeAMPM" class="styled" data-icon="icon fwicon-scroll">
+									<option value="AM">AM</option>
+									<option value="PM">PM</option>
+								</select>
+							</div>
+						</fieldset>
+						<div class="clearer"></div>
+						<fieldset class="colFull">
+							<label for="fmNotes">Additional Requirements</label>
+							<textarea id="fmNotes" name="fmNotes" cols="10" rows="5" placeholder="(e.g. Probus Club, Italian group, church or school group) this will assist us in meeting their needs."></textarea>
+						</fieldset>
+						<fieldset class="colFull mgnTop20 contentViewport">
+							<h3>Please tick method of payment:</h3>
+							<div><input type="radio" class="styled" name="fmPayment" id="fmPayment1" value="option1" checked="checked"/><label for="fmPayment1" class="inline">cheque/cash/credit card on the day of visit</label></div>
+							<div><input type="radio" class="styled" name="fmPayment" id="fmPayment2" value="option2"/><label for="fmPayment2" class="inline">Voucher signed for/or account to be sent</label></div>
+							<div class="padBtm15"><input type="radio" class="styled" name="fmPayment" id="fmPayment3" value="option3"/><label for="fmPayment3" class="inline">Other - please give details below</label></div>
+							<input id="fmPaymentOther" name="fmPaymentOther" class="text" type="text" />
+						</fieldset>
+						<fieldset class="colFull mgnTop20 contentViewport">
+							<h3>Entry charges:</h3>
+							<div><input type="radio" class="styled" name="fmEntryCharge" id="fmEntryCharge1" value="option1" checked="checked"/><label for="fmEntryCharge1" class="inline">$3.50 each - Groups of 10 or more people</label></div>
+							<div><input type="radio" class="styled" name="fmEntryCharge" id="fmEntryCharge2" value="option2"/><label for="fmEntryCharge2" class="inline">$1.00 per student - School groups only</label></div>
+							<p class="note padTop25">No charge for coach crew who are welcome to cuppa & biscuits in the kitchen. A Tax Invoice will be issued to each group as required. Above prices current at Nov 2010.</p>
+						</fieldset>
+						<fieldset class="colFull mgnTop20 contentViewport">
+							<h3>Extras - available for additional charge:</h3>
+							<div><input type="radio" class="styled" name="fmExtra" id="fmExtra1" value="option1" checked="checked"/><label for="fmExtra1" class="inline">Town tour in coach - $2.00 per person</label></div>
+							<div><input type="radio" class="styled" name="fmExtra" id="fmExtra2" value="option2"/><label for="fmExtra2" class="inline">Morning tea or afternoon tea - $3.00 each</label></div>
+							<div><input type="radio" class="styled" name="fmExtra" id="fmExtra3" value="option2"/><label for="fmExtra3" class="inline">Light luncheon $10.50 each or as per arranged menu</label></div>
+							<p class="discreetText padTop25">* All fields marked with asterisk are compulsary.</p>
+							<p class="discreetText"><sup>1</sup> Staff from the Centre will meet the coach to welcome and briefly familiarize visitors. Suggested time to allow for the visit – 45 to 60 minutes – so that visitors may read the historic displays in the Interpretive Centre and Schoolhouse, and visit the Church and Shrine.</p>
+						</fieldset>
+						<fieldset class="colFull clearfix mgnTop30">
+							<div class="col2 col2a">
+								<a class="btnBox" href="#"><span class="label">Left Button</span></a>
+								<a class="btnText" href="#"><span class="label">Update</span><i class="iconInline right icon-refresh"></i></a>
+							</div>
+							<div class="col2 col2b aright">
+								<a class="btnText right" href="#"><i class="iconInline left icon-angle-left"></i><span class="label">Cancel</span></a>
+								<a class="btnBox right" href="javascript:$('#formSample').submit();"><span class="label">Right Button</span></a>
+							</div>							
+						</fieldset>
+					</form><!-- /FORM -->
+					
 				</div><!-- /COLFULL -->
 				
 				<!-- COL2A -->

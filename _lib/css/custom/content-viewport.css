@@ -364,6 +364,11 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
    ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
+/* common */
+.btnText.right,
+.btnBox.right { margin-right:0; margin-left:16px; }
+
+/* -------------------------------------------------------------------------- */
 /* btnText */
 .btnText { 
 	display:inline-block; position:relative; margin:0 16px 16px 0; padding:0; width:auto; height:24px; vertical-align:middle;

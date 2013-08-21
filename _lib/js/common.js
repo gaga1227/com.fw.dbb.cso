@@ -31,7 +31,10 @@ function init(){
 	} else {
 		//media
 		StaticAudios = new initStaticAudios();
-		StaticVideos = new initStaticVideos();		
+		StaticVideos = new initStaticVideos();
+		
+		//form
+		initDatepicker();
 	}
 	
 	//debug
