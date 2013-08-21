@@ -765,31 +765,40 @@ html, body { height:100% }
 @media only screen and (max-width:640px) {
 	
 	/* flexible height for banner */
-	#banner					{ height:auto!important; }
+	#banner							{ height:auto!important; }
 	
 	/* fix all bgImg/pattern height */
+	#banner.pattern:before,
+	#banner.pattern.sizeL:before	{ height:100%; }
+	
 	#banner .bgImg,
-	#banner.pattern:before 	{ height:215px; }
+	#banner.pattern.sizeM:before,
+	#banner.pattern.sizeXL:before,
+	#banner.pattern.sizeXXL:before,
+	#banner.pattern.sizeXXXL:before	{ height:215px; }
 	
 	/* resize and position bgImg */
-	#banner .bgImg 			{ width:1440px; margin-left:-720px; display:none; }
-	#banner.sizeL .bgImg	{ width:968px; 	margin-left:-484px; display:none; }
-	#banner.sizeM .bgImg 	{ width:1147px;	margin-left:-573px; display:block; }
-	#banner.sizeXL .bgImg	{ width:837px; 	margin-left:-418px; display:block; }
-	#banner.sizeXXL .bgImg	{ width:688px; 	margin-left:-344px; display:block; }
-	#banner.sizeXXXL .bgImg	{ width:640px; 	margin-left:-320px; display:block; }
+	#banner .bgImg 					{ width:1440px; margin-left:-720px; display:none; }
+	#banner.sizeL .bgImg			{ width:968px; 	margin-left:-484px; display:none; }
+	#banner.sizeM .bgImg 			{ width:1147px;	margin-left:-573px; display:block; }
+	#banner.sizeXL .bgImg			{ width:837px; 	margin-left:-418px; display:block; }
+	#banner.sizeXXL .bgImg			{ width:688px; 	margin-left:-344px; display:block; }
+	#banner.sizeXXXL .bgImg			{ width:640px; 	margin-left:-320px; display:block; }
 	
 	/* push padder below img */
 	#banner,
-	#banner.sizeL 		{ padding-top:0; }
+	#banner.sizeL 					{ padding-top:0; }
 	
 	#banner.sizeM,
 	#banner.sizeXL,
 	#banner.sizeXXL,
-	#banner.sizeXXXL 	{ padding-top:215px; }	
+	#banner.sizeXXXL 				{ padding-top:215px; }
 	
-	/* life shadow above */
-	#banner.shadow:after { top:190px; bottom:auto; }
+	/* lift shadow above */
+	#banner.shadow.sizeM:after,
+	#banner.shadow.sizeXL:after,
+	#banner.shadow.sizeXXL:after,
+	#banner.shadow.sizeXXXL:after	{ top:190px; bottom:auto; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* padder */
@@ -797,18 +806,18 @@ html, body { height:100% }
 	
 		/* -------------------------------------------------------------------------- */
 		/* headline */
-		#banner .headline			{ position:relative; left:auto; bottom:auto!important; width:100%; font-size:24px; line-height:30px; }
+		#banner .headline				{ position:relative; left:auto; bottom:auto!important; width:100%; font-size:24px; line-height:30px; }
 		#banner.sizeM    .headline,
 		#banner.sizeXL	 .headline,
 		#banner.sizeXXL  .headline,
-		#banner.sizeXXXL .headline	{ display:table; }
+		#banner.sizeXXXL .headline		{ display:table; line-height:0px; }
 			
 			/* common */
-			#banner .headline > span	{ margin-right:5px; padding:0!important; 
-										  background:none!important; border:none!important; 
-										  font-size:24px!important; line-height:30px!important; }
+			#banner .headline > span			{ margin-right:5px; padding:0!important; 
+										  		  background:none!important; border:none!important; 
+										  		  font-size:24px!important; line-height:30px!important; }
 			/* break */
-			#banner .headline > .break	{ display:none; }
+			#banner .headline > .break			{ display:none; }
 		
 			/* btnMore */
 			#banner .headline > .btnMore 		{ display:block; position:absolute; top:50%; right:-40px; width:40px; height:40px; margin:-20px 0 0 0; padding:0; 
