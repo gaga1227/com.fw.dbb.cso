@@ -5,8 +5,8 @@ Update: JX 20130322 - added icon to 'span.select' via 'data-icon' on 'select'
 Update: JX 20130325 - removed 'disabled' styles content
 */
 
-var checkboxHeight = "35";
-var radioHeight = "35";
+var checkboxHeight = "32";
+var radioHeight = "32";
 var selectWidth = "190";
 
 /* No need to change anything after this */

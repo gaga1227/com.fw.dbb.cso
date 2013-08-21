@@ -1294,12 +1294,11 @@ html, body { height:100% }
 /* col3 */
 .col3a,
 .col3b,
-.col3c	 					{ width:29.6%; }
-
-.col3a	 					{ float:left; clear:left; }
-.col3b, .formView .col3b 	{ float:left; clear:none; margin-left:5.6%; }
-
-.col3c 						{ float:right; clear:right; }
+.col3c	 			{ width:29.6%; }
+.col3a	 			{ float:left; clear:left; }
+.col3b,
+.formView .col3b	{ float:left; clear:none; margin-left:5.6%; }
+.col3c 				{ float:right; clear:right; }
 
 /* -------------------------------------------------------------------------- */
 /* columns responsive */
@@ -1346,32 +1345,24 @@ html, body { height:100% }
 /* -------------------------------------------------------------------------- */
 /* container */
 .sysmsg { 
-	position:relative; width:auto; height:auto; margin:0; padding:20px; overflow:hidden;
-	color:#fff; text-align:center;background:#666;
-	font-family:'Gentium Book Basic',serif; font-size:22px; font-weight:400; line-height:25px; font-style:italic; }
-.oldie .sysmsg { padding-bottom:10px; }
+	position:relative; width:auto; height:auto; margin:0; padding:20px 25px 17px 25px; overflow:hidden;
+	color:#fff; background:#fff; text-align:center; 
+	font-size:15px; font-weight:400; line-height:24px; }
 	
 	/* common */
 	.sysmsg h3,
+	.sysmsg h4,
 	.sysmsg p,
-	.sysmsg li { margin:0 0 10px 0; }
-	.sysmsg > :last-child { margin-bottom:0; }
+	.sysmsg li 	{ margin:0; padding:0 0 8px 0; }
 	
 	/* custom */
-	.sysmsg h3 	{ font-size:30px; line-height:30px; }
-	.sysmsg p 	{ font-size:22px; line-height:25px; }
+	.sysmsg h3,
+	.sysmsg h4 	{ font-size:16px; font-weight:700; }
 	.sysmsg a	{ text-decoration:underline; }
 		
-	/* icon */
-	.sysmsg .icon { 
-		position:static; display:inline-block; padding:0 0.5em;
-		font-size:22px; line-height:25px; vertical-align:bottom; }
-	.sysmsg .iconLeft 	{ padding-left:0; }
-	.sysmsg .iconRight 	{ padding-right:0; }
-		
 /* extend */
-.sysmsgSuccess 	{ background:#a2d04b; }
-.sysmsgError 	{ background:#f0176a; }
+.sysmsgSuccess 	{ background:#9dba32; }
+.sysmsgError 	{ background:#e94b35; }
 
 
 /* ==========================================================================
@@ -1387,95 +1378,100 @@ html, body { height:100% }
 		display:block; position:relative; width:100%; height:auto; margin:0; padding:0; }
 		
 		/* -------------------------------------------------------- */
+		/* placeholder */
+		::-webkit-input-placeholder 	{ color:#ccc; }
+		:-moz-placeholder 				{ color:#ccc; }
+		::-moz-placeholder 				{ color:#ccc; }
+		:-ms-input-placeholder			{ color:#ccc; }
+		
+		/* -------------------------------------------------------- */
 		/* fieldset */
-		.formView fieldset 			{ display:block; position:relative; margin:0; padding:0; border:0; }
-		.formView fieldset.col50pct { width:50%; }
-			
+		.formView fieldset { 
+			display:block; position:relative; margin:0; padding:0; border:0; }
+		
 		/* -------------------------------------------------------- */
 		/* label */			
 		.formView label { 
-			display:block; margin:25px 0 0 0; padding:0;
+			display:block; margin:0; padding:24px 0 0 0;
 			color:#222; vertical-align:baseline; white-space:nowrap; text-overflow:ellipsis;
-			font-size:14px; font-weight:600; line-height:30px; }
+			font-size:16px; font-weight:700; line-height:40px; }
+		
+		/* inline */
 		.formView label.inline { 
-			display:inline-block; margin:30px 0 0 15px; padding:0; line-height:20px; overflow:hidden;
+			display:inline-block; margin:0; padding:24px 0 0 16px; line-height:24px; overflow:hidden;
 			white-space:normal; vertical-align:middle; }
-		.formView input.styled + label.inline { width:80%; }
-		.formView .disabled label { color:#888; }
+		.formView input.styled + label.inline { 
+			width:80%; } /* prevent wrappnig */
+			
+		/* disabled */
+		.formView .disabled label { 
+			color:#ccc; }
 		
 		/* -------------------------------------------------------- */
 		/* radio/checkbox */
+		
+		/* default */
 		.formView input.radio,
 		.formView input.checkbox { /*by JS*/ }
+		
+		/* custom-form-elements */
 		.formView span.radio,
 		.formView span.checkbox	{ 
-			display:inline-block; width:35px; height:35px; margin:30px 0 0 0; padding:0;
+			display:inline-block; width:32px; height:32px; margin:24px 0 0 0; padding:0;
 			background:url(../img/radio-custom.png) no-repeat; vertical-align:middle;
 			cursor:pointer!important; }
+		.formView span.checkbox { 
+			background-image:url(../img/checkbox-custom.png); }
+		
+		/* disabled */
 		.formView .disabled span.radio,
 		.formView .disabled span.checkbox { 
 			cursor:default!important; }
-		
-		/* -------------------------------------------------------- */
-		/* placeholder */
-		::-webkit-input-placeholder 	{ color:#bbb; }
-		:-moz-placeholder 				{ color:#bbb; }
-		::-moz-placeholder 				{ color:#bbb; }
-		:-ms-input-placeholder			{ color:#bbb; }
-		
-		/* placeholder - home */
-		#home ::-webkit-input-placeholder 	{ color:#333; }
-		#home :-moz-placeholder 			{ color:#333; }
-		#home ::-moz-placeholder 			{ color:#333; }
-		#home :-ms-input-placeholder		{ color:#333; }
 			
 		/* -------------------------------------------------------- */
 		/* input */
 		.formView input.text { 
-			display:block; width:95.75%; height:14px; margin:0; padding:12px 2%; overflow:hidden;
-			color:#222; background:#fff; border:1px solid #ccc;
-			font-size:14px; line-height:14px;
+			display:block; width:95.75%; height:16px; margin:0; padding:14px 2%; overflow:hidden;
+			color:#2b3942; background:#fff; border:2px solid #fff;
+			font-family:'Montserrat',sans-serif; font-size:15px; line-height:16px; font-weight:400;
+			/*box-shadow*/-webkit-box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15); box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15);
 			/*transition*/
 			/*-webkit-transform:translate3d(0,0,0);*/
 			-webkit-transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 			-moz-transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 			-o-transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 			transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out; }
-			
-		/* home */
-		#home .formView input.text { 
-			color:#333; height:16px; margin:0 0 5px 0; padding:13px 4% 14px 4%; line-height:16px; }
 		
 		/* interaction */
 		.formView input.text:focus,
 		.formView input.text:active { 
-			color:#000; border-color:#ee3d5a; }
+			color:#2b3942; border-color:#1e353f; }
 		.formView input.text[disabled] { 
-			color:#222!important; opacity:1!important; }
+			color:#ccc!important; opacity:1!important; }
 		
-		/* nesting */
-		.formView .col2 > input.text { width:91.25%; padding-left:4%; padding-right:4%; }
-		.formView .col2 > .col2 > input.text { width:83.25%; padding-left:8%; padding-right:8%; }
-		.formView .col2 > .col2 > .col2 > input.text { width:67.25%; padding-left:16%; padding-right:16%; }
-		
-		/* -------------------------------------------------------- */
-		/* input datepicker */
+		/* datepicker */
 		.formView input.text.datepicker + .icon { 
-			bottom:12px; right:15px; width:14px; height:14px;
-			color:#666; font-size:14px; line-height:14px;
+			bottom:17px; right:14px; width:14px; height:14px;
+			color:#1f353f; font-size:14px; line-height:14px;
 			cursor:pointer!important; }
 		.formView input.text.datepicker + .icon:hover { 
-			color:#333; }
+			color:#1f353f; }
+		
+		/* nesting */
+		.formView .col2 > input.text 					{ width:91.25%; padding-left:4%; padding-right:4%; }
+		.formView .col2 > .col2 > input.text 			{ width:83.25%; padding-left:8%; padding-right:8%; }
+		.formView .col2 > .col3 > input.text 			{ width:75.25%; padding-left:12%; padding-right:12%; }
+		.formView .col2 > .col2 > .col2 > input.text 	{ width:67.25%; padding-left:16%; padding-right:16%; }
 		
 		/* ------------------------------------------------------------------------------ */
 		/* select */
 		.formView select,
-		.formView select.selectBox,
 		.formView .select { 
-			display:block; width:92.75%; height:14px; margin:0; padding:12px 5% 12px 2%; overflow:hidden;
-			color:#222; background:#fff; border:1px solid #ccc;
-			font-size:14px; line-height:14px; 
+			display:block; width:92.75%; height:16px; margin:0; padding:14px 5% 14px 2%; overflow:hidden;
+			color:#2b3942; background:#fff; border:2px solid #fff;
+			font-family:'Montserrat',sans-serif; font-size:15px; line-height:16px; font-weight:400;
 			cursor:pointer!important;
+			/*box-shadow*/-webkit-box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15); box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15);
 			/*transition*/
 			/*-webkit-transform:translate3d(0,0,0);*/
 			-webkit-transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out;
@@ -1484,93 +1480,84 @@ html, body { height:100% }
 			transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out; }
 		
 		/* custom-form-elements */
-		.formView select { position:relative; width:100%!important; height:40px!important; margin:0; padding:0; border:none; } /* consistent dimension as .select */
-		.formView .select { position:absolute; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; } /* put real select on top of .select */
-		.ie7 .formView select { margin-top:10px; } /* optimise position for IE7 */
-		.formView .select .icon { right:0; top:50%; width:10%; min-width:12px; height:20px; margin:-10px 0 0 0; font-size:12px; line-height:20px; }
+		.formView select 		{ position:relative; width:100%!important; height:48px!important; margin:0; padding:0; border:none; } /* same dimension as .select */
+		.formView .select 		{ position:absolute; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; } /* put <select> on top */
+		.ie7 .formView select 	{ margin-top:10px; } /* optimise position for IE7 */
+		.formView .select .icon { right:4px; top:50%; width:24px; height:24px; margin:-12px 0 0 0; font-size:14px; line-height:24px; }
 		
 		/* nesting */
-		.formView .col2 > .select { width:85.25%; padding-left:4%; padding-right:10%; }
-		.formView .col2 > .select .icon { width:10%; }
-		.formView .col2 > .col2 > .select { width:71.25%; padding-left:8%; padding-right:20%; }
-		.formView .col2 > .col2 > .select .icon { width:20%; }
-		.formView .col2 > .col3 > .select { width:59.25%; padding-left:10%; padding-right:30%; }
-		.formView .col2 > .col3 > .select .icon { width:30%; }
-		.formView .col2 > .col2 > .col2 > .select { width:43.25%; padding-left:16%; padding-right:40%; }
-		.formView .col2 > .col2 > .col2 > .select .icon { width:40%; }
+		.formView .col2 > .select 					{ width:85.25%; padding-left:4%; padding-right:10%; }
+		.formView .col2 > .col2 > .select 			{ width:71.25%; padding-left:8%; padding-right:20%; }
+		.formView .col2 > .col3 > .select 			{ width:57.25%; padding-left:12%; padding-right:30%; }
+		.formView .col2 > .col2 > .col2 > .select 	{ width:43.25%; padding-left:16%; padding-right:40%; }
 		
 		/* -------------------------------------------------------- */
 		/* textarea */
 		.formView textarea { 
-			display:block; width:95.75%; margin:0; padding:12px 2%; overflow:hidden;
-			color:#222; background:#fff; border:1px solid #ccc; resize:vertical;
-			font-size:14px; line-height:14px;
+			display:block; width:95.75%; margin:0; padding:14px 2%; overflow:hidden;
+			color:#2b3942; background:#fff; border:2px solid #fff; resize:vertical;
+			font-family:'Montserrat',sans-serif; font-size:15px; line-height:24px; font-weight:400;
+			/*box-shadow*/-webkit-box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15); box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15);
 			/*transition*/
 			/*-webkit-transform:translate3d(0,0,0);*/
 			-webkit-transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 			-moz-transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 			-o-transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 			transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out; }
+		
+		/* interaction */
 		.formView textarea:focus,
 		.formView textarea:active { 
-			color:#000; border-color:#ee3d5a; }
+			color:#2b3942; border-color:#1e353f; }
 		.formView textarea[disabled] { 
-			color:#222!important; opacity:1!important; }
+			color:#ccc!important; opacity:1!important; }
 		
-		/* nesting */
-		.formView .col2 > textarea { width:91.25%; padding-left:4%; padding-right:4%; }
-		.formView .col2 > .col2 > textarea { width:83.25%; padding-left:8%; padding-right:8%; }
-		.formView .col2 > .col2 > .col2 > textarea { width:67.25%; padding-left:16%; padding-right:16%; }
-		
+		/* nesting */		
+		.formView .col2 > textarea 						{ width:91.25%; padding-left:4%; padding-right:4%; }
+		.formView .col2 > .col2 > textarea 				{ width:83.25%; padding-left:8%; padding-right:8%; }
+		.formView .col2 > .col3 > textarea	 			{ width:75.25%; padding-left:12%; padding-right:12%; }
+		.formView .col2 > .col2 > .col2 > textarea 		{ width:67.25%; padding-left:16%; padding-right:16%; }
+
+/* -------------------------------------------------------------------------- */
 /* responsive */
 @media only screen and (max-width:640px) {
 	
-	/* reduce field top gap */
-	.formView label { margin-top:10px; }
-	.formView label.inline,
+	/* reduce label top gap */
+	.formView label 		{ padding-top:8px; font-size:14px; }
+	.formView label.inline 	{ padding-top:16px; }
+	
+	/* reduce radio/checkbox top gap */
 	.formView span.radio,
-	.formView span.checkbox { margin-top:15px; }
-
+	.formView span.checkbox { margin-top:16px; }
 
 }
 @media only screen and (max-width:500px) {
-
-	/* reduce label top gap */
-	.formView label { margin-top:5px; }
 	
-	/* normalize nesting for mobile */
+	/* normalize for mobile */
 	
-	/* input */
+	/* input/textarea */
 	.formView input.text,
 	.formView .col2 > input.text,
 	.formView .col2 > .col2 > input.text, 
 	.formView .col2 > .col2 > .col2 > input.text,
-	
-	/* textarea */
 	.formView textarea,
 	.formView .col2 > textarea,
 	.formView .col2 > .col2 > textarea, 
-	.formView .col2 > .col2 > .col2 > textarea { width:91.25%; padding-left:4%; padding-right:4%; }
+	.formView .col2 > .col2 > .col2 > textarea 			{ width:91.25%; padding-left:4%; padding-right:4%; }
 		
 	/* select */
 	.formView .select,
 	.formView .col2 > .select,
 	.formView .col2 > .col2 > .select,
-	.formView .col2 > .col2 > .col2 > .select { width:85.25%; padding-left:4%; padding-right:10%; }
-	.formView .select .icon,
-	.formView .col2 > .select .icon,
-	.formView .col2 > .col2 > .select .icon,
-	.formView .col2 > .col2 > .col2 > .select .icon { width:10%; }
+	.formView .col2 > .col2 > .col2 > .select 			{ width:85.25%; padding-left:4%; padding-right:10%; }
 	
 	/* col2Important */
-	.formView .col2 > .col2.col2Important > input.text { width:83.25%; padding-left:8%; padding-right:8%; }
-	.formView .col2 > .col2.col2Important > .select { width:71.25%; padding-left:8%; padding-right:20%; }
-	.formView .col2 > .col2.col2Important > .select .icon { width:20%; }
+	.formView .col2 > .col2.col2Important > input.text 	{ width:83.25%; padding-left:8%; padding-right:8%; }
+	.formView .col2 > .col2.col2Important > .select 	{ width:71.25%; padding-left:8%; padding-right:20%; }
 	
 	/* col3Important */
-	.formView .col2 > .col3.col3Important > input.text { width:71.25%; padding-left:14%; padding-right:14%; }
-	.formView .col2 > .col3.col3Important > .select { width:55.25%; padding-left:14%; padding-right:30%; }
-	.formView .col2 > .col3.col3Important > .select .icon { width:30%; }
+	.formView .col2 > .col3.col3Important > input.text 	{ width:71.25%; padding-left:14%; padding-right:14%; }
+	.formView .col2 > .col3.col3Important > .select		{ width:55.25%; padding-left:14%; padding-right:30%; }
 
 	/* button */
 	.formView .btnBox,
@@ -1584,7 +1571,7 @@ html, body { height:100% }
 		(min-resolution:120dpi) {
 	/*use @2x image*/
 	.formView span.radio,
-	.formView span.checkbox { background-image:url(../img/radio-custom@2x.png); background-size:35px 140px; }
+	.formView span.checkbox { background-image:url(../img/radio-custom@2x.png); background-size:32px 128px; }
 	.formView span.checkbox { background-image:url(../img/checkbox-custom@2x.png); }
 }
 
