@@ -62,9 +62,23 @@
 		<Html>
 			<![CDATA[
 				<div class="imgWrapper fullWidthImage"><img src="private/_lib/editor/editor/templates/images/img-ph-640x220.gif" width="640" height="220" alt="0" title=""/><div class="caption">Caption text...</div></div>
+				<p>&nbsp;</p>
 			]]>
 		</Html>
-	</Template>	
+	</Template>
+	
+	<Template title="2-up image tile" image="tmpl-img-2up-med.gif">
+		<Description>Inserts a 2-up image tile</Description>
+		<Html>
+			<![CDATA[
+				<div class="clearfix">
+					<div class="col2a"><img class="fullWidthImage" src="private/_lib/editor/editor/templates/images/img-ph-310x210.gif" width="310" height="210" alt="" /></div>
+					<div class="col2b"><img class="fullWidthImage" src="private/_lib/editor/editor/templates/images/img-ph-310x210.gif" width="310" height="210" alt="" /></div>
+				</div>
+				<p>&nbsp;</p>
+			]]>
+		</Html>
+	</Template>
 
 	<!-- BLOCKQUOTE -->
 	<Template title="Highlight Quote Box" image="tmpl-box-quote.gif">

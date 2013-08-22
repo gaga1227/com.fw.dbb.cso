@@ -5,6 +5,10 @@
 .contentViewport img.fullWidthImage,
 .contentViewport .imgWrapper.fullWidthImage	{ display:block; width:100%; height:auto; margin:8px auto 16px auto; padding:0; overflow:hidden; }
 
+/* fullWidthImage first-child */
+.contentViewport > img.fullWidthImage:first-child,
+.contentViewport > :first-child > img.fullWidthImage:first-child { margin-top:0; }
+
 /* styles */
 .contentViewport img.leftAligned			{ display:block; width:auto; max-width:45%; height:auto; float:left; margin:4px 16px 8px 0; overflow:hidden; }
 .contentViewport img.rightAligned			{ display:block; width:auto; max-width:45%; height:auto; float:right; margin:4px 0 8px 16px; overflow:hidden; } 

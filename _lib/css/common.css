@@ -1123,7 +1123,6 @@ html, body { height:100% }
 					#megafooterInfo .social a:focus .circle,
 					#megafooterInfo .social a:active .circle 	{ background:#fff; }
 	
-	
 
 /* -------------------------------------------------------------------------- */
 /* responsive */
@@ -1157,7 +1156,6 @@ html, body { height:100% }
 	/* contact */
 	#megafooterInfo .contact { text-align:center; }
 	#megafooterInfo .social { margin-bottom:0; }
-	
 	
 }
 
@@ -1304,6 +1302,9 @@ html, body { height:100% }
 /* columns responsive */
 @media only screen and (max-width:500px) {
 
+	/* -------------------------------------------------------------------------- */
+	/* content */
+	
 	/* make col2 stacking */
 	.col2a,
 	.col2b { width:auto; float:none; clear:both; }
@@ -1312,7 +1313,24 @@ html, body { height:100% }
 	.col3a,
 	.col3b,
 	.col3c { width:auto; margin-left:0; float:none; clear:both; }
-
+	
+	/* col2Important */
+	.col2Important.col2a,
+	.col2Important.col2b { width:47.75%; }
+	.col2Important.col2a { float:left; clear:left; }
+	.col2Important.col2b { float:right; clear:right; }
+	
+	/* col3Important */
+	.col3Important.col3a,
+	.col3Important.col3b, 	
+	.col3Important.col3c { width:29.6%; }
+	.col3Important.col3a { float:left; clear:left; }
+	.col3Important.col3b { float:left; clear:none; margin-left:5.6%;  }
+	.col3Important.col3c { float:right; clear:right; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* form */
+	
 	/* make formview col2 stacking */
 	.formView .col2,
 	.formView .col2a,
@@ -1582,21 +1600,37 @@ html, body { height:100% }
 
 /* -------------------------------------------------------------------------- */
 /* default */
-.item { display:block; position:relative; width:auto; height:auto; margin:0 0 20px 0; padding:0; overflow:hidden; text-decoration:none; }
-a.item { cursor:pointer; }
+.item { 
+	display:block; position:relative; width:auto; height:auto; margin:0 0 24px 0; padding:0; overflow:hidden; }
+a.item,
+a.item:hover,
+a.item:focus,
+a.item:active,
+a.item *,
+a.item:hover *,
+a.item:focus *,
+a.item:active * { 
+	text-decoration:none; outline:0 none; cursor:pointer; }
 
-.item:hover img,
-.item:focus img,
-.item:active img,
-.item:hover span,
-.item:focus span,
-.item:active span { text-decoration:none; }
-
+	/* -------------------------------------------------------------------------- */
 	/* common */
+	.item > a,
 	.item > img,
-	.item > .padder,
-	.item > .padder > span { display:block; }
-	.item > .padder > span.btnText2 { display:inline-block; }
+	.item > span { display:block; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* elem */
+	.item > .header { 
+		position:relative; width:auto; height:34px; margin:0; padding:0 25px; overflow:hidden;
+		white-space:nowrap; text-overflow:ellipsis;
+		color:#fff; background:#666; border-top:1px solid rgba(255,255,255,0.8);
+		font-size:13px; font-weight:400; line-height:34px; text-transform:uppercase; }
+	
+	
+	
+	
+	
+
 	
 	/* imgThumb */
 	.item .imgThumb { 
@@ -1664,91 +1698,12 @@ a.item { cursor:pointer; }
 /* responsive */
 @media only screen and (max-width:800px) {
 	
-	/* adjust gap */
-	#resourceListing .item,
-	#resourceListing .itemAlt { width:47%; }
+
 
 }
 @media only screen and (max-width:640px) {
 	
-	/* reduce imgThumb bottom gap */
-	#resourceListing .item .imgThumb { padding-bottom:10px; }
-	
-	/* reduce title size */
-	#resourceListing .item .title { font-size:18px; line-height:20px; }
-	
-	/* hide desc */
-	#resourceListing .item .desc { display:none; }
 
-}
-
-/* -------------------------------------------------------------------------- */
-/* custom - stackListing */
-
-/* container */
-.stackListing { padding:7% 0 0 0; }
-	
-	/* item */
-	.stackListing .item { width:100%; margin:0; border-top:1px solid #d6d6d6; }
-	.stackListing .item.first-child { border-top:none; }
-	.stackListing .item:first-child { border-top:none; }
-	
-		/* padder */
-		.stackListing .item > .padder { min-height:55px; padding:7% 0 7% 70px; overflow:visible; }
-		.stackListing .item.first-child > .padder { padding-top:0; }
-		.stackListing .item:first-child > .padder { padding-top:0; }
-			
-			/* common */
-			.stackListing .item > .padder > span:last-child { margin-bottom:0; padding-bottom:0; }
-			
-			/* dateBlock */
-			.stackListing .item .dateBlock { margin-left:-70px; width:40px; height:55px; }
-			
-				/* d,m */
-				.stackListing .item .dateBlock .d { margin-top:16px; }
-				.stackListing .item .dateBlock .m { margin-top:10px; }
-
-/* responsive */
-@media only screen and (max-width:800px) {
-	
-	/* adjust gap */
-	.stackListing .item > .padder { padding-top:5%; padding-bottom:5%; }
-
-}
-@media only screen and (max-width:640px) {
-	
-	/* adjust gap */
-	.stackListing .item > .padder { padding-left:60px; }
-	.stackListing .item .dateBlock { margin-left:-60px; }
-	
-	/* reduce title size */
-	.stackListing .item .title { font-size:18px; line-height:20px; }
-	
-	/* hide desc */
-	.stackListing .item .desc { display:none; }
-
-}
-
-/* -------------------------------------------------------------------------- */
-/* custom - itemResource */
-.stackListing .itemResource > .padder { min-height:45px; padding-top:5%; padding-bottom:5%; }
-.stackListing .itemResource .title { padding-bottom:0; }
-.stackListing .itemResource .iconThumb { margin-left:-70px; width:45px; height:45px; }
-
-/* icons */
-.stackListing .itemResource.RSPDF .iconThumb { background-position:center 0; }
-.stackListing .itemResource.RSLIN .iconThumb { background-position:center -50px; }
-.stackListing .itemResource.RSIMA .iconThumb { background-position:center -100px; }
-.stackListing .itemResource.RSAUD .iconThumb { background-position:center -150px; }
-.stackListing .itemResource.RSVID .iconThumb { background-position:center -200px; }
-.stackListing .itemResource.RSREF .iconThumb { background-position:center -250px; }
-
-/* responsive */
-@media only screen and (max-width:640px) {
-	
-	/* adjust gap */
-	.stackListing .itemResource > .padder { padding-left:60px; }
-	.stackListing .itemResource .iconThumb { margin-left:-60px; }
 
 }
 
@@ -1762,47 +1717,6 @@ a.item { cursor:pointer; }
 .section { 
 	display:block; position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
 	
-
-/* ==========================================================================
-   common - TITLES
-   ========================================================================== */
-
-/* -------------------------------------------------------------------------- */
-/* titleFeat */
-.titleFeat { 
-	position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden;
-	color:#333; background:none;
-	font-family:'Gentium Book Basic',serif; font-size:24px; font-weight:400; line-height:30px; font-style:italic; text-align:center; }
-	
-	/* label */
-	.titleFeat .label { 
-		display:inline-block; position:relative; width:auto; max-width:100%; height:auto; margin:0 auto; padding:0; overflow:hidden; }
-		
-		/* label underline */
-		.titleFeat .label:before {
-			content:'';
-			position:absolute; left:0; bottom:0; width:100%; height:4px; margin:0; padding:0; overflow:hidden; z-index:-1;
-			color:#000; border-top:1px solid #aaa;
-			font-size:0; line-height:0; }
-
-/* -------------------------------------------------------------------------- */
-/* captions */
-.captions,
-.captions .label,
-.captions .sublabel,
-.captions .desc  { 
-	display:block; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
-	color:#222; }
-	
-	/* label */
-	.captions .label { font-size:20px; font-weight:800; line-height:1em; text-transform:uppercase; }
-	
-	/* sublabel */
-	.captions .sublabel { font-family:'Gentium Book Basic',serif; font-size:20px; line-height:1em; font-style:italic; }
-	
-	/* desc */
-	.captions .desc { margin-top:10px; font-size:13px; line-height:20px; }
-
 
 /* ==========================================================================
    common - ICONS
@@ -1924,7 +1838,7 @@ a.item { cursor:pointer; }
 	.btnList:hover .desc,
 	.btnList:focus .desc,
 	.btnList:active .desc { color:#ee3d5a; }
-		
+
 
 /* ==========================================================================
    common - BG
@@ -1945,7 +1859,7 @@ a.item { cursor:pointer; }
 .noFlashMsg { 
 	position:relative; width:60%; max-width:600px; height:auto; margin:10% auto; padding:0; overflow:hidden;
 	color:#fff;
-	font-size:18px; font-weight:700; line-height:20px; text-align:center; }
+	font-size:18px; font-weight:700; line-height:24px; text-align:center; }
 	
 
 /* ==========================================================================
