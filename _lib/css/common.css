@@ -937,7 +937,8 @@ html, body { height:100% }
 	#aside 	{ width:24.50%; padding:40px 0; float:right; clear:right; overflow:hidden; }
 	
 	/* aside shift up */
-	#aside.shiftUp { margin-top:-85px; }
+	#aside.shiftUp 		{ margin-top:-85px; }
+	#aside.shiftUpLess 	{ margin-top:-75px; }
 	
 /* -------------------------------------------------------------------------- */
 /* content responsive */
@@ -959,7 +960,8 @@ html, body { height:100% }
 	#aside 	{ width:auto; float:none; clear:both; }
 	
 	/* remove shift up */
-	#aside.shiftUp { margin-top:0; }
+	#aside.shiftUp,
+	#aside.shiftUpLess { margin-top:0; }
 	
 }
 @media only screen and (max-width:500px) {
@@ -1001,7 +1003,39 @@ html, body { height:100% }
 	
 	/* -------------------------------------------------------------------------- */
 	/* padder */
-		#utilsTop > .padder { padding:30px 0; }
+	#utilsTop > .padder { padding:30px 0; }
+	
+		/* main */
+		#utilsTop > .padder > .main { 
+			position:relative; width:68.75%; height:auto; margin:0; padding:0; }
+			
+			/* -------------------------------------------------------------------------- */
+			/* utilsHeading */
+			#utilsTop > .padder .utilsHeading { 
+				position:relative; width:auto; height:auto; margin:0; padding:0;
+				color:#333; font-family:'Merriweather',serif; font-weight:400; font-size:36px; line-height:1em; }
+			#utilsTop > .padder .utilsHeading.withTopGap { 
+				margin-top:20px; }
+				
+				/* a */
+				#utilsTop > .padder .utilsHeading > a { 
+					display:inline-block; vertical-align:middle;
+					color:#afafaf; text-decoration:none!important; }
+				#utilsTop > .padder .utilsHeading > a:hover,
+				#utilsTop > .padder .utilsHeading > a:focus,
+				#utilsTop > .padder .utilsHeading > a:active { 
+					color:#06b7c5; }
+				
+				/* icon */
+				#utilsTop > .padder .utilsHeading .iconInline { 
+					font-size:28px; line-height:1em; }
+				#utilsTop > .padder .utilsHeading > a .iconInline {
+					/*transition*/
+					/*-webkit-transform:translate3d(0,0,0);*/
+					-webkit-transition:none 0.3s ease-in-out;
+					-moz-transition:none 0.3s ease-in-out;
+					-o-transition:none 0.3s ease-in-out;
+					transition:none 0.3s ease-in-out; }
 		
 /* -------------------------------------------------------------------------- */
 /* responsive */
@@ -1010,11 +1044,28 @@ html, body { height:100% }
 	/* adjust gaps */
 	#utilsTop > .padder { padding:30px 3%; }
 	
+	/* adjust main to match #main */
+	#utilsTop > .padder > .main { width:71%; }
+	
 }
 @media only screen and (max-width:800px) { 
 	 
 	/* adjust gaps */
 	#utilsTop > .padder { padding:25px; }
+	
+	/* adjust main to match #main */
+	#utilsTop > .padder > .main { width:100%; }
+	
+}
+@media only screen and (max-width:500px) { 
+	 
+	/* adjust gaps */
+	#utilsTop > .padder { padding:12px; }
+	
+	/* utilsHeading smaller font/gap */
+	#utilsTop > .padder .utilsHeading 				{ font-size:24px; }
+	#utilsTop > .padder .utilsHeading.withTopGap 	{ margin-top:10px; }
+	#utilsTop > .padder .utilsHeading .iconInline 	{ font-size:28px; }
 	
 }
 
@@ -1839,6 +1890,127 @@ html, body { height:100% }
 	.item .title	{ font-size:16px; }
 	.item .p 		{ font-size:14px; }
 
+}
+
+
+/* ==========================================================================
+   common - ITEMLIST
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.itemList { 
+	position:relative; margin:0 0 16px 0; padding:0; overflow:hidden; }
+
+	/* -------------------------------------------------------------------------- */
+	/* header */
+	.itemList > .header { 
+		position:relative; width:auto; height:auto; min-height:22px; margin:0; padding:12px 20px 12px 66px; overflow:hidden;
+		color:#333; background:#fff; font-size:16px; font-weight:700; line-height:22px; }
+		
+		/* icon */
+		.itemList > .header > .icon { 
+			position:absolute; top:0; left:0; width:46px; height:100%; margin:0; padding:0; overflow:hidden;
+			color:#fff; background:#06b2c0; font-size:24px; line-height:46px;
+			/*transition*/
+			/*-webkit-transform:translate3d(0,0,0);*/
+			-webkit-transition:none 0.3s ease-in-out;
+			-moz-transition:none 0.3s ease-in-out;
+			-o-transition:none 0.3s ease-in-out;
+			transition:none 0.3s ease-in-out; }
+			
+		/* a */
+		.itemList > .header a 			{ color:#333; text-decoration:none; }
+		.itemList > .header a:hover,
+		.itemList > .header a:focus,
+		.itemList > .header a:active 	{ color:#333; text-decoration:underline; }
+			
+	/* -------------------------------------------------------------------------- */
+	/* padder */
+	.itemList > .padder { 
+		width:auto; height:auto; margin:0; padding:12px 20px 0 66px; }
+
+/* -------------------------------------------------------------------------- */
+/* extend - event */
+.itemList.event { 
+	position:relative; margin:0 0 16px 0; padding:0; overflow:hidden; }
+
+	/* -------------------------------------------------------------------------- */
+	/* header */
+	.itemList.event > .header { 
+		height:36px; padding:0 20px 0 50px;
+		white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
+		color:#fff; background:#c8c8c8; font-size:13px; line-height:36px; }
+	.itemList.event.today > .header { 
+		background:#aecb44; }
+		
+		/* icon */
+		.itemList.event > .header > .icon { 
+			width:36px; font-size:18px; line-height:36px; font-style:normal; }
+		.itemList.event.today > .header > .icon { 
+			background:#9bb832; }
+			
+		/* a */
+		.itemList.event > .header a,
+		.itemList.event > .header a:hover,
+		.itemList.event > .header a:focus,
+		.itemList.event > .header a:active 	{ color:#fff; }
+			
+	/* -------------------------------------------------------------------------- */
+	/* padder */
+	.itemList.event > .padder { padding:0 20px 0 50px; }
+	
+		/* -------------------------------------------------------------------------- */
+		/* evt */
+		.itemList.event .evt { 
+			padding:22px 0 14px 0; border-top:1px solid #ddd; }
+		.itemList.event .evt:first-child { 
+			border-top:none; }
+			
+			/* time */	
+			.itemList.event .evt .time { 
+				width:160px; height:auto; margin:0; padding:0; overflow:hidden; float:right; clear:right;
+				white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
+				color:#8c8c8c; font-size:13px; font-weight:700; line-height:24px; text-align:right; }
+			.oldie .itemList.event .evt .time { 
+				letter-spacing:-1px; }
+			
+			/* common */
+			.itemList.event .evt .title,
+			.itemList.event .evt p { margin-right:160px!important; }
+			
+			/* title */	
+			.itemList.event .evt .title { 
+				width:auto; height:auto; margin:0; padding:0 0 8px 0; overflow:hidden;
+				color:#7d7d7d; font-size:18px; font-weight:700; line-height:24px; }
+				
+			/* a */
+			.itemList.event .evt a,
+			.itemList.event .evt a:hover,
+			.itemList.event .evt a:focus,
+			.itemList.event .evt a:active { color:#333; }
+		
+
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:640px) {
+
+	/* smaller item */
+	.itemList 					{ margin:0 0 12px 0; }
+	.itemList > .header 		{ padding:8px 16px 8px 53px; font-size:15px; font-weight:400; }
+	.itemList > .header > .icon { width:40px; height:38px; font-size:21px; line-height:38px; }
+	.itemList > .padder 		{ display:none; }
+	
+	/* smaller event item */
+	.itemList.event 			{ margin-bottom:0; }
+	.itemList.event > .padder 	{ padding:0 0 0 36px; }
+	.itemList.event > .padder 	{ display:block; }
+	.itemList.event .evt 		{ padding:12px 0 4px 0; }
+	.itemList.event .evt .time 	{ width:auto; float:none; clear:both; font-size:11px; font-weight:700; text-align:left; }
+	.itemList.event .evt .title,
+	.itemList.event .evt p 		{ margin-right:0!important; }
+	.itemList.event .evt .title { font-size:15px; font-weight:400; }
+	
 }
 
 
