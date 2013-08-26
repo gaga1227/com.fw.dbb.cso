@@ -21,9 +21,9 @@ function initIsotope(){
 	//update handler
 	function update(){
 		//check mq
-		var isotopeOn = !Modernizr.mq(mqStates.max400);
+		var isotopeRequired = Modernizr.mediaqueries ? !Modernizr.mq(mqStates.max400) : $(window).width() > 400;
 		//toggle isotope
-		if (isotopeOn) {
+		if (isotopeRequired) {
 			//check flag
 			if (isotopeIsOn) return '[isotope] already on';
 			//update flag
@@ -38,8 +38,7 @@ function initIsotope(){
 				}, function($items){
 					console.log('[isotope] anim complete');	
 				});
-				console.log('[isotope] initialised');
-				
+				console.log('[isotope] initialised');				
 			});	
 		} else {
 			//check flag
@@ -55,6 +54,80 @@ function initIsotope(){
 	update();
 	//bind update to window resize
 	$(window).bind('resize', update);
+}
+/* ------------------------------------------------------------------------------ */
+/* initClickLoading */
+/* ------------------------------------------------------------------------------ */
+function initClickLoading(){
+	//vars
+	var $container = $('.isotopeContainer'),
+		$btnLoad = $('#btnLoadMore'),
+		loadingCls = 'loading',
+		errorCls = 'error',
+		url = 'ajax-items.html';
+	
+	//loadMoreItem
+	function loadMoreItem(targetURL){
+		//vars
+		var request,
+			thisObj = this,
+			url = targetURL;
+	
+		//abort if no url or in request already
+		if (!url || this.inRequest) return false;
+	
+		//otherwise set in request status and show loader
+		this.inRequest = true;
+	
+		//show loader
+		$btnLoad.removeClass(errorCls);
+		$btnLoad.addClass(loadingCls);
+	
+		//make request call
+		request = $.ajax({
+			url:		url,
+			type:		'GET',
+			dataType:	'html',
+			success:	function(data, textStatus, jqXHR) {
+							//alert('getPage: success');
+							console.log('[loadMoreItem]: success');
+							//apply data
+							addNewItems(data);
+						},
+			complete:	function(jqXHR, textStatus) {
+							//alert('getPage: complete');
+							console.log('[loadMoreItem]: complete');
+							thisObj.inRequest = false;
+							//hide loader
+							$btnLoad.removeClass(loadingCls);
+						},
+			error:		function(jqXHR, textStatus, errorThrown) {
+							//alert('getPage: error', textStatus, errorThrown);
+							console.log('[loadMoreItem]: error', textStatus, errorThrown);
+							$btnLoad.addClass(errorCls);
+						}
+		});
+	}	
+	
+	//addNewItems
+	function addNewItems(data){
+		//console.log(data);
+		var $newItems = $(data),
+			isotopeRequired = Modernizr.mediaqueries ? !Modernizr.mq(mqStates.max400) : $(window).width() > 400;
+		//adding to DOM
+		$container.append($newItems)
+		if (isotopeRequired) {
+			$container.imagesLoaded(function(){
+				$container.isotope('appended', $newItems);
+			});
+		}
+	}
+	
+	//bind behavior
+	$btnLoad.click(function(e){
+		e.preventDefault();
+		loadMoreItem(url);
+	});
 }
 /* ------------------------------------------------------------------------------ */
 /* init */
@@ -99,6 +172,9 @@ function initLanding(){
 	
 	//isotope tiles
 	initIsotope();
+	
+	//initClickLoading
+	initClickLoading();
 	
 }
 /* DOM.ready */

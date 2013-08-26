@@ -934,7 +934,8 @@ html, body { height:100% }
 	
 	/* -------------------------------------------------------------------------- */
 	/* main */
-	#main.landing { width:auto; padding:50px 0; float:none; clear:both; min-height:0; }
+	#main.landing { width:auto; padding:50px 0; float:none; clear:both; min-height:0; 
+					overflow:hidden;/* prevent isotope caused scrollbars */ }
 		
 	/* -------------------------------------------------------------------------- */
 	/* aside */
@@ -1082,7 +1083,6 @@ html, body { height:100% }
 	position:relative; margin-top:20px; overflow:hidden; 
 	border-top:2px solid #c3c6c9; }
 	
-	
 	/* -------------------------------------------------------------------------- */
 	/* shareLinks */
 	#content .shareLinks { padding:10px 0; line-height:25px; }
@@ -1102,6 +1102,11 @@ html, body { height:100% }
 		#content .shareLinks a:hover .circle,
 		#content .shareLinks a:focus .circle,
 		#content .shareLinks a:active .circle 	{ color:#fff; background:#02cee0; }
+
+/* -------------------------------------------------------------------------- */
+/* custom */
+body.landing #utilsBtm { 
+	border-top:none; text-align:center; }
 
 /* -------------------------------------------------------------------------- */
 /* elem */
@@ -1940,7 +1945,8 @@ html, body { height:100% }
 @media only screen and (max-width:400px) {
 	
 	/* single column tiles */
-	.item.tile 	{ margin:0 0 12px 0; }
+	.item.tile 	{ width:auto; margin:0 0 12px 0; zoom:1; }
+	.item.tile > .header { position:relative; }
 
 }
 
@@ -2189,6 +2195,55 @@ html, body { height:100% }
 	.ie7 .btnIcon .icon,
 	.btnIcon .icon:before { 
 		font-size:21px; line-height:48px; }
+		
+/* -------------------------------------------------------------------------- */
+/* btnUtil */
+.btnUtil { 
+	display:inline-block; position:relative; width:auto; height:auto; margin:0 16px 16px 0; padding:0 40px; overflow:hidden;
+	background:#f5f5f5; border-top:1px solid #fff; border-left:1px solid #fff; white-space:nowrap; text-overflow:ellipsis;
+	text-decoration:none!important; outline:0 none!important; cursor:pointer;
+	/*box-shadow*/-webkit-box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15); box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15); }
+.btnUtil:hover,
+.btnUtil:focus,
+.btnUtil:active { 
+	background:#fff; text-decoration:none!important; }
+
+	/* label */
+	.btnUtil,
+	.btnUtil .label { 
+		color:#7c848a!important; text-align:center; vertical-align:middle;
+		font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; line-height:50px; }	
+	.btnUtil:hover .label,
+	.btnUtil:focus .label,
+	.btnUtil:active .label { 
+		color:#444!important; text-decoration:none!important; }	
+		
+	/* icon */
+	.btnUtil .icon,
+	.btnUtil .iconInline 		{ font-size:0; line-height:0; }
+	
+	.ie7 .btnUtil .icon,
+	.ie7 .btnUtil .iconInline,
+	.btnUtil .icon:before,
+	.btnUtil .iconInline:before { font-size:15px; line-height:50px; }
+	
+/* extend */
+.btnUtil.extraWide { margin-right:0; padding:0 150px; }
+@media only screen and (max-width:500px) {
+	/* make button stretch full */
+	.btnUtil.extraWide { 
+		display:block; padding:0 25px; 
+		border-left:none; 
+		/*box-shadow*/-webkit-box-shadow:0px 1px 1px 0px rgba(0,0,0,0.15); box-shadow:0px 1px 1px 0px rgba(0,0,0,0.15);}
+}
+
+/* custom */
+#btnLoadMore > .iconInline 		{ display:none; }
+/* loading */
+#btnLoadMore.loading > .loading { display:inline-block; }
+/* error */
+#btnLoadMore.error 				{ color:#e94b35!important; }
+#btnLoadMore.error > .error		{ display:inline-block; }
 
 
 /* ==========================================================================
