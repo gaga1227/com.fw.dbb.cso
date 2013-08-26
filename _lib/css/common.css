@@ -1596,9 +1596,17 @@ html, body { height:100% }
 			transition:color 0.3s ease-in-out, border-color 0.3s ease-in-out; }
 		
 		/* custom-form-elements */
-		.formView select 		{ position:relative; width:100%!important; height:48px!important; margin:0; padding:0; border:none; } /* same dimension as .select */
-		.formView .select 		{ position:absolute; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; } /* put <select> on top */
-		.ie7 .formView select 	{ margin-top:10px; } /* optimise position for IE7 */
+		
+		/* same dimension as .select */
+		.formView select 		{ position:relative; width:100%!important; height:44px!important; margin:0; padding:2px; border:none;
+								  /*box-sizing*/-webkit-box-sizing:content-box; -moz-box-sizing:content-box; box-sizing:content-box; } 
+		/* put <select> on top */
+		.formView .select 		{ position:absolute; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; } 
+		
+		/* optimise position for IE7 */
+		.ie7 .formView select 	{ margin-top:10px; } 
+		
+		/* icon */
 		.formView .select .icon { right:4px; top:50%; width:24px; height:24px; margin:-12px 0 0 0; font-size:14px; line-height:24px; }
 		
 		/* nesting */
@@ -1689,6 +1697,31 @@ html, body { height:100% }
 	.formView span.radio,
 	.formView span.checkbox { background-image:url(../img/radio-custom@2x.png); background-size:32px 128px; }
 	.formView span.checkbox { background-image:url(../img/checkbox-custom@2x.png); }
+}
+
+
+/* ==========================================================================
+   common - FORMVIEW FILTER
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+#formFilter { 
+	position:relative; width:460px; height:auto; margin:0; padding:0; }
+ 
+ 	/* fieldset */
+	#formFilter fieldset 	{ width:auto; margin-right:58px; }
+	
+	/* a */
+	#formFilter a 			{ position:absolute; top:0; right:0; }
+
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:640px) {
+	
+	/* full stretch filter */
+	#formFilter { width:auto; }
+
 }
 
 
@@ -2108,6 +2141,36 @@ html, body { height:100% }
 #aside .btnItem:focus,
 #aside .btnItem:active  { background:#fff; } 
 
+/* -------------------------------------------------------------------------- */
+/* btnIcon */
+.btnIcon { 
+	display:block; position:relative; width:48px; height:48px; margin:0; padding:0; overflow:hidden;
+	color:#fff; background:#1f353f; 
+	font-weight:400; font-size:21px; line-height:48px; 
+	text-decoration:none!important; outline:0 none!important; cursor:pointer;
+	/*box-shadow*/-webkit-box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15); box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15);
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+	-moz-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	-o-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+
+/* interaction */
+.btnIcon:hover,
+.btnIcon:focus,
+.btnIcon:active { 
+	background:#00aee4;
+	/*box-shadow*/-webkit-box-shadow:none; box-shadow:none; } 
+
+	/* icon */
+	.btnIcon .icon { 
+		top:0; left:0; width:100%; height:100%;
+		color:#fff!important; font-size:0; line-height:0; }
+	.ie7 .btnIcon .icon,
+	.btnIcon .icon:before { 
+		font-size:21px; line-height:48px; }
+
 
 /* ==========================================================================
    common - BG
@@ -2134,61 +2197,6 @@ html, body { height:100% }
 /* ==========================================================================
    section - HOME
    ========================================================================== */
-
-
-
-/* ==========================================================================
-   section - RESOURCES - FILTER
-   ========================================================================== */
-   
-/* -------------------------------------------------------------------------- */
-/* container */
-#formResFilterContainer { 
-	position:relative; width:100%; height:auto; margin:4% 0 0 0; padding:0; overflow:hidden;
-	background:#f5f3f0; }
-	
-	/* -------------------------------------------------------------------------- */
-	/* padder */
-	#formResFilterContainer .padder { position:relative; width:auto; padding:3%; }
-		
-		/* -------------------------------------------------------------------------- */
-		/* titleFeat */
-		#formResFilterContainer .titleFeat { width:auto; float:left; clear:left; font-size:26px; line-height:40px; }
-		#formResFilterContainer .titleFeat .label:before { display:none; }
-		
-		/* -------------------------------------------------------------------------- */
-		/* form */
-		#formResFilter { width:auto; margin:0 0 0 80px; }
-		
-			/* fieldset */
-			#formResFilter fieldset { width:41%; margin:0; margin-right:1%; float:left; }
-			
-			/* select */
-			#formResFilter select { width:100%; }
-			#formResFilter .select { width:80.25%; padding-left:4%; padding-right:15%; }
-			#formResFilter .select .icon { width:15%; }
-			
-			/* btn */
-			#formResFilter .btnForm { display:block; width:auto; margin:0; float:right; clear:right; }
-			#formResFilter .btnBox,
-			#formResFilter .btnBox .label { height:40px; line-height:40px; }
-		
-/* responsive */
-@media only screen and (max-width:640px) {
-
-	/* hide title */
-	#formResFilterContainer .titleFeat { display:none; }
-	#formResFilter { margin:0; }
-	
-}
-@media only screen and (max-width:500px) {
-	
-	/* update to stacking order */
-	#formResFilter fieldset,
-	#formResFilter .btnForm  { width:auto; margin:0; margin:0 0 3% 0; float:none; clear:both; }
-	#formResFilter .btnForm { margin:0; }
-				
-}		
 
 
 /* ==========================================================================

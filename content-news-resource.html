@@ -49,6 +49,7 @@
 <script type="text/javascript" src="_lib/js/video-js/video.js"></script><!-- videoJS -->
 <script type="text/javascript" src="_lib/js/mejs/mediaelement-and-player.js"></script><!-- mejs -->
 <script type="text/javascript" src="_lib/js/placeholders.js"></script><!-- placeholders -->
+<script type="text/javascript" src="_lib/js/custom-form-elements.js"></script><!-- custom-form-elements -->
 <!-- JS:FW -->
 <script type="text/javascript" src="_lib/js/fw.utils.js"></script><!-- utils -->
 <script type="text/javascript" src="_lib/js/fw.widgets.js"></script><!-- widgets -->
@@ -119,7 +120,19 @@
 			<div class="padder clearfix">
 				<!-- MAIN -->
 				<div class="main">
-					<p>Filter to be added</p>
+					<!-- FORM -->
+					<form id="formFilter" class="formView" action="/">
+						<fieldset>
+							<select id="fmFilter" name="fmFilter" class="styled" data-icon="icon fwicon-scroll">
+								<option value="0">View All Types</option>
+								<option value="1">Video</option>
+								<option value="2">Music</option>
+								<option value="3">Reference</option>
+								<option value="4">Links</option>
+							</select>
+						</fieldset>
+						<a class="btnIcon" href="javascript:$('#formFilter').submit();"><i class="icon icon-search"></i></a>					
+					</form><!-- /FORM -->
 				</div><!-- /MAIN -->
 			</div>
 		</div>
