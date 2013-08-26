@@ -931,6 +931,10 @@ html, body { height:100% }
 	/* -------------------------------------------------------------------------- */
 	/* main */
 	#main 	{ width:68.75%; padding:40px 0 90px 0; float:left; clear:left; min-height:400px; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* main */
+	#main.landing { width:auto; padding:50px 0; float:none; clear:both; min-height:0; }
 		
 	/* -------------------------------------------------------------------------- */
 	/* aside */
@@ -945,19 +949,21 @@ html, body { height:100% }
 @media only screen and (max-width:960px) {
 
 	/* adjust grid */
-	#main 	{ width:66.75%; padding-left:3%; }
-	#aside 	{ width:27.50%;	}
+	#main 			{ width:66.75%; padding-left:3%; }
+	#main.landing 	{ width:auto; padding:50px 25px; }
+	#aside 			{ width:27.50%;	}
 
 }
 @media only screen and (max-width:800px) { 
 	 
 	/* adjust gaps */
-	#main 	{ padding:25px; padding-bottom:0; min-height:0; }
-	#aside 	{ padding:0; }
+	#main,
+	#main.landing 	{ padding:25px; padding-bottom:0; min-height:0; }
+	#aside 			{ padding:0; }
 	
 	/* stacking order */
 	#main,
-	#aside 	{ width:auto; float:none; clear:both; }
+	#aside 			{ width:auto; float:none; clear:both; }
 	
 	/* remove shift up */
 	#aside.shiftUp,
@@ -967,7 +973,8 @@ html, body { height:100% }
 @media only screen and (max-width:500px) {
 
 	/* adjust gaps */
-	#main 	{ padding:12px; padding-bottom:0; }
+	#main,
+	#main.landing 	{ padding:12px; padding-bottom:0; }
 
 }
 		
@@ -1871,6 +1878,10 @@ html, body { height:100% }
 .item.stack { margin-bottom:0; border-bottom:1px solid #ddd; }
 
 /* -------------------------------------------------------------------------- */
+/* extend - tile */
+.item.tile { width:300px; margin:0 10px 20px 10px; }
+
+/* -------------------------------------------------------------------------- */
 /* extend - school */
 .item.school 					{ background:#f9f9f9;}
 .item.school > .content 		{ border-top:1px solid #ddd; }
@@ -1899,17 +1910,19 @@ html, body { height:100% }
 	/* universal */
 	
 	/* remove gap */
-	.item { margin:0; }
+	.item 		{ margin:0; }
+	.item.tile 	{ margin:0 10px 20px 10px; }
 	
 	/* hide imgThumb */
-	.item .imgThumb { display:none; }
+	.item .imgThumb 		{ display:none; }
+	.item.tile .imgThumb 	{ display:block; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* news/events */
 	
 	/* hide description */
 	.item.news  .p,
-	.item.event .p 		{ display:none; }
+	.item.event .p 		{ display:none; }	
 	.item.news  .title,
 	.item.event .title 	{ padding-bottom:0; }
 
@@ -1920,8 +1933,14 @@ html, body { height:100% }
 	/* universal */
 	
 	/* smaller title */
-	.item .title	{ font-size:16px; }
-	.item .p 		{ font-size:14px; }
+	.item .title		{ font-size:16px; }
+	.item .p 			{ font-size:14px; }
+
+}
+@media only screen and (max-width:400px) {
+	
+	/* single column tiles */
+	.item.tile 	{ margin:0 0 12px 0; }
 
 }
 
@@ -2101,7 +2120,7 @@ html, body { height:100% }
 .btnItem { 
 	display:block; position:relative; width:auto; height:auto; margin:0; padding:8px 25px 8px 20px; overflow:hidden;
 	white-space:nowrap; text-overflow:ellipsis;
-	color:#444; background:#fff; border-bottom:1px solid #ddd;
+	color:#444; background:#fff; border-top:1px solid #ddd;
 	font-size:13px; font-weight:700; line-height:16px; text-transform:uppercase;
 	text-decoration:none!important; outline:0 none!important; cursor:pointer;
 	/*transition*/
@@ -2110,7 +2129,7 @@ html, body { height:100% }
 	-moz-transition:background-color 0.3s ease-in-out;
 	-o-transition:background-color 0.3s ease-in-out;
 	transition:background-color 0.3s ease-in-out; }
-.btnItem:last-child { border:none; }
+/*.btnItem:last-child { border:none; }*/
 
 /* interaction */
 .btnItem:hover,
