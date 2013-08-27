@@ -124,7 +124,7 @@ function initDatepicker(){
 		format = 'dd-mm-yy';
 	
 	//exit if no instance
-	if ( !$datepickers.length ) return false;
+	if ( !$datepickers.length || typeof($.fn.datepicker) != 'function' ) return false;
 	
 	//process instances
 	$.each($datepickers, function(idx,ele){
