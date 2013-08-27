@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /*
 Animate.css - http://daneden.me/animate
-Licensed under the MIT license
+Licensed under the ☺ license (http://licence.visualidiot.com/)
 
-Copyright (c) 2013 Daniel Eden
+Copyright (c) 2012 Dan Eden
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -11,9 +11,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
-	-webkit-backface-visibility: hidden;
-}
+
 .animated {
 	-webkit-animation-duration: 1s;
 	   -moz-animation-duration: 1s;
@@ -52,7 +50,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	25%, 75% {opacity: 0;}
 }
 
-.animated.flash {
+.flash {
 	-webkit-animation-name: flash;
 	-moz-animation-name: flash;
 	-o-animation-name: flash;
@@ -82,7 +80,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	20%, 40%, 60%, 80% {transform: translateX(10px);}
 }
 
-.animated.shake {
+.shake {
 	-webkit-animation-name: shake;
 	-moz-animation-name: shake;
 	-o-animation-name: shake;
@@ -111,7 +109,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	60% {transform: translateY(-15px);}
 }
 
-.animated.bounce {
+.bounce {
 	-webkit-animation-name: bounce;
 	-moz-animation-name: bounce;
 	-o-animation-name: bounce;
@@ -149,7 +147,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% {transform: scale(1) rotate(0);}
 }
 
-.animated.tada {
+.tada {
 	-webkit-animation-name: tada;
 	-moz-animation-name: tada;
 	-o-animation-name: tada;
@@ -188,7 +186,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% { transform: rotate(0deg); }
 }
 
-.animated.swing {
+.swing {
 	-webkit-transform-origin: top center;
 	-moz-transform-origin: top center;
 	-o-transform-origin: top center;
@@ -240,7 +238,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   100% { transform: translateX(0%); }
 }
 
-.animated.wobble {
+.wobble {
 	-webkit-animation-name: wobble;
 	-moz-animation-name: wobble;
 	-o-animation-name: wobble;
@@ -269,7 +267,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
     100% { transform: scale(1); }
 }
 
-.animated.pulse {
+.pulse {
 	-webkit-animation-name: pulse;
 	-moz-animation-name: pulse;
 	-o-animation-name: pulse;
@@ -364,7 +362,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.flip {
+.flip {
 	-webkit-backface-visibility: visible !important;
 	-webkit-animation-name: flip;
 	-moz-backface-visibility: visible !important;
@@ -451,7 +449,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
     }
 }
 
-.animated.flipInX {
+.flipInX {
 	-webkit-backface-visibility: visible !important;
 	-webkit-animation-name: flipInX;
 	-moz-backface-visibility: visible !important;
@@ -505,7 +503,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
     }
 }
 
-.animated.flipOutX {
+.flipOutX {
 	-webkit-animation-name: flipOutX;
 	-webkit-backface-visibility: visible !important;
 	-moz-animation-name: flipOutX;
@@ -592,7 +590,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
     }
 }
 
-.animated.flipInY {
+.flipInY {
 	-webkit-backface-visibility: visible !important;
 	-webkit-animation-name: flipInY;
 	-moz-backface-visibility: visible !important;
@@ -643,7 +641,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
     }
 }
 
-.animated.flipOutY {
+.flipOutY {
 	-webkit-backface-visibility: visible !important;
 	-webkit-animation-name: flipOutY;
 	-moz-backface-visibility: visible !important;
@@ -673,7 +671,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% {opacity: 1;}
 }
 
-.animated.fadeIn {
+.fadeIn {
 	-webkit-animation-name: fadeIn;
 	-moz-animation-name: fadeIn;
 	-o-animation-name: fadeIn;
@@ -727,7 +725,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInUp {
+.fadeInUp {
 	-webkit-animation-name: fadeInUp;
 	-moz-animation-name: fadeInUp;
 	-o-animation-name: fadeInUp;
@@ -781,7 +779,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInDown {
+.fadeInDown {
 	-webkit-animation-name: fadeInDown;
 	-moz-animation-name: fadeInDown;
 	-o-animation-name: fadeInDown;
@@ -835,7 +833,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInLeft {
+.fadeInLeft {
 	-webkit-animation-name: fadeInLeft;
 	-moz-animation-name: fadeInLeft;
 	-o-animation-name: fadeInLeft;
@@ -889,7 +887,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInRight {
+.fadeInRight {
 	-webkit-animation-name: fadeInRight;
 	-moz-animation-name: fadeInRight;
 	-o-animation-name: fadeInRight;
@@ -943,7 +941,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInUpBig {
+.fadeInUpBig {
 	-webkit-animation-name: fadeInUpBig;
 	-moz-animation-name: fadeInUpBig;
 	-o-animation-name: fadeInUpBig;
@@ -997,7 +995,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInDownBig {
+.fadeInDownBig {
 	-webkit-animation-name: fadeInDownBig;
 	-moz-animation-name: fadeInDownBig;
 	-o-animation-name: fadeInDownBig;
@@ -1048,7 +1046,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInLeftBig {
+.fadeInLeftBig {
 	-webkit-animation-name: fadeInLeftBig;
 	-moz-animation-name: fadeInLeftBig;
 	-o-animation-name: fadeInLeftBig;
@@ -1102,7 +1100,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeInRightBig {
+.fadeInRightBig {
 	-webkit-animation-name: fadeInRightBig;
 	-moz-animation-name: fadeInRightBig;
 	-o-animation-name: fadeInRightBig;
@@ -1128,7 +1126,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% {opacity: 0;}
 }
 
-.animated.fadeOut {
+.fadeOut {
 	-webkit-animation-name: fadeOut;
 	-moz-animation-name: fadeOut;
 	-o-animation-name: fadeOut;
@@ -1179,7 +1177,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutUp {
+.fadeOutUp {
 	-webkit-animation-name: fadeOutUp;
 	-moz-animation-name: fadeOutUp;
 	-o-animation-name: fadeOutUp;
@@ -1233,7 +1231,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutDown {
+.fadeOutDown {
 	-webkit-animation-name: fadeOutDown;
 	-moz-animation-name: fadeOutDown;
 	-o-animation-name: fadeOutDown;
@@ -1287,7 +1285,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutLeft {
+.fadeOutLeft {
 	-webkit-animation-name: fadeOutLeft;
 	-moz-animation-name: fadeOutLeft;
 	-o-animation-name: fadeOutLeft;
@@ -1341,7 +1339,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutRight {
+.fadeOutRight {
 	-webkit-animation-name: fadeOutRight;
 	-moz-animation-name: fadeOutRight;
 	-o-animation-name: fadeOutRight;
@@ -1395,7 +1393,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutUpBig {
+.fadeOutUpBig {
 	-webkit-animation-name: fadeOutUpBig;
 	-moz-animation-name: fadeOutUpBig;
 	-o-animation-name: fadeOutUpBig;
@@ -1449,7 +1447,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutDownBig {
+.fadeOutDownBig {
 	-webkit-animation-name: fadeOutDownBig;
 	-moz-animation-name: fadeOutDownBig;
 	-o-animation-name: fadeOutDownBig;
@@ -1503,7 +1501,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutLeftBig {
+.fadeOutLeftBig {
 	-webkit-animation-name: fadeOutLeftBig;
 	-moz-animation-name: fadeOutLeftBig;
 	-o-animation-name: fadeOutLeftBig;
@@ -1554,7 +1552,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.fadeOutRightBig {
+.fadeOutRightBig {
 	-webkit-animation-name: fadeOutRightBig;
 	-moz-animation-name: fadeOutRightBig;
 	-o-animation-name: fadeOutRightBig;
@@ -1640,7 +1638,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceIn {
+.bounceIn {
 	-webkit-animation-name: bounceIn;
 	-moz-animation-name: bounceIn;
 	-o-animation-name: bounceIn;
@@ -1725,7 +1723,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceInUp {
+.bounceInUp {
 	-webkit-animation-name: bounceInUp;
 	-moz-animation-name: bounceInUp;
 	-o-animation-name: bounceInUp;
@@ -1811,7 +1809,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceInDown {
+.bounceInDown {
 	-webkit-animation-name: bounceInDown;
 	-moz-animation-name: bounceInDown;
 	-o-animation-name: bounceInDown;
@@ -1897,7 +1895,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceInLeft {
+.bounceInLeft {
 	-webkit-animation-name: bounceInLeft;
 	-moz-animation-name: bounceInLeft;
 	-o-animation-name: bounceInLeft;
@@ -1983,7 +1981,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceInRight {
+.bounceInRight {
 	-webkit-animation-name: bounceInRight;
 	-moz-animation-name: bounceInRight;
 	-o-animation-name: bounceInRight;
@@ -2069,7 +2067,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}	
 }
 
-.animated.bounceOut {
+.bounceOut {
 	-webkit-animation-name: bounceOut;
 	-moz-animation-name: bounceOut;
 	-o-animation-name: bounceOut;
@@ -2139,7 +2137,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceOutUp {
+.bounceOutUp {
 	-webkit-animation-name: bounceOutUp;
 	-moz-animation-name: bounceOutUp;
 	-o-animation-name: bounceOutUp;
@@ -2209,7 +2207,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceOutDown {
+.bounceOutDown {
 	-webkit-animation-name: bounceOutDown;
 	-moz-animation-name: bounceOutDown;
 	-o-animation-name: bounceOutDown;
@@ -2279,7 +2277,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceOutLeft {
+.bounceOutLeft {
 	-webkit-animation-name: bounceOutLeft;
 	-moz-animation-name: bounceOutLeft;
 	-o-animation-name: bounceOutLeft;
@@ -2349,7 +2347,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.bounceOutRight {
+.bounceOutRight {
 	-webkit-animation-name: bounceOutRight;
 	-moz-animation-name: bounceOutRight;
 	-o-animation-name: bounceOutRight;
@@ -2408,7 +2406,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateIn {
+.rotateIn {
 	-webkit-animation-name: rotateIn;
 	-moz-animation-name: rotateIn;
 	-o-animation-name: rotateIn;
@@ -2470,7 +2468,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateInUpLeft {
+.rotateInUpLeft {
 	-webkit-animation-name: rotateInUpLeft;
 	-moz-animation-name: rotateInUpLeft;
 	-o-animation-name: rotateInUpLeft;
@@ -2532,7 +2530,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateInDownLeft {
+.rotateInDownLeft {
 	-webkit-animation-name: rotateInDownLeft;
 	-moz-animation-name: rotateInDownLeft;
 	-o-animation-name: rotateInDownLeft;
@@ -2594,7 +2592,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateInUpRight {
+.rotateInUpRight {
 	-webkit-animation-name: rotateInUpRight;
 	-moz-animation-name: rotateInUpRight;
 	-o-animation-name: rotateInUpRight;
@@ -2656,7 +2654,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateInDownRight {
+.rotateInDownRight {
 	-webkit-animation-name: rotateInDownRight;
 	-moz-animation-name: rotateInDownRight;
 	-o-animation-name: rotateInDownRight;
@@ -2718,7 +2716,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateOut {
+.rotateOut {
 	-webkit-animation-name: rotateOut;
 	-moz-animation-name: rotateOut;
 	-o-animation-name: rotateOut;
@@ -2774,13 +2772,13 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 	
 	100% {
-		transform-origin: left bottom;
-		transform: rotate(-90deg);
+		-transform-origin: left bottom;
+		-transform: rotate(-90deg);
 		opacity: 0;
 	}
 }
 
-.animated.rotateOutUpLeft {
+.rotateOutUpLeft {
 	-webkit-animation-name: rotateOutUpLeft;
 	-moz-animation-name: rotateOutUpLeft;
 	-o-animation-name: rotateOutUpLeft;
@@ -2842,7 +2840,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateOutDownLeft {
+.rotateOutDownLeft {
 	-webkit-animation-name: rotateOutDownLeft;
 	-moz-animation-name: rotateOutDownLeft;
 	-o-animation-name: rotateOutDownLeft;
@@ -2904,7 +2902,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateOutUpRight {
+.rotateOutUpRight {
 	-webkit-animation-name: rotateOutUpRight;
 	-moz-animation-name: rotateOutUpRight;
 	-o-animation-name: rotateOutUpRight;
@@ -2966,7 +2964,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rotateOutDownRight {
+.rotateOutDownRight {
 	-webkit-animation-name: rotateOutDownRight;
 	-moz-animation-name: rotateOutDownRight;
 	-o-animation-name: rotateOutDownRight;
@@ -3004,7 +3002,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% { transform: translateY(700px); opacity: 0; }
 }
 
-.animated.hinge {
+.hinge {
 	-webkit-animation-name: hinge;
 	-moz-animation-name: hinge;
 	-o-animation-name: hinge;
@@ -3032,7 +3030,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% { opacity: 1; transform: translateX(0px) rotate(0deg); }
 }
 
-.animated.rollIn {
+.rollIn {
 	-webkit-animation-name: rollIn;
 	-moz-animation-name: rollIn;
 	-o-animation-name: rollIn;
@@ -3088,7 +3086,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 }
 
-.animated.rollOut {
+.rollOut {
 	-webkit-animation-name: rollOut;
 	-moz-animation-name: rollOut;
 	-o-animation-name: rollOut;
@@ -3125,7 +3123,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% { transform: translateX(0%) skewX(0deg); opacity: 1; }
 }
 
-.animated.lightSpeedIn {
+.lightSpeedIn {
     -webkit-animation-name: lightSpeedIn;
     -moz-animation-name: lightSpeedIn;
     -o-animation-name: lightSpeedIn;
@@ -3166,7 +3164,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% { transform: translateX(100%) skewX(-30deg); opacity: 0; }
 }
 
-.animated.lightSpeedOut {
+.lightSpeedOut {
     -webkit-animation-name: lightSpeedOut;
     -moz-animation-name: lightSpeedOut;
     -o-animation-name: lightSpeedOut;
@@ -3243,7 +3241,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% { transform: skewX(0deg); }
 }
 
-.animated.wiggle {
+.wiggle {
     -webkit-animation-name: wiggle;
     -moz-animation-name: wiggle;
     -o-animation-name: wiggle;
