@@ -3,13 +3,30 @@
 /* ------------------------------------------------------------------------------ */
 WebFontConfig = { 
 	google: 		{ families: [ 'Merriweather:400,700:latin', 'Montserrat:400,700:latin' ] },
-	loading: 		function() { console.log('wf loading'); onWFLoading(); },
-	active: 		function() { console.log('wf active'); onWFActive(); },
-	inactive: 		function() { console.log('wf inactive'); onWFInactive(); },
-	fontloading: 	function( familyName, fvd ) { console.log( familyName, fvd, 'loading' ); },
-	fontactive: 	function( familyName, fvd ) { console.log( familyName, fvd, 'active' ); },
-	fontinactive: 	function( familyName, fvd ) { console.log( familyName, fvd, 'inactive' ); } 
+	loading: 		function() { console.log('[WF] loading'); 	WebFontUtils.onWFLoading(); },
+	active: 		function() { console.log('[WF] active'); 	WebFontUtils.onWFActive(); 	 WebFontUtils.onWFComplete(); },
+	inactive: 		function() { console.log('[WF] inactive'); 	WebFontUtils.onWFInactive(); WebFontUtils.onWFComplete(); },
+	fontloading: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'loading' ); },
+	fontactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'active' ); },
+	fontinactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'inactive' ); },
+	timeout: 		5000
 };
+WebFontUtils = {
+	onWFLoading: 	function()	{
+									//show loader
+									
+								},
+	onWFComplete: 	function()	{
+									//hide loader
+									
+									//isotope tiles
+									if ( $('body#home').length || $('body.landing').length ) {
+										$isotope = new initIsotope();
+									}
+								},
+	onWFActive: 	function()	{},
+	onWFInactive: 	function()	{}
+}
 /* ------------------------------------------------------------------------------ */
 /* initIsotope */
 /* ------------------------------------------------------------------------------ */
@@ -309,16 +326,6 @@ function initHome(){
 function initLanding(){
 	//initClickLoading
 	initClickLoading();
-}
-function onWFLoading(){
-}
-function onWFActive(){
-	//isotope tiles
-	if ( $('body#home').length || $('body.landing').length ) {
-		$isotope = new initIsotope();
-	}	
-}
-function onWFInactive(){
 }
 /* DOM Ready */
 $(document).ready(function(){

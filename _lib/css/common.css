@@ -75,10 +75,19 @@ a {
    ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
+/* loader */
+#loader { 
+	display:none; position:absolute; top:180px; left:50%; width:60px; height:60px; margin:0 0 0 -30px; padding:0; overflow:hidden;
+	color:#666; background:#fff;
+	font-size:42px; line-height:60px;
+	/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+
+/* -------------------------------------------------------------------------- */
 /* webfont */
 
 /* loading */
-.js body { 
+.js #container { 
 	visibility:hidden; opacity:0;
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
@@ -87,9 +96,15 @@ a {
 	-o-transition:opacity 0.3s ease-in-out;
 	transition:opacity 0.3s ease-in-out; }
 
+/* loading */
+.wf-loading #loader 	{ display:block; }
+
 /* active */
-.wf-active body { 
-	visibility:visible; opacity:1; }
+.wf-active #container,
+.wf-inactive #container	{ visibility:visible; opacity:1; }
+
+.wf-active #loader,
+.wf-inactive #loader 	{ display:none!important; }
 
 /* -------------------------------------------------------------------------- */
 /* body */
@@ -140,7 +155,14 @@ html, body { height:100% }
 /* pageBg */
 #pageBg { 
 	display:none; position:absolute; top:0; left:0; width:100%; height:1200px; margin:0; padding:0; overflow:hidden; z-index:-999;
-	background:url(../img/bg-tile-shadow.png) 0 0 repeat-x; }
+	background:url(../img/bg-tile-shadow.png) 0 0 repeat-x;
+	visibility:hidden; opacity:0;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:opacity 0.3s ease-in-out;
+	-moz-transition:opacity 0.3s ease-in-out;
+	-o-transition:opacity 0.3s ease-in-out;
+	transition:opacity 0.3s ease-in-out; }
 	
 	#pageBgArt { 
 		position:absolute; top:0; left:0; width:100%; height:100%;
@@ -150,7 +172,8 @@ html, body { height:100% }
 @media only screen and (min-width:1400px) {
 	
 	/* force shown */
-	#pageBg { display:block!important; }
+	.wf-active #pageBg,
+	.wf-inactive #pageBg { display:block!important; visibility:visible; opacity:1; }
 
 }
 
