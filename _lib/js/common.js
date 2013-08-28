@@ -3,9 +3,9 @@
 /* ------------------------------------------------------------------------------ */
 WebFontConfig = { 
 	google: 		{ families: [ 'Merriweather:400,700:latin', 'Montserrat:400,700:latin' ] },
-	loading: 		function() { console.log('wf loading'); },
-	active: 		function() { console.log('wf active'); },
-	inactive: 		function() { console.log('wf inactive'); },
+	loading: 		function() { console.log('wf loading'); onWFLoading(); },
+	active: 		function() { console.log('wf active'); onWFActive(); },
+	inactive: 		function() { console.log('wf inactive'); onWFInactive(); },
 	fontloading: 	function( familyName, fvd ) { console.log( familyName, fvd, 'loading' ); },
 	fontactive: 	function( familyName, fvd ) { console.log( familyName, fvd, 'active' ); },
 	fontinactive: 	function( familyName, fvd ) { console.log( familyName, fvd, 'inactive' ); } 
@@ -34,7 +34,10 @@ function initIsotope(){
 				$container.isotope({
 					itemSelector:	'.item.tile',
 					layoutMode:		'masonry',
-					masonry:		{ columnWidth: colW }
+					masonry:		{ 
+										columnWidth: colW,
+										cornerStampSelector: '.corner-stamp'
+									}
 				}, function($items){
 					console.log('[isotope] anim complete');	
 				});
@@ -146,7 +149,7 @@ function initBannerSlides(){
 		$btnMore = $banner.find('.btnMore'),
 		
 		//settings
-		autoplay = false,
+		autoplay = ($banner.attr('data-autoplay')=='1') ? true : false,
 		pauseonhover = Modernizr.touch ? false : true,
 		effect = 'fade',
 		
@@ -247,7 +250,7 @@ function initHomeFilter(){
 		e.preventDefault();
 		var $tab = $(this),
 			idx = $tab.attr('id').substr(6,1),
-			filter = $tab.attr('data-filter'),
+			selector = $tab.attr('data-filter'),
 			activeCls = 'active' + idx;
 		//update active class
 		$container.removeClass('active1 active2 active3 hover1 hover2 hover3');
@@ -256,7 +259,7 @@ function initHomeFilter(){
 		$tabs.removeClass('selected');
 		$tab.addClass('selected');
 		//isotope filter
-		if ($isotope.length) $isotope.isotope({ filter: '.' + filter });
+		if ($isotope.length) $isotope.isotope({ filter: selector });
 	}
 	
 	//hover
@@ -276,7 +279,6 @@ function initHomeFilter(){
 /* ------------------------------------------------------------------------------ */
 var BannerSlides, $isotope, SelectNav, Slideshows, StaticAudios, StaticVideos;
 function init(){
-	
 	//layout assistance
 	insertFirstLastChild('#navItems, #sideNav, #sideNav ul');
 	
@@ -297,21 +299,26 @@ function init(){
 	
 	//debug
 	displayDebugInfo('#debugInfo');
-	
 }
 function initHome(){
 	//banner slideshow
 	BannerSlides = new initBannerSlides();
-	//isotope tiles
-	$isotope = new initIsotope();
 	//filter
 	initHomeFilter();
 }
 function initLanding(){
-	//isotope tiles
-	$isotope = new initIsotope();
 	//initClickLoading
 	initClickLoading();
+}
+function onWFLoading(){
+}
+function onWFActive(){
+	//isotope tiles
+	if ( $('body#home').length || $('body.landing').length ) {
+		$isotope = new initIsotope();
+	}	
+}
+function onWFInactive(){
 }
 /* DOM Ready */
 $(document).ready(function(){

@@ -620,7 +620,7 @@ html, body { height:100% }
 	/* -------------------------------------------------------------------------- */
 	/* padder */
 	#banner > .padder { 
-		position:absolute; top:0; left:50%; width:100%; height:100%; margin:0 0 0 -480px; z-index:10;
+		position:absolute; top:0; left:50%; width:100%; height:100%; margin:0 0 0 -480px; z-index:11;
 		color:#fff; }
 		
 		/* -------------------------------------------------------------------------- */	
@@ -1800,7 +1800,7 @@ body.landing #utilsBtm {
 	.item > .header { 
 		position:relative; width:auto; height:34px; margin:0; padding:0 25px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis;
-		color:#fff; background:#526c7a; border-top:1px solid rgba(255,255,255,0.8);
+		color:#fff; background:#526c7a; border-top:1px solid rgba(255,255,255,0.6);
 		font-size:13px; font-weight:700; line-height:34px; text-transform:uppercase; }
 		
 	/* a.header */
@@ -2309,6 +2309,42 @@ body.landing #utilsBtm {
    ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
+/* notice */
+body#home #banner #notice { position:absolute; left:10px; bottom:0; width:313px; margin:0; z-index:100; }
+	
+	/* item */
+	body#home #banner #notice .item { margin:0; }
+	
+		/* icon */
+		body#home #banner #notice .item .icon { 
+			top:0; right:15px; width:22px; height:34px; margin:0;
+			font-size:21px; line-height:34px; }
+	
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:960px) {
+	
+	/* update container */
+	body#home #banner #notice { left:0; width:33.33%; }
+
+}
+@media only screen and (max-width:800px) {
+
+	/* shrink text */
+	body#home #banner #notice .item .header { padding:0; font-size:11px; text-align:center; }
+
+	/* hide icon */
+	body#home #banner #notice .item .icon { display:none; }
+	
+}
+@media only screen and (max-width:640px) {
+
+	/* hide notice */
+	body#home #banner #notice { display:none; }
+	
+}
+
+/* -------------------------------------------------------------------------- */
 /* utilsTop */
 body#home #utilsTop > .padder { 
 	padding:0!important; }
@@ -2518,6 +2554,100 @@ body#home #filterTabs {
 
 }
 
+/* -------------------------------------------------------------------------- */
+/* relatedNews */
+body#home #relatedNews {  }
+
+/* -------------------------------------------------------------------------- */
+/* formSchool */
+body#home #findSchool { 
+	position:relative; width:620px; height:auto; margin:0 10px 20px 10px; padding:0; overflow:hidden;
+	color:#fff; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* btnText */
+	body#home #findSchool .btnMapSearch { display:block; margin:0; }
+	
+		/* text */
+		body#home #findSchool .btnMapSearch,
+		body#home #findSchool .btnMapSearch .label { display:inline-block; vertical-align:middle; color:#fff!important; }
+		
+		/* icon */
+		.ie7 body#home #findSchool .btnMapSearch .iconInline,
+		body#home #findSchool .btnMapSearch .iconInline:before { font-size:26px; line-height:1em; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* header */
+	body#home #findSchool > .header { height:54px; text-transform:none; }
+	
+		/* content */
+		body#home #findSchool > .header > .label { font-family:'Merriweather',serif; font-weight:700; font-size:24px; line-height:54px; }
+		body#home #findSchool > .header > .btnMapSearch { margin-top:15px; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* formFindSchool/padder/form */
+	body#home #findSchool #formFindSchool { padding:40px 73px 40px 25px; overflow:visible; } 
+		
+		/* placeholder */
+		body#home #formFindSchool ::-webkit-input-placeholder 	{ color:#2b3942; }
+		body#home #formFindSchool :-moz-placeholder 			{ color:#2b3942; }
+		body#home #formFindSchool ::-moz-placeholder 			{ color:#2b3942; }
+		body#home #formFindSchool :-ms-input-placeholder		{ color:#2b3942; }
+		
+		/* -------------------------------------------------------------------------- */
+		/* fieldsets */
+		body#home #findSchool #fldset1 { float:left; width:43%; margin-right:2%; }
+		
+		body#home #findSchool #fldset2 { float:left; width:53%; }
+		
+		/* fldset3 */
+		body#home #findSchool #fldset3 { position:absolute; top:40px; right:25px; width:48px; height:48px; }
+			
+			/* btnMapSearch */
+			body#home #findSchool #fldset3 .btnMapSearch { display:none; }
+			
+			/* btnSearch */
+			body#home #findSchool #fldset3 .btnFormSearch 			{ background:#395233; }
+			body#home #findSchool #fldset3 .btnFormSearch:hover,
+			body#home #findSchool #fldset3 .btnFormSearch:focus,
+			body#home #findSchool #fldset3 .btnFormSearch:active 	{ background:#1f353f; }	
+	
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:960px) {
+
+	/* -------------------------------------------------------------------------- */
+	/* updated to flexible stacking layout */
+	
+	/* container */
+	body#home #findSchool { width:300px; }
+	
+	/* header */
+	body#home #findSchool > .header 				{ height:34px; text-transform:uppercase; }
+	body#home #findSchool > .header > .label 		{ font-family:'Montserrat',sans-serif; font-size:13px; line-height:34px; }
+	body#home #findSchool > .header > .btnMapSearch { display:none; }
+	
+	/* formFindSchool/padder/form */
+	body#home #findSchool #formFindSchool { padding:20px 25px; } 
+		
+		/* fieldsets */	
+		body#home #findSchool #fldset1 { float:none; width:auto; margin:0 0 6px 0; }
+		body#home #findSchool #fldset2 { float:none; width:auto; margin:0 0 12px 0; }
+		body#home #findSchool #fldset3 { position:relative; top:auto; right:auto; width:auto; height:auto; }
+			
+			/* btnMapSearch */
+			body#home #findSchool #fldset3 .btnMapSearch 	{ display:inline-block; margin:12px 0 0 0; }
+			
+			/* btnSearch */
+			body#home #findSchool #fldset3 .btnFormSearch  	{ float:right; }
+	
+}
+@media only screen and (max-width:400px) {
+
+	/* update container */
+	body#home #findSchool { width:auto; margin:0 0 12px 0; }
+
+}
 
 /* ==========================================================================
    common - ANIMATION

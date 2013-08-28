@@ -38,11 +38,26 @@ $.Isotope.prototype._masonryReset = function() {
 	this.masonry = {};
 	// FIXME shouldn't have to call this again
 	this._getCenteredMasonryColumns();
+	//corner stamp
+	//this._getSegments();
 	var i = this.masonry.cols;
 	this.masonry.colYs = [];
 	while (i--) {
 	  this.masonry.colYs.push( 0 );
 	}
+	//corner stamp
+	/*
+	if ( this.options.masonry.cornerStampSelector ) {
+		var $cornerStamp = this.element.find( this.options.masonry.cornerStampSelector ),
+			stampWidth = $cornerStamp.outerWidth(true) - ( this.element.width() % this.masonry.columnWidth ),
+			cornerCols = Math.ceil( stampWidth / this.masonry.columnWidth ),
+			cornerStampHeight = $cornerStamp.outerHeight(true);
+		for ( i = Math.max( this.masonry.cols - cornerCols, cornerCols ); i < this.masonry.cols; i++ ) {
+			this.masonry.colYs[i] = cornerStampHeight;
+			console.log(this.masonry.cols);
+		}
+	}
+	*/
 };
 $.Isotope.prototype._masonryResizeChanged = function() {
 	var prevColCount = this.masonry.cols;
