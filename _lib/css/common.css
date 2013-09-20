@@ -116,22 +116,23 @@ body.ps {
 	/* -------------------------------------------------------------------------- */
 	/* blockings */
 	#container, 
-		#header, #nav, #banner, #content, #utilsTop, #megafooter, #footer,
+		#header, #nav, #banner, #content, #utilsTop, #megafooter, #footer, .section,
 			#header 	> .padder,
 			#nav 		> .padder,
 			#banner 	> .padder,
 			#content 	> .padder,
 			#utilsTop	> .padder,
 			#megafooter > .padder,
-			#footer 	> .padder { 
-		position:relative; width:auto; height:auto; margin:0 auto; padding:0; }
-	
+			#footer 	> .padder,
+			.section 	> .padder { 
+		display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; }
+		
 	/* container */
 	#container { 
 		min-width:0px; max-width:1440px; }
 	
 	/* sections */
-	#header, #nav, #banner, #content, #utilsTop, #megafooter, #footer { 
+	#header, #nav, #banner, #content, #utilsTop, #megafooter, #footer, .section { 
 		min-width:300px; max-width:100%; }	
 		
 	/* padders */
@@ -141,7 +142,8 @@ body.ps {
 	#content 	> .padder,
 	#utilsTop	> .padder,
 	#megafooter > .padder,
-	#footer 	> .padder {
+	#footer 	> .padder,
+	.section 	> .padder {
 		min-width:0px; max-width:960px; }
 
 
@@ -202,7 +204,7 @@ html, body { height:100% }
 		/* title */
 		#header .brand .title { 
 			margin-top:20px;
-			color:#1f353f; font-family:'Merriweather',sans-serif; font-weight:700; font-size:20px; line-height:25px; }
+			color:#1f353f; font-family:'Merriweather',serif; font-weight:700; font-size:20px; line-height:25px; }
 			#header .brand .title .small { font-size:14px; font-style:normal; }
 			
 		/* subtitle */
@@ -1183,6 +1185,70 @@ body.landing #utilsBtm {
 
 
 /* ==========================================================================
+   structure - SECHEADER
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.secHeader { 
+	overflow:hidden;
+	color:#fff; background:#00a6b4; }
+	
+	/* common */
+	.secHeader:before,
+	.secHeader:after { 
+		content:''; 
+		display:block; position:absolute; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
+	
+	/* shade */
+	.secHeader:before { 
+		top:-100px; left:30%; width:2px; height:2px;
+		background:#00c0ca; 
+		font-size:0; line-height:0;
+		/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+		/*box-shadow*/-webkit-box-shadow:0px 0px 200px 200px #00c0ca; box-shadow:0px 0px 200px 200px #00c0ca; }
+	
+	/* shadow */
+	.secHeader:after { 
+		top:0; left:0; width:100%; height:5px;
+		/*background-gradient*/
+		background-color:transparent;
+		background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0)));
+		background-image:-webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+		background-image:-moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+		background-image:-o-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+		background-image:linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+		font-size:0; line-height:0; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* heading */
+	.secHeader .heading { 
+		width:auto; height:auto; margin:0 0 0 25px; padding:0; overflow:hidden;
+		white-space:nowrap; text-overflow:ellipsis;
+		color:#fff; font-family:'Merriweather',serif; font-size:32px; font-weight:400; line-height:70px; }
+
+
+/* ==========================================================================
+   structure - SECUTILS
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.secUtils { 
+	color:#fff; background:#00aab8; }
+	
+	/* padder */
+	.secUtils > .padder { padding:25px 0; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* content */
+	.secUtils * { color:#fff!important; }
+	
+	/* btnText */
+	.secUtils .btnText { margin:0; }
+
+
+/* ==========================================================================
    structure - MEGAFOOTER
    ========================================================================== */
 
@@ -1258,7 +1324,7 @@ body.landing #utilsBtm {
 				/* title */
 				#megafooterInfo .brand .title { 
 					margin-top:20px;
-					color:#fff; font-family:'Merriweather',sans-serif; font-weight:400; font-size:16px; line-height:20px; }
+					color:#fff; font-family:'Merriweather',serif; font-weight:400; font-size:16px; line-height:20px; }
 					#megafooterInfo .brand .title .small { font-size:12px; font-style:normal; }
 					
 				/* subtitle */
@@ -2129,17 +2195,75 @@ body.landing #utilsBtm {
 	.itemList.event .evt .title { font-size:15px; font-weight:400; }
 	
 }
-
-
+	
+	
 /* ==========================================================================
-   common - SECTION
+   common - NOTICE (in Banner)
    ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
-/* container */
-.section { 
-	display:block; position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
+/* notice */
+#banner #notice { position:absolute; left:0; bottom:0; width:313px; margin:0; z-index:100; }
+
+	/* item */
+	#banner #notice .item { margin:0; }
+		
+		/* header */
+		#banner #notice .item .header { 
+			padding-right:30px;
+			background:#1f353f; border-top-color:rgba(255,255,255,0.2); }
+			
+			/* icon */
+			#banner #notice .item > .header .icon { 
+				top:50%; right:15px; width:14px; height:14px; margin:-7px 0 0 0;
+				font-size:0; line-height:0; }
+			.ie7 #banner #notice .item > .header .icon,
+			#banner #notice .item > .header .icon:before { 
+				font-size:14px; line-height:1em; }	
+				
+		/* a.header */
+		#banner #notice .item > a.header { 
+			border-top:1px solid rgba(255,255,255,0.2); }
+		#banner #notice .item > a.header:hover,
+		#banner #notice .item > a.header:focus,
+		#banner #notice .item > a.header:active { 
+			background:#06bbca; }
+		
+/* -------------------------------------------------------------------------- */
+/* custom - home */
+
+/* left gap */
+body#home #banner #notice { left:10px; }
+
+/* icon */
+body#home #banner #notice .item > .header .icon { width:21px; height:21px; margin-top:-10px; }
+.ie7 body#home #banner #notice .item > .header .icon,
+body#home #banner #notice .item > .header .icon:before { font-size:21px; line-height:1em; }	
 	
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:960px) {
+	
+	/* update container */
+	#banner #notice { left:0!important; width:33.33%; }
+
+}
+@media only screen and (max-width:800px) {
+
+	/* shrink text */
+	#banner #notice .item .header { padding:0; font-size:11px; text-align:center; }
+
+	/* hide icon */
+	#banner #notice .item .icon { display:none; }
+	
+}
+@media only screen and (max-width:640px) {
+
+	/* hide notice */
+	#banner #notice { display:none; }
+	
+}
+
 
 /* ==========================================================================
    common - ICONS
@@ -2330,42 +2454,6 @@ body.landing #utilsBtm {
 /* ==========================================================================
    section - HOME
    ========================================================================== */
-
-/* -------------------------------------------------------------------------- */
-/* notice */
-body#home #banner #notice { position:absolute; left:10px; bottom:0; width:313px; margin:0; z-index:100; }
-	
-	/* item */
-	body#home #banner #notice .item { margin:0; }
-	
-		/* icon */
-		body#home #banner #notice .item .icon { 
-			top:0; right:15px; width:22px; height:34px; margin:0;
-			font-size:21px; line-height:34px; }
-	
-/* -------------------------------------------------------------------------- */
-/* responsive */
-@media only screen and (max-width:960px) {
-	
-	/* update container */
-	body#home #banner #notice { left:0; width:33.33%; }
-
-}
-@media only screen and (max-width:800px) {
-
-	/* shrink text */
-	body#home #banner #notice .item .header { padding:0; font-size:11px; text-align:center; }
-
-	/* hide icon */
-	body#home #banner #notice .item .icon { display:none; }
-	
-}
-@media only screen and (max-width:640px) {
-
-	/* hide notice */
-	body#home #banner #notice { display:none; }
-	
-}
 
 /* -------------------------------------------------------------------------- */
 /* utilsTop */
@@ -2671,6 +2759,14 @@ body#home #findSchool {
 	body#home #findSchool { width:auto; margin:0 0 12px 0; }
 
 }
+
+/* ==========================================================================
+   section - SCHOOL PROFILE
+   ========================================================================== */
+
+/* megafooter */
+body#school.profile #megafooter { border-top:none; }
+
 
 /* ==========================================================================
    common - ANIMATION
