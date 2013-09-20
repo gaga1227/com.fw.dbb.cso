@@ -86,7 +86,11 @@ function initClickLoading(){
 		$btnLoad = $('#btnLoadMore'),
 		loadingCls = 'loading',
 		errorCls = 'error',
-		url = 'ajax-items.html';
+		url = 'news/newsitems.cfm?startrow=',
+		itemSelector = '> .item.news',
+		lastRowSelector = '> .lastRow',
+		startRow, lastRow = false,
+		speed = 300;
 	
 	//loadMoreItem
 	function loadMoreItem(targetURL){
@@ -137,18 +141,25 @@ function initClickLoading(){
 		var $newItems = $(data),
 			isotopeRequired = Modernizr.mediaqueries ? !Modernizr.mq(mqStates.max400) : $(window).width() > 400;
 		//adding to DOM
-		$container.append($newItems)
+		$container.append($newItems);
 		if (isotopeRequired) {
 			$container.imagesLoaded(function(){
 				$container.isotope('appended', $newItems);
 			});
 		}
+		//check lastrow and handle trigger button
+		lastRow = $container.find(lastRowSelector).length ? true : false;
+		if (lastRow) {
+			$btnLoad.off().fadeOut(speed);
+		}
 	}
 	
 	//bind behavior
-	$btnLoad.click(function(e){
+	$btnLoad.on('click', function(e){
 		e.preventDefault();
-		loadMoreItem(url);
+		startRow = $container.find(itemSelector).length + 1;
+		//console.log('startRow: ', startRow);
+		loadMoreItem(url + startRow);
 	});
 }
 /* ------------------------------------------------------------------------------ */
