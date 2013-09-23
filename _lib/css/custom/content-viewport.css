@@ -53,10 +53,18 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 /* ==========================================================================
    elem - LINK
    ========================================================================== */
+   
+/* default */
 .contentViewport a 			{ color:#00aab8; text-decoration:none; }
 .contentViewport a:hover,
 .contentViewport a:focus,
 .contentViewport a:active 	{ color:#00aab8; text-decoration:underline; }
+
+/* dark */
+.contentViewport a.dark 		{ color:#333; text-decoration:none; }
+.contentViewport a.dark:hover,
+.contentViewport a.dark:focus,
+.contentViewport a.dark:active 	{ color:#333; text-decoration:underline; }
 
 
 /* ==========================================================================
@@ -376,12 +384,12 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 .btnText:hover,
 .btnText:focus,
 .btnText:active { 
-	text-decoration:underline!important; }
+	text-decoration:none!important; }
 
 	/* label */
 	.btnText,
 	.btnText .label { 
-		overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+		overflow:hidden; white-space:nowrap; text-overflow:ellipsis; vertical-align:middle;
 		color:#06afbc; font-size:15px; font-weight:700; line-height:24px;
 		/*transition*/
 		/*-webkit-transform:translate3d(0,0,0);*/
@@ -396,7 +404,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 		
 	/* icon */
 	.btnText .icon,
-	.btnText .iconInline 		{ font-size:0; line-height:0; }
+	.btnText .iconInline 		{ font-size:0; line-height:0; vertical-align:middle; }
 	
 	.ie7 .btnText .icon,
 	.ie7 .btnText .iconInline,
@@ -432,7 +440,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 		
 	/* icon */
 	.btnBox .icon,
-	.btnBox .iconInline 		{ font-size:0; line-height:0; }
+	.btnBox .iconInline 		{ font-size:0; line-height:0; vertical-align:middle; }
 	
 	.ie7 .btnBox .icon,
 	.ie7 .btnBox .iconInline,

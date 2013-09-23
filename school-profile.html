@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <!-- Mobile viewport optimized -->
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
 <!-- Base URL -->
 <base href="" />
 <!-- Title -->
@@ -40,6 +41,7 @@
 <!-- JS:LIBS -->
 <script type="text/javascript" src="_lib/js/jquery.mobile.touch.js"></script><!-- touch gestures -->
 <script type="text/javascript" src="_lib/js/jquery.cycle.js"></script><!-- Cycle -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><!-- Google Maps API -->
 <!-- JS:FW -->
 <script type="text/javascript" src="_lib/js/fw.utils.js"></script><!-- utils -->
 <script type="text/javascript" src="_lib/js/fw.widgets.js"></script><!-- widgets -->
@@ -114,13 +116,58 @@
 	
 		<!-- INTRO -->
 		<div id="schoolIntro" class="section">
-			<div class="padder">
-				<div class="overflowHid">
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-				</div>
+			<div class="padder clearfix">
+				<!-- OVERVIEW -->
+				<div class="colOverview">
+					<div class="item mgnBtm0 trq">
+						<h4 class="header bgc"><span class="label">Overview</span></h4>
+						<div class="profile cleafix">
+							<p class="imgProfile"><img src="___samples/ph-100x100.gif" width="100" height="100" alt="Head of Primary Mrs Sue Dietrich" /></p>
+							<div class="padder contentViewport">
+								<p class="pos c">College Principal</p>
+								<p class="name">Mr Steven Todd</p>
+							</div>
+							<div class="clearer"></div>
+						</div>
+						<div class="profile cleafix">
+							<p class="imgProfile"><img src="___samples/ph-100x100.gif" width="100" height="100" alt="Head of Primary Mrs Sue Dietrich" /></p>
+							<div class="padder contentViewport">
+								<p class="pos c">Head of Primary</p>
+								<p class="name">Mrs Sue Dietrich</p>
+							</div>
+							<div class="clearer"></div>
+						</div>
+						<div class="content">
+							<div class="padder contentViewport">
+								<p><b class="c">Telephone</b><br />02 4392 9399</p>
+								<p><b class="c">Facsimile</b><br />02 4392 9499</p>
+								<p><b class="c">Email</b><br /><a class="dark" href="mailto:smccw@dbb.catholic.edu.au">smccw@dbb.catholic.edu.au</a></p>
+							</div>
+						</div>
+						<a class="btnItem feat hoverbgc" href="#"><i class="iconInline circle bgc left fwicon-hat">&nbsp;</i><span class="label">Enrolment Information</span></a>
+						<a class="btnItem feat hoverbgc" href="#"><i class="iconInline circle bgc left icon-laptop">&nbsp;</i><span class="label">School's Website</span></a>
+					</div>
+				</div><!-- /OVERVIEW -->
+				<!-- ASIDE -->
+				<div class="colAside trq">
+					<div class="contentViewport clearfix">
+						<img class="fullWidthImage borderedImage" src="___samples/ph-170x170.gif" width="170" height="170" alt="" />
+						<h4 class="title c">MACKILLOP CATHOLIC COLLEGE WARNERVALE</h4>
+						<p class="address">91 Sparks Road WarnervaleNSW, Australia 2259</p>
+					</div>
+				</div><!-- /ASIDE -->
+				<!-- MAIN -->
+				<div class="colMain">
+					<div class="contentViewport">
+						<p class="leaderText">MacKillop Catholic College Warnervale is the only Kindergarten to Yr 12 Catholic College in the Broken Bay Diocese.</p>
+						<p>MacKillop Catholic College is a unique place situated on 8 hectares of the Upper Central Coast of NSW with over 1500 students experiencing a quality Catholic School education.</p>
+						<div class="extra">
+							<p>The College's Story is a special one that dates back to its opening in 2003 and over the years since, the College has grown and built up not only outstanding campus facilities, but also a fine reputation for providing spiritual enrichment, quality academic support, leadership programs, sporting and cultural experiences and opportunities that have earned the College the respect of many people.</p>
+							<p>Among the unique features of this College is the blending of a Catholic School community and a Parish. With such an inspirational patron and role model as Mary MacKillop, to also have a special relationship with a Parish community situated within the same campus, sets a tone and presence.</p>
+						</div>
+						<a class="btnText btnReadMore" href="#"><span class="label">Read More</span><i class="iconInline right icon-plus">&nbsp;</i></a>
+					</div>
+				</div><!-- /MAIN -->
 			</div>
 		</div><!-- /INTRO -->
 		
@@ -128,10 +175,56 @@
 		<div id="schoolNews" class="section">
 			<div class="section secHeader"><div class="padder"><h1 class="heading">School News</h1></div></div>
 			<div class="padder">
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
+				<div class="itemListing clearfix">
+					<!-- ITEM -->
+					<div class="item news trq">
+						<a class="content" href="#">
+							<img class="imgThumb" src="___samples/ph-300x220.gif" width="300" height="220" alt="" />
+							<span class="padder">
+								<span class="title">Proin quis tortor orci etiam risus et justo dignissim</span>
+								<span class="p">In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit.</span>
+							</span>
+						</a>
+						<div class="padder">
+							<p class="tags">
+								<i class="iconInline c left icon-flag">&nbsp;</i>
+								<span class="tag">26 Dec, 2013</span>
+							</p>
+						</div>
+					</div><!-- /ITEM -->
+					<!-- ITEM -->
+					<div class="item news trq">
+						<a class="content" href="#">
+							<img class="imgThumb" src="___samples/ph-300x220.gif" width="300" height="220" alt="" />
+							<span class="padder">
+								<span class="title">Etiam risus et justo dignissim proin quis tortor orci et justo dignissim</span>
+								<span class="p">In pellentesque faucibus vestibulum. </span>
+							</span>
+						</a>
+						<div class="padder">
+							<p class="tags">
+								<i class="iconInline c left icon-flag">&nbsp;</i>
+								<span class="tag">12 Mar, 2013</span>
+							</p>
+						</div>
+					</div><!-- /ITEM -->
+					<!-- ITEM -->
+					<div class="item news trq">
+						<a class="content" href="#">
+							<img class="imgThumb" src="___samples/ph-300x220.gif" width="300" height="220" alt="" />
+							<span class="padder">
+								<span class="title">Quis risus et justous</span>
+								<span class="p">Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit.</span>
+							</span>
+						</a>
+						<div class="padder">
+							<p class="tags">
+								<i class="iconInline c left icon-flag">&nbsp;</i>
+								<span class="tag">26 APR, 2013 - 26 NOV, 2013</span>
+							</p>
+						</div>
+					</div><!-- /ITEM -->
+				</div>
 			</div>
 		</div><!-- /NEWS -->
 		
@@ -139,22 +232,14 @@
 		<div id="schoolTour" class="section">
 			<div class="section secHeader"><div class="padder"><h1 class="heading">School Tour</h1></div></div>
 			<div class="padder">
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
+				
 			</div>
 		</div><!-- /TOUR -->
 		
 		<!-- MAP -->
 		<div id="schoolMap" class="section">
 			<div class="section secHeader"><div class="padder"><h1 class="heading">Location</h1></div></div>
-			<div class="padder">
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-			</div>
+			<div id="schoolMapContainer" class="mapContainer"></div>
 		</div><!-- /MAP -->
 		
 		<!-- UTILS -->

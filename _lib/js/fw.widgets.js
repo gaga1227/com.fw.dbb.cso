@@ -161,3 +161,62 @@ function initDatepicker(){
 	return datepickerObj;
 		
 }
+/* ------------------------------------------------------------------------------ */
+/* initMaps */
+/* ------------------------------------------------------------------------------ */
+function initMaps(opts){
+	
+	//exit if no address
+	if (!opts.lat || !opts.lng) return false;
+	
+	//init maps
+	function init() {
+		//vars
+		var mapOptions = {
+				zoom: 			opts.zoom || 16,
+				center: 		new google.maps.LatLng(opts.lat, opts.lng),
+				mapTypeId: 		google.maps.MapTypeId.ROADMAP,
+				scrollwheel: 	false
+			},
+			map = new google.maps.Map(document.getElementById(opts.target), mapOptions),
+			marker = new google.maps.Marker({
+				map: 		map,
+				position: 	map.getCenter(),
+				title: 		opts.title || ''
+				//animation: 	google.maps.Animation.DROP,
+			}),
+			infowindow = new google.maps.InfoWindow({
+				content: 	opts.info || '',
+				maxWidth: 	opts.infoWidth || 300
+			}),
+			latlng = new google.maps.LatLng(opts.lat,opts.lng),
+			centerLatLng = new google.maps.LatLng(opts.center.lat,opts.center.lng);
+		
+		//infowindow
+		if (opts.info) {
+			infowindow.open(map, marker);
+			map.setCenter(centerLatLng);
+		}
+		
+		//events
+		google.maps.event.addListener(map, 'center_changed', function() {
+			// 3 seconds after the center of the map has changed, pan back to the
+			// marker.
+			/*
+			window.setTimeout(function() {
+				map.panTo(marker.getPosition());
+			}, 3000);
+			*/
+		});
+		google.maps.event.addListener(marker, 'click', function() {
+			if (opts.info) infowindow.open(map, marker);
+		});
+		google.maps.event.addDomListener(window, 'resize', function() {
+			if (opts.info) map.panTo(centerLatLng);
+			else map.panTo(latlng);
+		});
+	}
+	
+	//init
+	init();
+}

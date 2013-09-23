@@ -969,6 +969,11 @@ html, body { height:100% }
 
 	/* shift bgImg to optimize view */
 	#banner.sizeXXXL .bgImg	{ margin-left:-403px; }
+	
+	/* shrink heading space */
+	#banner > .padder { padding:10px 25px; }
+	#banner .headline,
+	#banner .headline > span { font-size:20px!important; line-height:25px!important; }
 
 }
 
@@ -1227,6 +1232,25 @@ body.landing #utilsBtm {
 		white-space:nowrap; text-overflow:ellipsis;
 		color:#fff; font-family:'Merriweather',serif; font-size:32px; font-weight:400; line-height:70px; }
 
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:800px) {
+
+	/* smaller heading */
+	.secHeader .heading { font-size:26px; line-height:60px; }
+
+}
+@media only screen and (max-width:500px) {
+
+	/* smaller heading */
+	.secHeader .heading { font-family:'Montserrat',sans-serif; font-size:13px; line-height:35px; text-transform:uppercase; }
+
+	/* remove shade and shadow */
+	.secHeader:before,
+	.secHeader:after { display:none; }
+ 	
+}
+
 
 /* ==========================================================================
    structure - SECUTILS
@@ -1246,6 +1270,15 @@ body.landing #utilsBtm {
 	
 	/* btnText */
 	.secUtils .btnText { margin:0; }
+
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:960px) {
+
+	/* add padder side gaps */
+	.secUtils > .padder { padding:10px 25px; }
+
+}
 
 
 /* ==========================================================================
@@ -1909,7 +1942,7 @@ body.landing #utilsBtm {
 			font-size:14px; line-height:1em; }	
 		
 	/* -------------------------------------------------------------------------- */
-	/* header */
+	/* headerFeat */
 	.item > .headerFeat { 
 		position:relative; width:auto; height:auto; margin:0; padding:24px 60px 24px 25px; overflow:hidden;
 		color:#fff; font-family:'Merriweather',serif; font-size:26px; font-weight:700; line-height:32px; }
@@ -1944,7 +1977,7 @@ body.landing #utilsBtm {
 		display:block; position:absolute; top:0; left:0; width:100%; height:0; margin:0; padding:73.33% 0 0 0; overflow:hidden;
 		background:url(../img/bg-icon-play.png) center center no-repeat; 
 		font-size:0; line-height:0; }
-	
+		
 	/* -------------------------------------------------------------------------- */
 	/* padder */
 	.item .padder {
@@ -2002,6 +2035,37 @@ body.landing #utilsBtm {
 	.item .tags a:focus,
 	.item .tags a:active { 
 		text-decoration:underline; }
+	
+	/* -------------------------------------------------------------------------- */		
+	/* profile */
+	.item .profile { 
+		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+		border-bottom:1px solid #f2f2f2; }
+	 
+	 	/* imgProfile */
+		.item .profile .imgProfile { 
+			position:relative; width:95px; height:95px; margin:12px 15px; padding:0; overflow:hidden; float:left; clear:left; }
+			
+			/* common */
+			.item .profile .imgProfile,
+			.item .profile .imgProfile img { 
+				/*border-radius*/-webkit-border-radius:50%; border-radius:50%; }
+			
+			/* img */
+			.item .profile .imgProfile img { 
+				display:block; width:100%; height:auto; }
+		
+		/* padder */
+		.item .profile .padder { 
+			width:auto; margin:0 0 0 125px; padding:25px 25px 17px 0; }
+			
+			/* pos */
+			.item .profile .pos { 
+				padding:0; font-size:16px; line-height:18px; font-weight:700; text-transform:uppercase; }
+				
+			/* name */
+			.item .profile .name { 
+				font-size:16px; font-weight:700; line-height:20px; }
 	
 /* -------------------------------------------------------------------------- */
 /* extend - stack */
@@ -2203,7 +2267,7 @@ body.landing #utilsBtm {
 
 /* -------------------------------------------------------------------------- */
 /* notice */
-#banner #notice { position:absolute; left:0; bottom:0; width:313px; margin:0; z-index:100; }
+#banner #notice { position:absolute; left:0; bottom:0; width:300px; margin:0; z-index:100; }
 
 	/* item */
 	#banner #notice .item { margin:0; }
@@ -2233,7 +2297,7 @@ body.landing #utilsBtm {
 /* custom - home */
 
 /* left gap */
-body#home #banner #notice { left:10px; }
+body#home #banner #notice { left:10px; width:313px; }
 
 /* icon */
 body#home #banner #notice .item > .header .icon { width:21px; height:21px; margin-top:-10px; }
@@ -2245,16 +2309,17 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 @media only screen and (max-width:960px) {
 	
 	/* update container */
-	#banner #notice { left:0!important; width:33.33%; }
+	#banner #notice { left:25px!important; }
+	body#home #banner #notice { left:0!important; width:33.33%; }
 
 }
 @media only screen and (max-width:800px) {
-
-	/* shrink text */
-	#banner #notice .item .header { padding:0; font-size:11px; text-align:center; }
-
-	/* hide icon */
-	#banner #notice .item .icon { display:none; }
+	
+	/* center align for home */
+	body#home #banner #notice .item .header { padding:0; text-align:center; font-size:11px; }
+	
+	/* hide icon for home */
+	body#home #banner #notice .item .icon { display:none; }
 	
 }
 @media only screen and (max-width:640px) {
@@ -2348,6 +2413,18 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 #aside .btnItem:hover,
 #aside .btnItem:focus,
 #aside .btnItem:active  { background:#fff; } 
+
+/* -------------------------------------------------------------------------- */
+/* extend - feat */
+.btnItem.feat { padding:12px 25px; font-size:16px; text-transform:none; }
+
+.btnItem.feat .iconInline { width:38px; height:38px; }
+.btnItem.feat .iconInline.circle.left { margin-right:15px; }
+.btnItem.feat .iconInline.circle.right { margin-right:15px; }
+
+.ie7 .btnItem.feat .iconInline,
+.btnItem.feat .iconInline:before { font-size:21px; line-height:38px; }
+
 
 /* -------------------------------------------------------------------------- */
 /* btnIcon */
@@ -2764,8 +2841,89 @@ body#home #findSchool {
    section - SCHOOL PROFILE
    ========================================================================== */
 
+/* -------------------------------------------------------------------------- */
 /* megafooter */
 body#school.profile #megafooter { border-top:none; }
+
+/* -------------------------------------------------------------------------- */
+/* overview */
+
+/* columns */
+body#school.profile .colOverview,
+body#school.profile .colMain,
+body#school.profile .colAside { display:block; position:relative; height:auto; margin:0; padding:40px 0; overflow:visible; }
+
+body#school.profile .colOverview 	{ width:300px; float:left; clear:left; }
+body#school.profile .colAside 		{ width:150px; float:right; clear:right; }
+body#school.profile .colMain 		{ width:auto; margin:0 200px 0 350px; }
+
+/* content */
+body#school.profile .colAside .contentViewport .title { padding-bottom:8px; font-size:15px; line-height:18px; }
+
+/* -------------------------------------------------------------------------- */
+/* news */
+body#school.profile .itemListing 			{ padding:40px 0; }
+body#school.profile .item.news 				{ width:31.75%; margin:0 0 0 2.3%; float:left; clear:none; }
+body#school.profile .item.news.first-child 	{ margin-left:0; }
+body#school.profile .item.news:first-child 	{ margin-left:0; }
+
+/* -------------------------------------------------------------------------- */
+/* map */
+body#school.profile #schoolMapContainer { height:500px; }
+
+
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:960px) {
+
+	/* adding side gaps */
+	body#school.profile .colOverview 	{ margin-left:25px; }
+	body#school.profile .colAside 		{ margin-right:25px; }
+	body#school.profile .colMain 		{ width:auto; margin:0 200px 0 350px; }
+	
+	/* news gaps */
+	body#school.profile .itemListing 	{ padding:25px; }
+
+}
+@media only screen and (max-width:850px) {
+
+	/* hide colAside */
+	body#school.profile .colAside 		{ display:none; }
+	body#school.profile .colMain 		{ margin-right:25px; }
+
+}
+@media only screen and (max-width:800px) {
+	
+	/* shrink padding */
+	body#school.profile .colOverview,
+	body#school.profile .colMain { padding:40px 0; }
+	
+}
+@media only screen and (max-width:640px) {
+
+	/* switch to stacking order */
+	body#school.profile .colOverview 	{ margin:0; padding:25px 25px 0 25px; width:auto; float:none; clear:both; }
+	body#school.profile .colMain 		{ margin:0; padding:25px; }
+	
+	/* news gaps */
+	body#school.profile .itemListing 	{ padding:25px; }
+	
+	/* maps */
+	body#school.profile #schoolMapContainer { height:300px; }
+	
+}
+@media only screen and (max-width:500px) {
+
+	/* shrink padder gaps */
+	body#school.profile .colOverview 	{ padding:12px; }
+	
+	/* news stack */
+	body#school.profile .itemListing 			{ padding:0; }
+	body#school.profile .item.news 				{ width:auto; margin:0; float:none; border-top:1px solid #f2f2f2; }
+	body#school.profile .item.news.first-child 	{ border-top:none; }
+	body#school.profile .item.news:first-child 	{ border-top:none; }
+
+}
 
 
 /* ==========================================================================

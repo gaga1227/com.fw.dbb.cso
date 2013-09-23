@@ -303,6 +303,54 @@ function initHomeFilter(){
 	$container.on('click', '.btnTab', onTabClick);	
 }
 /* ------------------------------------------------------------------------------ */
+/* initSchoolProfileReadMore */
+/* ------------------------------------------------------------------------------ */
+function initSchoolProfileReadMore(){
+	//vars
+	var $trigger = $('.btnReadMore'),
+		$target = $trigger.prev('.extra');
+	//exit if no instances
+	if (!$trigger.length || !$target.length) return false;
+	//handler
+	function onResize(e){
+		var isMobile = Modernizr.mq(mqStates.max500) || $(window).width() <= 500;
+		if (isMobile) {
+			$trigger.show();
+			$target.slideUp({
+				complete: onToggleComplete
+			});
+		} else {
+			$trigger.hide();
+			$target.slideDown({
+				complete: onToggleComplete
+			});
+		}
+	}
+	function onToggleComplete(e){
+		var $this = $(this),
+			$label = $trigger.find('.label'),
+			$icon = $trigger.find('i'),
+			hasIcon = $icon.length ? true : false;
+		if ($this.css('display') != 'none') {
+			if (hasIcon) $icon.removeClass('icon-plus').addClass('icon-minus');
+			$label.text('Hide Text');
+		} else {
+			if (hasIcon) $icon.removeClass('icon-minus').addClass('icon-plus');
+			$label.text('Read More');
+		}
+	}
+	//bind behavior
+	$trigger.on('click', function(e){
+		e.preventDefault();
+		$target.slideToggle({
+			complete: onToggleComplete
+		});
+	});
+	//init
+	onResize();
+	$(window).on('resize.schoolProfileReadMore', onResize);
+}
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 var BannerSlides, $isotope, SelectNav, Slideshows, StaticAudios, StaticVideos;
@@ -314,8 +362,9 @@ function init(){
 	SelectNav = new initSelectNav();
 	
 	//template specific functions
-	if 		( $('body#home').length ) 		{ initHome(); }
-	else if ( $('body.landing').length ) 	{ initLanding(); }
+	if 		( $('body#home').length ) 			{ initHome(); }
+	else if ( $('body.landing').length ) 		{ initLanding(); }
+	else if ( $('body#school.profile').length ) { initSchoolProfile(); }
 	else {
 		//media
 		Slideshows = new initSlideshows();
@@ -337,6 +386,10 @@ function initHome(){
 function initLanding(){
 	//initClickLoading
 	initClickLoading();
+}
+function initSchoolProfile(){
+	//initSchoolProfileReadMore
+	initSchoolProfileReadMore();
 }
 /* DOM Ready */
 $(document).ready(function(){
