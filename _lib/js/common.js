@@ -354,15 +354,30 @@ function initSchoolProfileReadMore(){
 /* initSchoolProfileMap */
 /* ------------------------------------------------------------------------------ */
 function initSchoolProfileMap(){
-	initMaps({
-		target:		'schoolMapContainer',
-		lat:		-32.559721,
-		lng:		151.180498,
-		title:		'The Convent of Mercy Singleton',
-		info:		'<div id="mapInfoWindowContent"><h3>The CONVENT of MERCY SINGLETON</h3><p>30 Queen Street, Singleton NSW Australia,<br/>in the heart of the Hunter Valley</p></div>',
-		infoWidth:	400,
-		center:		{ lat:-32.55815973263073, lng:151.18049799999994 }
-	});
+	//vars
+	var $mapContainer = $('#schoolMapContainer'),
+		$mapInfoData = $('#schoolMapInfoData').hide(),
+		opts = {};
+	
+	//exit if no instance
+	if (!$mapContainer.length) return false;
+	
+	//update opts
+	opts.title = $mapContainer.data('title');
+	opts.lat = parseFloat($mapContainer.data('lat'));
+	opts.lng = parseFloat($mapContainer.data('lng'));	
+	//opts.center = { lat:opts.lat, lng:opts.lng };
+	
+	opts.target = $mapContainer.attr('id');
+	opts.info = $.trim($mapInfoData.html());
+	opts.showInfo = $mapContainer.data('showInfo') == '1' ? true : false;
+	opts.infoWidth = 250;
+	
+	//exit if no key data
+	if (isNaN(opts.lat) || isNaN(opts.lng) || !opts.title) return '[SchoolProfileMap]: Abort on missing map data(lat, lng, title)';
+	
+	//initMap
+	initMap(opts);
 }
 /* ------------------------------------------------------------------------------ */
 /* init */
@@ -402,8 +417,10 @@ function initLanding(){
 	initClickLoading();
 }
 function initSchoolProfile(){
-	//intro content mobile
+	//school overview
 	initSchoolProfileReadMore();
+	//school tour
+	Slideshows = new initSlideshows();
 	//school map
 	initSchoolProfileMap();
 }

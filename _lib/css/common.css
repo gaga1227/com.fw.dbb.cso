@@ -2529,6 +2529,35 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 	
 
 /* ==========================================================================
+   common - MAP
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* mapContainer */
+.mapContainer { 
+	position:relative; width:100%; height:0; margin:0; padding:35% 0 0 0; overflow:hidden; }
+	
+/* fallback */
+.ie7 .mapContainer { height:500px; padding:0; }
+
+/* -------------------------------------------------------------------------- */
+/* mapInfoWindowContent */
+.mapInfoWindowContent { 
+	padding:8px 0 0 0; overflow:hidden;
+	color:#333;	font-family:'Montserrat',sans-serif!important; font-size:15px; font-weight:400; line-height:20px; }
+
+	/* common */
+	.mapInfoWindowContent .title,
+	.mapInfoWindowContent p,
+	.mapInfoWindowContent a { 
+		margin:0; padding:0 0 8px 0; }
+
+	/* title */
+	.mapInfoWindowContent .title { 
+		font-size:16px; font-weight:700; }
+
+
+/* ==========================================================================
    section - HOME
    ========================================================================== */
 
@@ -2869,8 +2898,8 @@ body#school.profile .item.news:first-child 	{ margin-left:0; }
 
 /* -------------------------------------------------------------------------- */
 /* map */
-body#school.profile #schoolMapContainer { height:500px; }
-
+body#school.profile #schoolMapContainer { padding-top:35%; }
+.ie7 body#school.profile #schoolMapContainer { height:500px; padding:0; }
 
 /* -------------------------------------------------------------------------- */
 /* responsive */
@@ -2898,6 +2927,10 @@ body#school.profile #schoolMapContainer { height:500px; }
 	body#school.profile .colOverview,
 	body#school.profile .colMain { padding:40px 0; }
 	
+	/* update map ratio */
+	body#school.profile #schoolMapContainer { padding-top:50%; }
+	.ie7 body#school.profile #schoolMapContainer { height:400px; padding:0; }
+	
 }
 @media only screen and (max-width:640px) {
 
@@ -2908,8 +2941,9 @@ body#school.profile #schoolMapContainer { height:500px; }
 	/* news gaps */
 	body#school.profile .itemListing 	{ padding:25px; }
 	
-	/* maps */
-	body#school.profile #schoolMapContainer { height:300px; }
+	/* update map ratio */
+	body#school.profile #schoolMapContainer { padding-top:75%; }
+	.ie7 body#school.profile #schoolMapContainer { height:300px; padding:0; }
 	
 }
 @media only screen and (max-width:500px) {

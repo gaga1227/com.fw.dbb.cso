@@ -97,3 +97,77 @@
 	.slideshow .btnNext { background-image:url(../img/slideshow-btn-nav@2x.png); background-size:80px 80px; }
 	
 }
+
+
+/* ================================================================================================== */
+/* slideshow tour */
+/* ================================================================================================== */
+
+/* ------------------------------------------------------------------------------ */
+/* container and common */
+.slideshow.tour,
+.slideshow.tour .slide { display:block; position:relative; width:100%!important; height:auto!important; overflow:hidden; background:#fff; }
+.slideshow.tour { margin:0 auto!important; padding:38%/*390/1024*/ 0 0 0!important; }
+
+/* -------------------------------------------------------------------------- */
+/* controls */
+.slideshow.tour .controls { 
+	position:relative; bottom:auto; right:auto; width:100%; max-width:960px; height:auto; margin:0 auto; padding:0; overflow:visible; z-index:20; }
+	
+	/* arrow */
+	.slideshow.tour .controls:before { 
+		content:'';
+		display:block; position:absolute; top:-17px; left:45px; width:0; height:0; margin:0; padding:0; overflow:hidden;
+		border:10px solid transparent; border-bottom-color:#fff;
+		font-size:0; line-height:0; }
+
+	/* caption */
+	.slideshow.tour .caption { 
+		width:70%; height:auto; margin:0!important; padding:15px 0 15px 25px; overflow:hidden; float:left; clear:left;
+		white-space:normal; color:#444; font-size:14px; font-weight:400; line-height:15px; }
+	
+	/* buttons */
+	.slideshow.tour .buttons { 
+		width:auto; height:15px; margin:0; padding:15px 25px 15px 0; float:right; clear:right;
+		white-space:nowrap; color:#444; font-size:14px; font-weight:400; line-height:15px; }
+	
+		/* btnToggle */
+		.slideshow.tour .btnToggle { display:inline!important; color:#444; cursor:pointer; outline:0 none!important; }
+		.slideshow.tour .btnToggle:hover,
+		.slideshow.tour .btnToggle:focus,
+		.slideshow.tour .btnToggle:active { color:#444; }
+		
+			/* icon */
+			.slideshow.tour .btnToggle .iconInline { vertical-align:middle; font-size:14px; line-height:15px; }
+		
+		/* interaction */
+		.slideshow.tour .btnToggle.pause .icon-play,
+		.slideshow.tour .btnToggle.resume .icon-pause 	{ display:inline-block; }
+		.slideshow.tour .btnToggle.pause .icon-play,
+		.slideshow.tour .btnToggle.resume .icon-pause 	{ display:none; }
+		
+		/* pagerText */
+		.slideshow.tour .pagerText { vertical-align:middle; }
+
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:800px) {
+
+	/* bigger icon */
+	.slideshow.tour .btnToggle .iconInline { font-size:21px; }
+
+}
+@media only screen and (max-width:640px) {
+
+	/* stack caption and buttons */
+	.slideshow.tour .caption,
+	.slideshow.tour .buttons { width:auto; float:none; clear:both; }
+	
+	/* hide caption text */
+	.slideshow.tour .caption,
+	.slideshow.tour .controls:before { display:none!important; }
+	
+	/* center align pager text */
+	.slideshow.tour .buttons { padding:15px 25px; text-align:center; }
+
+}

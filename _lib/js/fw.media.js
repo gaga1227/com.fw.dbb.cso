@@ -728,6 +728,11 @@ function initSlideshows(ssCls) {
 				.hide()
 				.text(captionText)
 				.fadeIn(300);
+		},
+		
+		//function - updatePagerText
+		updatePagerText = function(idx, total, $tgt) {
+			$tgt.text('Image ' + (idx+1) + ' of ' + total);
 		};
 	
 	//only proceed if found slideshow element
@@ -739,25 +744,30 @@ function initSlideshows(ssCls) {
 		//vars
 		var $ele = $(ele),//cache element
 			$slides = $ele.find('.slide'),//cache slides
+			length = $slides.length,//length of all slides
 			autoplay = ($ele.attr('data-autoplay')=='1') ? true : false,//get autoplay setting
 			effect = $ele.attr('data-effect') ? effect = $ele.attr('data-effect') : effect = 'fade',//get effect setting
 			pauseonhover = ($ele.attr('data-pauseonhover')=='1') ? true : false,//get pauseonhover setting
 			$btnToggle = $ele.find('.btnToggle'),//cache toggle button
 			$caption = $ele.find('.caption'),//cache caption container
+			$pagerText = $ele.find('.pagerText'),//cahce pager text container
 			hasCaption = $caption.length,//determine if has caption
+			hasPagerText = $pagerText.length,//determine if has pagerText
 			
 			//functions - cycle plugin handlers
 			onPaused = function( cont, opts, byHover ){
 				//pause event callback to swap states
-				!byHover && $btnToggle.removeClass('btnTogglePause').html('<span>Play</span>');
+				!byHover && $btnToggle.removeClass('pause').addClass('resume');
 			},
 			onResumed = function( cont, opts, byHover ){
 				//resume event callback to swap states
-				!byHover && $btnToggle.addClass('btnTogglePause').html('<span>Pause</span>');
+				!byHover && $btnToggle.removeClass('resume').addClass('pause');
 			},
 			onBefore = function( currSlide, nextSlide, opts, forwardFlag ){//onBefore transition handler
 				//update caption text if has caption
 				if (hasCaption) updateCaption(nextSlide, $caption);
+				//update pagerText is has pagerText
+				if (hasPagerText) updatePagerText($slides.index(nextSlide), length, $pagerText);
 			},
 			
 			//init cycle plugin

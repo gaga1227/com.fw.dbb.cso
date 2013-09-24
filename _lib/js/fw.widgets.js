@@ -162,9 +162,9 @@ function initDatepicker(){
 		
 }
 /* ------------------------------------------------------------------------------ */
-/* initMaps */
+/* initMap */
 /* ------------------------------------------------------------------------------ */
-function initMaps(opts){
+function initMap(opts){
 	
 	//exit if no address
 	if (!opts.lat || !opts.lng) return false;
@@ -172,7 +172,9 @@ function initMaps(opts){
 	//init maps
 	function init() {
 		//vars
-		var mapOptions = {
+		var	hasInfoWindow = opts.info,
+			showInfoWindowOnInit = hasInfoWindow && opts.showInfo,
+			mapOptions = {
 				zoom: 			opts.zoom || 16,
 				center: 		new google.maps.LatLng(opts.lat, opts.lng),
 				mapTypeId: 		google.maps.MapTypeId.ROADMAP,
@@ -187,15 +189,15 @@ function initMaps(opts){
 			}),
 			infowindow = new google.maps.InfoWindow({
 				content: 	opts.info || '',
-				maxWidth: 	opts.infoWidth || 300
+				maxWidth: 	opts.infoWidth || 250
 			}),
-			latlng = new google.maps.LatLng(opts.lat,opts.lng),
-			centerLatLng = new google.maps.LatLng(opts.center.lat,opts.center.lng);
+			latlng = new google.maps.LatLng(opts.lat,opts.lng);
+			//centerLatLng = new google.maps.LatLng(opts.center.lat,opts.center.lng);
 		
 		//infowindow
-		if (opts.info) {
+		if (showInfoWindowOnInit) {
 			infowindow.open(map, marker);
-			map.setCenter(centerLatLng);
+			map.setCenter(latlng);
 		}
 		
 		//events
@@ -209,11 +211,11 @@ function initMaps(opts){
 			*/
 		});
 		google.maps.event.addListener(marker, 'click', function() {
-			if (opts.info) infowindow.open(map, marker);
+			if (hasInfoWindow) infowindow.open(map, marker);
 		});
 		google.maps.event.addDomListener(window, 'resize', function() {
-			if (opts.info) map.panTo(centerLatLng);
-			else map.panTo(latlng);
+			if (hasInfoWindow) infowindow.close();
+			map.panTo(latlng);
 		});
 	}
 	

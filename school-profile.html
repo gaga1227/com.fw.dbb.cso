@@ -30,6 +30,7 @@
 <link type="text/css" rel="stylesheet" media="screen" href="_lib/css/custom/content-viewport.css" /><!-- contentViewport -->
 <link type="text/css" rel="stylesheet" media="print"  href="_lib/css/print.css" /><!-- print -->
 <!-- CSS:LIBS -->
+<link type="text/css" rel="stylesheet" media="screen" href="_lib/css/slideshow.css" /><!-- slideshow -->
 <!-- CSS:CUSTOM -->
 <style type="text/css">
 	/*insert code here*/	
@@ -153,7 +154,7 @@
 					<div class="contentViewport clearfix">
 						<img class="fullWidthImage borderedImage" src="___samples/ph-170x170.gif" width="170" height="170" alt="" />
 						<h4 class="title c">MACKILLOP CATHOLIC COLLEGE WARNERVALE</h4>
-						<p class="address">91 Sparks Road WarnervaleNSW, Australia 2259</p>
+						<p class="address">91 Sparks Road Warnervale NSW, Australia 2259</p>
 					</div>
 				</div><!-- /ASIDE -->
 				<!-- MAIN -->
@@ -231,21 +232,42 @@
 		<!-- TOUR -->
 		<div id="schoolTour" class="section">
 			<div class="section secHeader"><div class="padder"><h1 class="heading">School Tour</h1></div></div>
-			<div class="padder">
-				
-			</div>
+			<!-- TOUR SLIDESHOW -->
+			<div id="schoolTourSlideshow" class="slideshow tour nfp" data-autoplay="0">
+				<div class="slide"><img src="___samples/img-tour-1.jpg" alt="[1] Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula ornare ante." /></div>
+				<div class="slide"><img src="___samples/img-tour-2.jpg" alt="[2] This is a slideshow caption text" /></div>
+				<div class="slide"><img src="___samples/img-tour-3.jpg" alt="[3] Curabitur vulputate, ligula ornare ante." /></div>
+				<div class="slide"><img src="___samples/img-tour-4.jpg" alt="[4] Among the unique features of this College is the blending of a Catholic School community and a Parish." /></div>
+				<div class="controls clearfix">
+					<div class="caption"></div>
+					<div class="buttons"><a class="btnToggle" href="#"><i class="iconInline left icon-play"></i><i class="iconInline left icon-pause"></i></a><span class="pagerText">Image 1 of 10</span></div>
+				</div>
+			</div><!-- /TOUR SLIDESHOW -->
 		</div><!-- /TOUR -->
 		
 		<!-- MAP -->
 		<div id="schoolMap" class="section">
 			<div class="section secHeader"><div class="padder"><h1 class="heading">Location</h1></div></div>
-			<div id="schoolMapContainer" class="mapContainer"></div>
+			<!-- MAP CONTAINER -->
+			<div id="schoolMapContainer" class="mapContainer" 
+				data-lat="-33.241716" 
+				data-lng="151.467268" 
+				data-title="Saint Mary Mackillop&apos;s Catholic Church Warnervale"
+				data-show-info = "0"
+			></div><!-- /MAP CONTAINER -->
+			<!-- MAP INFO -->
+			<div id="schoolMapInfoData" class="hidden">
+				<div id="schoolMapInfoWindowContent" class="mapInfoWindowContent">
+					<h3 class="title">Saint Mary Mackillop&apos;s Catholic Church Warnervale</h3>
+					<p>91 Sparks Road Warnervale NSW, Australia 2259</p>
+				</div>
+			</div><!-- /MAP INFO -->
 		</div><!-- /MAP -->
 		
 		<!-- UTILS -->
 		<div class="section secUtils">
 			<div class="padder">
-				<a class="btnText slim" href="#"><i class="iconInline left icon-angle-left">&nbsp;</i><span class="label">Back to Schools Listing</span></a>
+				<a class="btnText slim" href="schools.html"><i class="iconInline left icon-angle-left">&nbsp;</i><span class="label">Back to Schools Listing</span></a>
 			</div>
 		</div><!-- /UTILS -->
 		

@@ -351,12 +351,41 @@ function initSchoolProfileReadMore(){
 	$(window).on('resize.schoolProfileReadMore', onResize);
 }
 /* ------------------------------------------------------------------------------ */
+/* initSchoolProfileMap */
+/* ------------------------------------------------------------------------------ */
+function initSchoolProfileMap(){
+	//vars
+	var $mapContainer = $('#schoolMapContainer'),
+		$mapInfoData = $('#schoolMapInfoData').hide(),
+		opts = {};
+	
+	//exit if no instance
+	if (!$mapContainer.length) return false;
+	
+	//update opts
+	opts.title = $mapContainer.data('title');
+	opts.lat = parseFloat($mapContainer.data('lat'));
+	opts.lng = parseFloat($mapContainer.data('lng'));	
+	//opts.center = { lat:opts.lat, lng:opts.lng };
+	
+	opts.target = $mapContainer.attr('id');
+	opts.info = $.trim($mapInfoData.html());
+	opts.showInfo = $mapContainer.data('showInfo') == '1' ? true : false;
+	opts.infoWidth = 250;
+	
+	//exit if no key data
+	if (isNaN(opts.lat) || isNaN(opts.lng) || !opts.title) return '[SchoolProfileMap]: Abort on missing map data(lat, lng, title)';
+	
+	//initMap
+	initMap(opts);
+}
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 var BannerSlides, $isotope, SelectNav, Slideshows, StaticAudios, StaticVideos;
 function init(){
 	//layout assistance
-	insertFirstLastChild('#navItems, #sideNav, #sideNav ul');
+	insertFirstLastChild('#navItems, #sideNav, #sideNav ul, .itemListing');
 	
 	//interactions	
 	SelectNav = new initSelectNav();
@@ -388,8 +417,12 @@ function initLanding(){
 	initClickLoading();
 }
 function initSchoolProfile(){
-	//initSchoolProfileReadMore
+	//school overview
 	initSchoolProfileReadMore();
+	//school tour
+	Slideshows = new initSlideshows();
+	//school map
+	initSchoolProfileMap();
 }
 /* DOM Ready */
 $(document).ready(function(){
