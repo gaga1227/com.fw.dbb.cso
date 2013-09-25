@@ -2425,7 +2425,6 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 .ie7 .btnItem.feat .iconInline,
 .btnItem.feat .iconInline:before { font-size:21px; line-height:38px; }
 
-
 /* -------------------------------------------------------------------------- */
 /* btnIcon */
 .btnIcon { 
@@ -2455,6 +2454,37 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 	.ie7 .btnIcon .icon,
 	.btnIcon .icon:before { 
 		font-size:21px; line-height:48px; }
+		
+/* -------------------------------------------------------------------------- */
+/* extend - btnIcon.lite */
+.btnIcon.lite { 
+	display:inline-block;
+	color:#a9adaf; background:transparent; 
+	font-size:28px;
+	/*box-shadow*/-webkit-box-shadow:none; box-shadow:none; }
+
+/* interaction */
+.no-touch .btnIcon.lite:hover,
+.btnIcon.lite:focus,
+.btnIcon.lite:active { 
+	background:#a9adaf; } 
+
+	/* icon */
+	.btnIcon.lite .icon { 
+		top:0; left:0; width:100%; height:100%;
+		color:#a9adaf!important; font-size:0; line-height:0; }
+	.ie7 .btnIcon.lite .icon,
+	.btnIcon.lite .icon:before { 
+		font-size:28px; line-height:48px; }
+		
+	.no-touch .btnIcon.lite:hover .icon,
+	.btnIcon.lite:focus .icon,
+	.btnIcon.lite:active .icon { 
+		color:#fff!important; } 
+		
+/* selected */
+.btnIcon.lite.selected { background:#00aee4!important; pointer-events:none; cursor:default; }
+.btnIcon.lite.selected .icon { color:#fff!important; }
 		
 /* -------------------------------------------------------------------------- */
 /* btnUtil */
@@ -2865,6 +2895,71 @@ body#home #findSchool {
 	body#home #findSchool { width:auto; margin:0 0 12px 0; }
 
 }
+
+
+/* ==========================================================================
+   section - SCHOOL LISTING
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* utilsTop */
+
+	/* columns */
+	body#school.listing #utilsTop .colTitle,
+	body#school.listing #utilsTop .colMain,
+	body#school.listing #utilsTop .colAside { display:block; position:relative; height:auto; margin:0; padding:0; overflow:visible; }
+	
+	body#school.listing #utilsTop .colTitle	{ width:31%; float:left; clear:left; }
+	body#school.listing #utilsTop .colMain	{ width:51%; float:left; }
+	body#school.listing #utilsTop .colAside	{ width:17%; float:right; clear:right; text-align:right; }
+
+	/* utilsHeading */
+	body#school.listing #utilsTop > .padder .utilsHeading { font-size:30px; line-height:48px; }
+		
+	/* formFilter */
+	body#school.listing #utilsTop #formFilter { width:auto; }
+	
+	/* btnIcon */
+	body#school.listing #utilsTop .btnIcon { margin-right:1px; }
+	
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:960px) {
+
+	/* -------------------------------------------------------------------------- */
+	/* utilsTop */
+
+	/* shrink title */
+	body#school.listing #utilsTop > .padder .utilsHeading { font-size:25px; }	
+
+}
+@media only screen and (max-width:750px) {
+
+	/* -------------------------------------------------------------------------- */
+	/* utilsTop */
+	
+	/* hide colTitle */
+	body#school.listing #utilsTop .colTitle { display:none; }
+	
+	/* update column */
+	body#school.listing #utilsTop .colMain	{ width:70%; clear:left; }
+	body#school.listing #utilsTop .colAside	{ width:29%; }
+
+}
+@media only screen and (max-width:500px) {
+
+	/* -------------------------------------------------------------------------- */
+	/* utilsTop */
+
+	/* hide colAside */
+	body#school.listing #utilsTop .colAside	{ display:none; }
+	
+	/* update column */
+	body#school.listing #utilsTop .colMain	{ width:auto; float:none; clear:both; }
+	.ie7 body#school.listing #utilsTop .colMain	{ zoom:1; }
+
+}
+
 
 /* ==========================================================================
    section - SCHOOL PROFILE
