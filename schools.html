@@ -30,6 +30,8 @@
 <link type="text/css" rel="stylesheet" media="screen" href="_lib/css/custom/content-viewport.css" /><!-- contentViewport -->
 <link type="text/css" rel="stylesheet" media="print"  href="_lib/css/print.css" /><!-- print -->
 <!-- CSS:LIBS -->
+<link type="text/css" rel="stylesheet" media="screen" href="_lib/js/isotope/jquery.isotope.css" /><!-- isotope -->
+<link type="text/css" rel="stylesheet" media="screen" href="_lib/css/googleMap.css" /><!-- googleMap -->
 <!-- CSS:CUSTOM -->
 <style type="text/css">
 	/*insert code here*/	
@@ -40,6 +42,8 @@
 <script type="text/javascript" src="_lib/js/jquery-1.8.3.js"></script><!-- jQuery -->
 <!-- JS:LIBS -->
 <script type="text/javascript" src="_lib/js/custom-form-elements.js"></script><!-- custom-form-elements -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><!-- Google Maps API -->
+<script type="text/javascript" src="_lib/js/isotope/jquery.isotope.js"></script><!-- isotope -->
 <!-- JS:FW -->
 <script type="text/javascript" src="_lib/js/fw.utils.js"></script><!-- utils -->
 <script type="text/javascript" src="_lib/js/fw.widgets.js"></script><!-- widgets -->
@@ -131,11 +135,113 @@
 				<div class="colAside">
 					<div class="views"><!--
 						--><a class="btnIcon lite" href="#" data-view="list"><i class="icon icon-th"></i></a><!--
-						--><a class="btnIcon lite selected" href="#" data-view="map"><i class="icon icon-map-marker"></i></a><!--
+						--><a class="btnIcon lite selected" href="#" data-view="map" data-default="1"><i class="icon icon-map-marker"></i></a><!--
 					--></div>
 				</div>
 			</div>
 		</div><!-- /UTILS -->
+		
+		<!-- MAP -->
+		<div id="dioceseMap" class="section">
+			<div id="dioceseMapContainer" class="mapContainer"
+				data-lat="-33.241716" 
+				data-lng="151.467268" 
+				data-title="Schools in the Diocese of Broken Bay"
+			></div>
+			<div class="utils">
+				<h3 class="utilsHeading">Legend</h3>
+				<span class="btnLegend grn"><i class="c iconInline left icon-map-marker"></i><b>Primary School</b></span>
+				<span class="btnLegend red"><i class="c iconInline left icon-map-marker"></i><b>Secondary School</b></span>
+				<span class="btnLegend ppl"><i class="c iconInline left icon-map-marker"></i><b>K-12</b></span>
+			</div>
+		</div><!-- /MAP -->
+		
+		<!-- SCHOOLS -->
+		<div id="dioceseSchools" class="section">
+			<div class="padder">
+				<div id="schoolListing" class="colFull mcenter isotopeContainer">
+					
+					<!-- ITEM -->
+					<div class="item tile school grn primary">
+						<h4 class="header bgc"><span class="label">Primary School</span></h4><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="#"><!--
+							--><span class="title">Our Lady of Perpetual Succour Catholic Primary School</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">WEST PYMBLE</span><!--
+							--></span><!--
+						--></a><!--				
+					--></div><!-- /ITEM -->
+					
+					<!-- ITEM -->
+					<div class="item tile school red secondary">
+						<h4 class="header bgc"><span class="label">Secondary School</span></h4><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="#"><!--
+							--><span class="title">Mater Maria Catholic College</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">WARRIEWOOD</span><!--
+							--></span><!--
+						--></a><!--				
+					--></div><!-- /ITEM -->
+					
+					<!-- ITEM -->
+					<div class="item tile school ppl k12">
+						<h4 class="header bgc"><span class="label">K-12</span></h4><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="#"><!--
+							--><span class="title">St John Fisher Catholic Primary School</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">TUMBI UMBI</span><!--
+							--></span><!--
+						--></a><!--				
+					--></div><!-- /ITEM -->
+					
+					<!-- ITEM -->
+					<div class="item tile school red secondary">
+						<h4 class="header bgc"><span class="label">Secondary School</span></h4><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="#"><!--
+							--><span class="title">St Bernard's Catholic Primary School</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">BEROWRA HEIGHTS</span><!--
+							--></span><!--
+						--></a><!--				
+					--></div><!-- /ITEM -->
+					
+					<!-- ITEM -->
+					<div class="item tile school ppl k12">
+						<h4 class="header bgc"><span class="label">K-12</span></h4><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="#"><!--
+							--><span class="title">St Leo's Catholic College</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">WAHROONGA</span><!--
+							--></span><!--
+						--></a><!--				
+					--></div><!-- /ITEM -->
+					
+					<!-- ITEM -->
+					<div class="item tile school grn primary">
+						<h4 class="header bgc"><span class="label">Primary School</span></h4><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="#"><!--
+							--><span class="title">St Kieran's Catholic Primary School</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">MANLY</span><!--
+							--></span><!--
+						--></a><!--				
+					--></div><!-- /ITEM -->
+											
+				</div>
+			</div>
+		</div><!-- /SCHOOLS -->
 		
 	</div><!-- /CONTENT -->
 	<!-- MEGAFOOTER -->

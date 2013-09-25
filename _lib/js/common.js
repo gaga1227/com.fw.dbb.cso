@@ -20,7 +20,7 @@ WebFontUtils = {
 									//hide loader
 									
 									//isotope tiles
-									if ( $('body#home').length || $('body.landing').length ) {
+									if ( $('body#home').length || $('body.landing').length || $('body#school.listing').length ) {
 										$isotope = new initIsotope();
 									}
 								},
@@ -380,6 +380,30 @@ function initSchoolProfileMap(){
 	initMap(opts);
 }
 /* ------------------------------------------------------------------------------ */
+/* initDioceseMap */
+/* ------------------------------------------------------------------------------ */
+function initDioceseMap(){
+	//vars
+	var $mapContainer = $('#dioceseMapContainer')
+		opts = {};
+	
+	//exit if no instance
+	if (!$mapContainer.length) return false;
+	
+	//update opts
+	opts.title = $mapContainer.data('title');
+	opts.lat = parseFloat($mapContainer.data('lat'));
+	opts.lng = parseFloat($mapContainer.data('lng'));	
+	
+	opts.target = $mapContainer.attr('id');
+	
+	//exit if no key data
+	if (isNaN(opts.lat) || isNaN(opts.lng) || !opts.title) return '[dioceseMap]: Abort on missing map data(lat, lng, title)';
+	
+	//initMap
+	initMap(opts);
+}
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 var BannerSlides, $isotope, SelectNav, Slideshows, StaticAudios, StaticVideos;
@@ -393,6 +417,7 @@ function init(){
 	//template specific functions
 	if 		( $('body#home').length ) 			{ initHome(); }
 	else if ( $('body.landing').length ) 		{ initLanding(); }
+	else if ( $('body#school.listing').length ) { initSchoolListing(); }
 	else if ( $('body#school.profile').length ) { initSchoolProfile(); }
 	else {
 		//media
@@ -415,6 +440,10 @@ function initHome(){
 function initLanding(){
 	//initClickLoading
 	initClickLoading();
+}
+function initSchoolListing(){
+	//diocese map
+	initDioceseMap();
 }
 function initSchoolProfile(){
 	//school overview

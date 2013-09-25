@@ -1058,7 +1058,7 @@ html, body { height:100% }
 /* -------------------------------------------------------------------------- */
 /* UTILS TOP */
 .utils,
-#utilsTop			{ background:#f2f2f2; }
+#utilsTop			{ position:relative; background:#f2f2f2; }
 .oldie .utils,
 .oldie #utilsTop	{ background:#e4e4e4; }
 
@@ -1955,7 +1955,7 @@ body.landing #utilsBtm {
 	/* -------------------------------------------------------------------------- */
 	/* imgThumb */
 	.item .imgThumb { 
-		width:100%; height:auto; margin:0; padding:0; overflow:hidden;
+		width:100%; height:auto; margin:0 auto; padding:0; overflow:hidden;
 		/*transition*/
 		/*-webkit-transform:translate3d(0,0,0);*/
 		-webkit-transition:opacity 0.3s ease-in-out;
@@ -2077,9 +2077,19 @@ body.landing #utilsBtm {
 
 /* -------------------------------------------------------------------------- */
 /* extend - school */
-.item.school 					{ background:#f9f9f9;}
+.item.school 					{ background:#fafafa;}
 .item.school > .content 		{ border-top:1px solid #ddd; }
 .item.school > .content .title 	{ text-decoration:none!important; }
+
+/* imgThumb */
+.item.school .imgThumb { 
+	width:auto; height:170px;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:none;
+	-moz-transition:none;
+	-o-transition:none;
+	transition:none; }
 
 /* interaction */
 .item.school > .content:hover *,
@@ -2136,6 +2146,23 @@ body.landing #utilsBtm {
 	/* single column tiles */
 	.item.tile 	{ width:auto; margin:0 0 12px 0; zoom:1; }
 	.item.tile > .header { position:relative; }
+	
+	/* item school */
+	.item.school { background:#fff; }
+		
+		/* hide header and imgThumb */
+		.item.school .header,
+		.item.school.tile .header,
+		.item.school .imgThumb,
+		.item.school.tile .imgThumb { display:none; }
+		
+		/* remove content top border */
+		.item.school > .content { border-top:none; }
+		
+		/* update icon */
+		.item.school .iconInline.left { padding-right:10px; }
+		.ie7 .item.school .iconInline,
+		.item.school .iconInline:before { font-size:21px; }
 
 }
 
@@ -2355,6 +2382,19 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 .iconInline.right		{ padding-right:0; text-align:right; }
 
 /* -------------------------------------------------------------------------- */
+/* sizes */
+.ie7 .icon.sz1, .ie7 .iconInline.sz1,
+.icon.sz1:before, .iconInline.sz1:before { font-size:7px!important; }
+.ie7 .icon.sz2, .ie7 .iconInline.sz2,
+.icon.sz2:before, .iconInline.sz2:before { font-size:14px!important; }
+.ie7 .icon.sz3, .ie7 .iconInline.sz3,
+.icon.sz3:before, .iconInline.sz3:before { font-size:21px!important; }
+.ie7 .icon.sz4, .ie7 .iconInline.sz4,
+.icon.sz4:before, .iconInline.sz4:before { font-size:28px!important; }
+.ie7 .icon.sz5, .ie7 .iconInline.sz5,
+.icon.sz5:before, .iconInline.sz5:before { font-size:35px!important; }
+
+/* -------------------------------------------------------------------------- */
 /* circle */
 .icon.circle, 
 .iconInline.circle { 
@@ -2534,6 +2574,13 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 /* error */
 #btnLoadMore.error 				{ color:#e94b35!important; }
 #btnLoadMore.error > .error		{ display:inline-block; }
+
+/* -------------------------------------------------------------------------- */
+/* btnLegend */
+.btnLegend { 
+	display:inline-block; height:30px; margin:0 18px; overflow:hidden; 
+	white-space:nowrap; text-overflow:ellipsis; vertical-align:middle;
+	line-height:30px; }
 
 
 /* ==========================================================================
@@ -2903,6 +2950,9 @@ body#home #findSchool {
 
 /* -------------------------------------------------------------------------- */
 /* utilsTop */
+body#school.listing #utilsTop { 
+	z-index:100;
+	/*box-shadow*/-webkit-box-shadow:0px 2px 2px 0px rgba(0,0,0,0.2); box-shadow:0px 2px 2px 0px rgba(0,0,0,0.2); }
 
 	/* columns */
 	body#school.listing #utilsTop .colTitle,
@@ -2921,7 +2971,40 @@ body#home #findSchool {
 	
 	/* btnIcon */
 	body#school.listing #utilsTop .btnIcon { margin-right:1px; }
+
+/* -------------------------------------------------------------------------- */
+/* dioceseMap */
+#dioceseMap { 
+	position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
+
+	/* mapContainer */
+	#dioceseMap .mapContainer { padding-top:55%; }
+	.ie7 #dioceseMap .mapContainer { height:790px; padding:0; }
 	
+	/* utils */
+	#dioceseMap .utils { 
+		position:relative; width:auto; height:auto; margin:0; padding:30px 0; overflow:hidden; 
+		text-align:center;
+		/*box-shadow*/-webkit-box-shadow:0px -2px 2px 0px rgba(0,0,0,0.2); box-shadow:0px -2px 2px 0px rgba(0,0,0,0.2); }
+		
+		/* utilsHeading */
+		#dioceseMap .utils .utilsHeading { 
+			display:inline; vertical-align:middle;
+			font-family:'Merriweather',sans-serif; font-size:24px; line-height:30px; }
+			
+		/* btnLegend */
+		#dioceseMap .utils .utilsHeading + .btnLegend { margin-left:50px; }
+		
+			/* icon */
+			#dioceseMap .utils .btnLegend .iconInline:before,
+			.ie7 #dioceseMap .utils .btnLegend .iconInline { font-size:28px; }
+			
+/* -------------------------------------------------------------------------- */
+/* dioceseSchools */
+
+/* schoolListing */
+#schoolListing { padding:50px 0 30px 0; overflow:hidden; }
+
 /* -------------------------------------------------------------------------- */
 /* responsive */
 @media only screen and (max-width:960px) {
@@ -2930,7 +3013,13 @@ body#home #findSchool {
 	/* utilsTop */
 
 	/* shrink title */
-	body#school.listing #utilsTop > .padder .utilsHeading { font-size:25px; }	
+	body#school.listing #utilsTop > .padder .utilsHeading { font-size:25px; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* dioceseMap */
+	
+	/* mapContainer */
+	.ie7 #dioceseMap .mapContainer { height:530px; }
 
 }
 @media only screen and (max-width:750px) {
@@ -2944,19 +3033,81 @@ body#home #findSchool {
 	/* update column */
 	body#school.listing #utilsTop .colMain	{ width:70%; clear:left; }
 	body#school.listing #utilsTop .colAside	{ width:29%; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* dioceseMap */
+	
+	/* mapContainer */
+	.ie7 #dioceseMap .mapContainer { height:410px; }
 
+}
+@media only screen and (max-width:640px) {
+
+	/* -------------------------------------------------------------------------- */
+	/* dioceseMap */
+	
+	/* mapContainer */
+	.ie7 #dioceseMap .mapContainer { height:350px; }
+	
+	/* hide utilsHeading */
+	#dioceseMap .utils .utilsHeading { display:none; }
+	
+	/* update legend gaps */
+	#dioceseMap .utils .btnLegend,
+	#dioceseMap .utils .utilsHeading + .btnLegend { margin:0 10px; }
+	
 }
 @media only screen and (max-width:500px) {
 
 	/* -------------------------------------------------------------------------- */
 	/* utilsTop */
-
+	
 	/* hide colAside */
 	body#school.listing #utilsTop .colAside	{ display:none; }
 	
 	/* update column */
 	body#school.listing #utilsTop .colMain	{ width:auto; float:none; clear:both; }
 	.ie7 body#school.listing #utilsTop .colMain	{ zoom:1; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* dioceseMap */
+	
+	/* mapContainer */
+	.ie7 #dioceseMap .mapContainer { height:270px; }
+	
+	/* utils shrink gaps */
+	#dioceseMap .utils { padding:0 0 10px 0; }
+	
+		/* hide utilsHeading */
+		#dioceseMap .utils .utilsHeading { display:none; }
+		
+		/* update btnLegend gaps */
+		#dioceseMap .utils .btnLegend,
+		#dioceseMap .utils .utilsHeading + .btnLegend { margin:0 5px; font-size:10px; }
+		
+			/* icon shrink size */
+			#dioceseMap .utils .btnLegend .iconInline.left { padding-right:5px; }
+			#dioceseMap .utils .btnLegend .iconInline:before,
+			.ie7 #dioceseMap .utils .btnLegend .iconInline { font-size:21px; }
+	
+	/* remove map shadows */
+	body#school.listing #utilsTop,
+	body#school.listing #dioceseMap .utils { /*box-shadow*/-webkit-box-shadow:none; box-shadow:none; }
+	
+}
+@media only screen and (max-width:400px) {
+	
+	/* -------------------------------------------------------------------------- */
+	/* dioceseMap */
+	
+	/* mapContainer */
+	.ie7 #dioceseMap .mapContainer { height:220px; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* schoolListing */
+	
+	/* update gaps */
+	#schoolListing { padding:10px 10px 0 10px; }
 
 }
 
