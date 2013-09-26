@@ -169,7 +169,29 @@ function initMap(opts){
 	//exit if no address
 	if (!opts.lat || !opts.lng) return false;
 	
-	//init maps
+	//vars
+	var mapObj = {};
+	
+	/* -------------------------------------------------------------------------- */
+	//methods
+	
+	/* marker */
+	mapObj.addMarker = function(data){
+		var marker = new google.maps.Marker({
+			map: 		data.map,
+			position: 	new google.maps.LatLng(data.lat, data.lng),
+			title: 		data.title,
+			icon:		data.icon
+			//animation: 	google.maps.Animation.DROP
+		});	
+		return marker;
+	}
+	mapObj.toggleMarker = function(marker, visible){
+		marker.setVisible(visible);
+	}
+	
+	/* -------------------------------------------------------------------------- */
+	//init
 	function init() {
 		//vars
 		var	hasInfoWindow = opts.info,
@@ -180,11 +202,12 @@ function initMap(opts){
 				mapTypeId: 		google.maps.MapTypeId.ROADMAP,
 				scrollwheel: 	false
 			},
-			map = new google.maps.Map(document.getElementById(opts.target), mapOptions),
-			marker = new google.maps.Marker({
+			map = mapObj.map = new google.maps.Map(document.getElementById(opts.target), mapOptions),
+			marker = mapObj.centerMarker = new google.maps.Marker({
 				map: 		map,
 				position: 	map.getCenter(),
-				title: 		opts.title || ''
+				title: 		opts.title || '',
+				visible:	opts.showCenter
 				//animation: 	google.maps.Animation.DROP,
 			}),
 			infowindow = new google.maps.InfoWindow({
@@ -221,4 +244,8 @@ function initMap(opts){
 	
 	//init
 	init();
+	
+	//return map
+	return mapObj;
 }
+

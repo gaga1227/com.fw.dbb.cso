@@ -2079,7 +2079,7 @@ body.landing #utilsBtm {
 /* extend - school */
 .item.school 					{ background:#fafafa;}
 .item.school > .content 		{ border-top:1px solid #ddd; }
-.item.school > .content .title 	{ text-decoration:none!important; }
+.item.school > .content .title 	{ text-decoration:none!important; height:66px; overflow:hidden; }
 
 /* imgThumb */
 .item.school .imgThumb { 
@@ -2158,6 +2158,7 @@ body.landing #utilsBtm {
 		
 		/* remove content top border */
 		.item.school > .content { border-top:none; }
+		.item.school > .content .title 	{ height:auto; overflow:visible; }
 		
 		/* update icon */
 		.item.school .iconInline.left { padding-right:10px; }
@@ -3003,7 +3004,11 @@ body#school.listing #utilsTop {
 /* dioceseSchools */
 
 /* schoolListing */
-#schoolListing { padding:50px 0 30px 0; overflow:hidden; }
+#schoolListing { padding:50px 0 30px 0; overflow:hidden; text-align:center; }
+	
+	/* item */
+	#schoolListing .item.school.tile { display:inline-block; text-align:left; }
+	#schoolListing .item.school.tile.hidden { display:none; }
 
 /* -------------------------------------------------------------------------- */
 /* responsive */
@@ -3108,6 +3113,10 @@ body#school.listing #utilsTop {
 	
 	/* update gaps */
 	#schoolListing { padding:10px 10px 0 10px; }
+	
+	/* block item tiles */
+	#schoolListing .item.school.tile { display:block; width:100%; }
+	#schoolListing .item.school.tile.hidden { display:none; }
 
 }
 

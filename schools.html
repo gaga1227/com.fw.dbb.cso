@@ -30,7 +30,6 @@
 <link type="text/css" rel="stylesheet" media="screen" href="_lib/css/custom/content-viewport.css" /><!-- contentViewport -->
 <link type="text/css" rel="stylesheet" media="print"  href="_lib/css/print.css" /><!-- print -->
 <!-- CSS:LIBS -->
-<link type="text/css" rel="stylesheet" media="screen" href="_lib/js/isotope/jquery.isotope.css" /><!-- isotope -->
 <link type="text/css" rel="stylesheet" media="screen" href="_lib/css/googleMap.css" /><!-- googleMap -->
 <!-- CSS:CUSTOM -->
 <style type="text/css">
@@ -43,7 +42,6 @@
 <!-- JS:LIBS -->
 <script type="text/javascript" src="_lib/js/custom-form-elements.js"></script><!-- custom-form-elements -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script><!-- Google Maps API -->
-<script type="text/javascript" src="_lib/js/isotope/jquery.isotope.js"></script><!-- isotope -->
 <!-- JS:FW -->
 <script type="text/javascript" src="_lib/js/fw.utils.js"></script><!-- utils -->
 <script type="text/javascript" src="_lib/js/fw.widgets.js"></script><!-- widgets -->
@@ -123,13 +121,13 @@
 					<form id="formFilter" class="formView mcenter" action="/">
 						<fieldset>
 							<select id="fmFilter" name="fmFilter" class="styled" data-icon="icon fwicon-scroll">
-								<option value="0">All Types</option>
-								<option value="1">Primary</option>
-								<option value="2">Secondary</option>
-								<option value="3">K-12</option>
+								<option value="school">All Types</option>
+								<option value="primary">Primary</option>
+								<option value="secondary">Secondary</option>
+								<option value="k12">K-12</option>
 							</select>
 						</fieldset>
-						<a class="btnIcon" href="javascript:$('#formFilter').submit();"><i class="icon icon-search"></i></a>					
+						<a id="btnFilter" class="btnIcon" href="#"><i class="icon icon-search"></i></a>					
 					</form>
 				</div>
 				<div class="colAside">
@@ -147,6 +145,7 @@
 				data-lat="-33.241716" 
 				data-lng="151.467268" 
 				data-title="Schools in the Diocese of Broken Bay"
+				data-show-center = "0" 
 			></div>
 			<div class="utils">
 				<h3 class="utilsHeading">Legend</h3>
@@ -159,87 +158,161 @@
 		<!-- SCHOOLS -->
 		<div id="dioceseSchools" class="section">
 			<div class="padder">
-				<div id="schoolListing" class="colFull mcenter isotopeContainer">
-					
-					<!-- ITEM -->
-					<div class="item tile school grn primary">
-						<h4 class="header bgc"><span class="label">Primary School</span></h4><!--
+				<div id="schoolListing" class="colFull"><!--
+					--><span class="item tile school grn primary" data-lat="-33.760569686894975" data-lng="151.13055596693417"><!--
+						--><span class="header bgc"><span class="label">Primary School</span></span><!--
 						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
-						--><a class="content padder hoverbgc" href="#"><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
 							--><span class="title">Our Lady of Perpetual Succour Catholic Primary School</span><!--
+							--><span class="address hidden">64 Kendall Street WEST PYMBLE 2073</span><!--
 							--><span class="tags"><!--
 								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
 								--><span class="tag">WEST PYMBLE</span><!--
 							--></span><!--
-						--></a><!--				
-					--></div><!-- /ITEM -->
-					
-					<!-- ITEM -->
-					<div class="item tile school red secondary">
-						<h4 class="header bgc"><span class="label">Secondary School</span></h4><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:olps@dbb.catholic.edu.au">olps@dbb.catholic.edu.au</a></p>
+						</div><!--
+					--></span><!--	
+					--><span class="item tile school red secondary" data-lat="-33.68262147391124" data-lng="151.28510515449216"><!--
+						--><span class="header bgc"><span class="label">Secondary School</span></span><!--
 						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
-						--><a class="content padder hoverbgc" href="#"><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
 							--><span class="title">Mater Maria Catholic College</span><!--
+							--><span class="address hidden">Forest Road WARRIEWOOD 2102</span><!--
 							--><span class="tags"><!--
 								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
 								--><span class="tag">WARRIEWOOD</span><!--
 							--></span><!--
-						--></a><!--				
-					--></div><!-- /ITEM -->
-					
-					<!-- ITEM -->
-					<div class="item tile school ppl k12">
-						<h4 class="header bgc"><span class="label">K-12</span></h4><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:mmw@dbb.catholic.edu.au">mmw@dbb.catholic.edu.au</a></p>
+						</div><!--			
+					--></span><!--
+					--><span class="item tile school grn primary" data-lat="-33.367054027288454" data-lng="151.43609547380365"><!--	
+						--><span class="header bgc"><span class="label">Primary School</span></span><!--
 						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
-						--><a class="content padder hoverbgc" href="#"><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
 							--><span class="title">St John Fisher Catholic Primary School</span><!--
+							--><span class="address hidden">Hicks Lane TUMBI UMBI 2261</span><!--
 							--><span class="tags"><!--
 								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
 								--><span class="tag">TUMBI UMBI</span><!--
 							--></span><!--
-						--></a><!--				
-					--></div><!-- /ITEM -->
-					
-					<!-- ITEM -->
-					<div class="item tile school red secondary">
-						<h4 class="header bgc"><span class="label">Secondary School</span></h4><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:sjf@dbb.catholic.edu.au">sjf@dbb.catholic.edu.au</a></p>
+						</div><!--				
+					--></span><!--	
+					--><span class="item tile school grn primary" data-lat="-33.614395346148584" data-lng="151.14382478000937"><!--	
+						--><span class="header bgc"><span class="label">Primary School</span></span><!--
 						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
-						--><a class="content padder hoverbgc" href="#"><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
 							--><span class="title">St Bernard's Catholic Primary School</span><!--
+							--><span class="address hidden">Warrina Street BEROWRA HEIGHTS</span><!--
 							--><span class="tags"><!--
 								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
 								--><span class="tag">BEROWRA HEIGHTS</span><!--
 							--></span><!--
-						--></a><!--				
-					--></div><!-- /ITEM -->
-					
-					<!-- ITEM -->
-					<div class="item tile school ppl k12">
-						<h4 class="header bgc"><span class="label">K-12</span></h4><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:sbb@dbb.catholic.edu.au">sbb@dbb.catholic.edu.au</a></p>
+						</div><!--				
+					--></span><!--	
+					--><span class="item tile school ppl k12" data-lat="-33.712471684134755" data-lng="151.10379492128757"><!--
+						--><span class="header bgc"><span class="label">K-12</span></span><!--
 						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
-						--><a class="content padder hoverbgc" href="#"><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
 							--><span class="title">St Leo's Catholic College</span><!--
+							--><span class="address hidden">16 Woolcott Avenue WAHROONGA 2076</span><!--
 							--><span class="tags"><!--
 								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
 								--><span class="tag">WAHROONGA</span><!--
 							--></span><!--
-						--></a><!--				
-					--></div><!-- /ITEM -->
-					
-					<!-- ITEM -->
-					<div class="item tile school grn primary">
-						<h4 class="header bgc"><span class="label">Primary School</span></h4><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:stleos@dbb.catholic.edu.au">stleos@dbb.catholic.edu.au</a></p>
+						</div><!--				
+					--></span><!--
+					--><span class="item tile school grn primary" data-lat="-33.78179040918053" data-lng="151.26729238161465"><!--
+						--><span class="header bgc"><span class="label">Primary School</span></span><!--
 						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
-						--><a class="content padder hoverbgc" href="#"><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
 							--><span class="title">St Kieran's Catholic Primary School</span><!--
+							--><span class="address hidden">63 Gordon Street MANLY VALE 2093</span><!--
 							--><span class="tags"><!--
 								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
 								--><span class="tag">MANLY</span><!--
 							--></span><!--
-						--></a><!--				
-					--></div><!-- /ITEM -->
-											
-				</div>
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:skmv@dbb.catholic.edu.au">skmv@dbb.catholic.edu.au</a></p>
+						</div><!--				
+					--></span><!--
+					--><span class="item tile school red secondary" data-lat="-33.18287271049148" data-lng="151.57426296032713"><!--
+						--><span class="header bgc"><span class="label">Secondary School</span></span><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
+							--><span class="title">St Brigid's Catholic College</span><!--
+							--><span class="address hidden">Carters Road LAKE MUNMORAH NSW 2259</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">LAKE MUNMORAH</span><!--
+							--></span><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:lmhs@dbb.catholic.edu.au">lmhs@dbb.catholic.edu.au</a></p>
+						</div><!--				
+					--></span><!--
+					--><span class="item tile school grn primary" data-lat="-33.75495831061285" data-lng="151.29033689999994"><!--
+						--><span class="header bgc"><span class="label">Primary School</span></span><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
+							--><span class="title">St Kevin's Catholic Primary School</span><!--
+							--><span class="address hidden">57 &ndash; 59 Oaks Avenue DEE WHY 2099</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">DEE WHY</span><!--
+							--></span><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:skdy@dbb.catholic.edu.au">skdy@dbb.catholic.edu.au</a></p>
+						</div><!--				
+					--></span><!--
+					--><span class="item tile school red secondary" data-lat="-33.80491995055616" data-lng="151.29262205583493"><!--
+						--><span class="header bgc"><span class="label">Secondary School</span></span><!--
+						--><img class="imgThumb" src="___samples/ph-170x170.gif" width="170" height="170" alt="" /><!--
+						--><a class="content padder hoverbgc" href="school-profile.html"><!--
+							--><span class="title">St Paul's Catholic College</span><!--
+							--><span class="address hidden">Darley Road MANLY 2095</span><!--
+							--><span class="tags"><!--
+								--><i class="iconInline c left icon-map-marker">&nbsp;</i><!--
+								--><span class="tag">MANLY</span><!--
+							--></span><!--
+						--></a><!--	
+						--><div class="data hidden">
+							<p><b class="c">Principals</b><br/>Mr Steven Todd<br />Mrs Sue Dietrich</p>
+							<p><b class="c">Telephone</b><br/>02 4392 9399</p>
+							<p><b class="c">Email</b><br/><a class="dark" href="mailto:stpauls@dbb.catholic.edu.au">stpauls@dbb.catholic.edu.au</a></p>
+						</div><!--				
+					--></span><!--					
+				--></div>
 			</div>
 		</div><!-- /SCHOOLS -->
 		

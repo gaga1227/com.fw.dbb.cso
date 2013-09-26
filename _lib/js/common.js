@@ -20,7 +20,7 @@ WebFontUtils = {
 									//hide loader
 									
 									//isotope tiles
-									if ( $('body#home').length || $('body.landing').length || $('body#school.listing').length ) {
+									if ( $('body#home').length || $('body.landing').length ) {
 										$isotope = new initIsotope();
 									}
 								},
@@ -371,20 +371,21 @@ function initSchoolProfileMap(){
 	opts.target = $mapContainer.attr('id');
 	opts.info = $.trim($mapInfoData.html());
 	opts.showInfo = $mapContainer.data('showInfo') == '1' ? true : false;
+	opts.showCenter = $mapContainer.data('showCenter') == '1' ? true : false;
 	opts.infoWidth = 250;
 	
 	//exit if no key data
 	if (isNaN(opts.lat) || isNaN(opts.lng) || !opts.title) return '[SchoolProfileMap]: Abort on missing map data(lat, lng, title)';
 	
 	//initMap
-	initMap(opts);
+	Map = new initMap(opts);
 }
 /* ------------------------------------------------------------------------------ */
 /* initDioceseMap */
 /* ------------------------------------------------------------------------------ */
 function initDioceseMap(){
 	//vars
-	var $mapContainer = $('#dioceseMapContainer')
+	var $mapContainer = $('#dioceseMapContainer'),
 		opts = {};
 	
 	//exit if no instance
@@ -393,20 +394,124 @@ function initDioceseMap(){
 	//update opts
 	opts.title = $mapContainer.data('title');
 	opts.lat = parseFloat($mapContainer.data('lat'));
-	opts.lng = parseFloat($mapContainer.data('lng'));	
-	
+	opts.lng = parseFloat($mapContainer.data('lng'));
+	opts.zoom = 9;
+	opts.showCenter = $mapContainer.data('showCenter') == '1' ? true : false;
 	opts.target = $mapContainer.attr('id');
 	
 	//exit if no key data
 	if (isNaN(opts.lat) || isNaN(opts.lng) || !opts.title) return '[dioceseMap]: Abort on missing map data(lat, lng, title)';
 	
 	//initMap
-	initMap(opts);
+	Map = new initMap(opts);
+}
+/* ------------------------------------------------------------------------------ */
+/* initSchoolsFilter */
+/* ------------------------------------------------------------------------------ */
+function initSchoolsFilter(){
+	//vars
+	var schoolsFilter = {},
+		$form = $('#formFilter'),
+		$select = $('#fmFilter'),
+		$btnFilter = $('#btnFilter'),
+		$items = $('#schoolListing').find('.item.school.tile'),
+		hideCls = 'hidden';
+	
+	/* -------------------------------------------------------------------------- */
+	/* data */
+	
+	/* create containers */
+	schoolsFilter.schools = [];
+	schoolsFilter.schoolVisibility = [];
+	/* update containers */
+	$.each($items, function(idx, ele){
+		var $school = $(ele),
+			data = {};
+		//collect data
+		data.lat = $school.data('lat');
+		data.lng = $school.data('lng');
+		data.title = $.trim($school.find('.title').text());
+		data.address = $.trim($school.find('.address').text());
+		data.suburb = $.trim($school.find('.tag').text());
+		data.href = $school.find('a').attr('href');
+		data.type = $school.hasClass('primary') ? 'p' : $school.hasClass('secondary') ? 's' : 'k'; 
+		//update school list data
+		schoolsFilter.schools.push(data);
+		schoolsFilter.schoolVisibility[idx] = true;
+	});
+	
+	/* -------------------------------------------------------------------------- */
+	//methods
+	schoolsFilter.filter = function(token){
+		//vars
+		var //filter items into groups
+			$relevants = $items.filter(function(idx){
+				if ($(this).hasClass(token)) {
+					schoolsFilter.schoolVisibility[idx] = true;
+					return $(this);
+				}
+			});
+			$irrelevants = $items.filter(function(idx){
+				if (!$(this).hasClass(token)) {
+					schoolsFilter.schoolVisibility[idx] = false;
+					return $(this);
+				}
+			});
+		
+		//apply filter to list view
+		$relevants.removeClass(hideCls);
+		$irrelevants.addClass(hideCls);
+		
+		//apply filter to map view
+		$.each(schoolsFilter.schoolVisibility, function(idx, val){
+			//vars
+			var schoolData = schoolsFilter.schools[idx],
+				schoolIsVisible = val,
+				hasMarker = schoolData.marker ? true : false;
+			//update/create marker
+			if (hasMarker) {
+				Map.toggleMarker(schoolData.marker, schoolIsVisible);
+			} else {
+				schoolData.marker = Map.addMarker({ 
+					map:	Map.map, 
+					lat:	schoolData.lat, 
+					lng:	schoolData.lng, 
+					title:	schoolData.title,
+					icon:	'_lib/img/marker-' + schoolData.type + '.png'
+				});
+			}			
+		})
+		
+		//keep form value consistent
+		if ($select.val() != token) {
+			$select.val(token);
+			$select.trigger('change');
+		}
+		
+		console.log('[SchoolFilter] ' + token);
+	}	
+	
+	//handlers
+	onFilter = function(e){
+		e.preventDefault();
+		var filter = $select.val();
+		//apply filter	
+		schoolsFilter.filter(filter);	
+	}
+	
+	//bind behavior
+	$btnFilter.on('click', onFilter);
+	
+	//init view
+	$btnFilter.trigger('click');	
+	
+	//return API obj to DOM
+	return schoolsFilter;
 }
 /* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
-var BannerSlides, $isotope, SelectNav, Slideshows, StaticAudios, StaticVideos;
+var BannerSlides, $isotope, SelectNav, Slideshows, StaticAudios, StaticVideos, Schools, Map;
 function init(){
 	//layout assistance
 	insertFirstLastChild('#navItems, #sideNav, #sideNav ul, .itemListing');
@@ -444,6 +549,8 @@ function initLanding(){
 function initSchoolListing(){
 	//diocese map
 	initDioceseMap();
+	//initSchoolsFilter
+	Schools = new initSchoolsFilter();
 }
 function initSchoolProfile(){
 	//school overview
