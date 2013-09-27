@@ -423,6 +423,7 @@ function initSchoolsFilter(){
 	/* create containers */
 	schoolsFilter.schools = [];
 	schoolsFilter.schoolVisibility = [];
+	schoolsFilter.boundList = [];
 	/* update containers */
 	$.each($items, function(idx, ele){
 		var $school = $(ele),
@@ -430,6 +431,7 @@ function initSchoolsFilter(){
 		//collect data
 		data.lat = $school.data('lat');
 		data.lng = $school.data('lng');
+		data.latlng = new google.maps.LatLng(data.lat, data.lng);
 		data.title = $.trim($school.find('.title').text());
 		data.address = $.trim($school.find('.address').text());
 		data.suburb = $.trim($school.find('.tag').text());
@@ -458,30 +460,43 @@ function initSchoolsFilter(){
 				}
 			});
 		
+		/* -------------------------------------------------------------------------- */
 		//apply filter to list view
 		$relevants.removeClass(hideCls);
 		$irrelevants.addClass(hideCls);
 		
+		/* -------------------------------------------------------------------------- */
 		//apply filter to map view
+		
+		//clear boundlist
+		schoolsFilter.boundList = [];
+		
+		//update markers
 		$.each(schoolsFilter.schoolVisibility, function(idx, val){
 			//vars
 			var schoolData = schoolsFilter.schools[idx],
 				schoolIsVisible = val,
-				hasMarker = schoolData.marker ? true : false;
-			//update/create marker
-			if (hasMarker) {
-				Map.toggleMarker(schoolData.marker, schoolIsVisible);
-			} else {
+				markerCreated = schoolData.marker ? true : false;
+			//create marker if not already
+			if (!markerCreated) {
 				schoolData.marker = Map.addMarker({ 
-					map:	Map.map, 
-					lat:	schoolData.lat, 
-					lng:	schoolData.lng, 
-					title:	schoolData.title,
-					icon:	'_lib/img/marker-' + schoolData.type + '.png'
+					map:		Map.map, 
+					lat:		schoolData.lat, 
+					lng:		schoolData.lng, 
+					title:		schoolData.title,
+					icon:		'_lib/img/marker-' + schoolData.type + '.png',
 				});
-			}			
+			}
+			//update marker visibility
+			Map.toggleMarker(schoolData.marker, schoolIsVisible);
+			//update boundList
+			if (schoolIsVisible) schoolsFilter.boundList.push(schoolData.latlng);
 		})
 		
+		//update map bounds
+		Map.updateBound(Map.map, schoolsFilter.boundList);	
+		
+		/* -------------------------------------------------------------------------- */
 		//keep form value consistent
 		if ($select.val() != token) {
 			$select.val(token);
@@ -507,6 +522,118 @@ function initSchoolsFilter(){
 	
 	//return API obj to DOM
 	return schoolsFilter;
+}
+/* ------------------------------------------------------------------------------ */
+/* initSchoolsViewSwitch */
+/* ------------------------------------------------------------------------------ */
+function initSchoolsViewSwitch(){
+	//vars
+	var schoolsView = {},
+		$mapView = $('#dioceseMap'),
+		$listView = $('#dioceseSchools'),
+		$btnMap = $('#btnMap'),
+		$btnList = $('#btnList'),
+		$viewLabel = $('#schoolsViewLabel'),
+		labels = { map:'Diocese Map', list:'School Listing' },
+		selectedCls = 'selected';
+	
+	/* -------------------------------------------------------------------------- */
+	//update properties
+
+	//elems
+	schoolsView.$map = $mapView;
+	schoolsView.$list = $listView;
+	schoolsView.$btnMap = $btnMap;
+	schoolsView.$btnList = $btnList;
+	schoolsView.$viewLabel = $viewLabel;
+	schoolsView.states = { map:false, list:false };
+	//data
+	schoolsView.labels = labels;
+	//defaultView
+	if ( $mapView.data('defaultView')=='1' ) {
+		schoolsView.defaultView = 'map';
+		schoolsView.states.list = true;
+	}
+	else if ( $listView.data('defaultView')=='1' ) {
+		schoolsView.defaultView = 'list';
+		schoolsView.states.map = true;
+	}
+	//selectedView
+	schoolsView.selectedView = schoolsView.defaultView;
+	
+	/* -------------------------------------------------------------------------- */
+	//methods
+	schoolsView.updateView = function(view, visible){
+		//exit
+		if (schoolsView.states[view] == visible) { return false; }
+		//vars
+		var $view = (view == 'map') ? schoolsView.$map : schoolsView.$list,
+			$btn = (view == 'map') ? schoolsView.$btnMap : schoolsView.$btnList,
+			label = (view == 'map') ? schoolsView.labels.map : schoolsView.labels.list;
+		//determin visibility flag if not provided already
+		if (visible == undefined) visible = !schoolsView.states[view];
+		//update states
+		schoolsView.states[view] = visible;
+		if (visible) schoolsView.currentView = view;
+		//update view
+		visible ? $view.slideDown() : $view.slideUp();
+		//refresh map view
+		if (view == 'map' && visible) {
+			//refresh map
+			Map.refreshView(Map.map);
+			//update with current bounds
+			Map.updateBound(Map.map, Schools.boundList);
+		}
+		//update view button
+		if ($btn.length) {
+			visible ? $btn.addClass(selectedCls) : $btn.removeClass(selectedCls);	
+		}
+		//update label
+		if (schoolsView.$viewLabel.length && visible) {
+			schoolsView.$viewLabel.text(label); 
+		}
+	}
+	schoolsView.switchView = function(view){
+		var otherView = (view == 'map' ? 'list' : 'map');
+		schoolsView.updateView(otherView, false);
+		schoolsView.updateView(view, true);
+	}
+	
+	/* -------------------------------------------------------------------------- */
+	/* functions */
+	function onResize(e){
+		var isMobile = Modernizr.mq(mqStates.max500) || $(window).width() <= 500;
+		if (isMobile) {
+			schoolsView.switchView('list');
+		} else {
+			schoolsView.switchView(schoolsView.selectedView);
+		}
+	}
+	
+	/* -------------------------------------------------------------------------- */
+	/* init */
+	
+	//apply defaultView
+	schoolsView.updateView(schoolsView.defaultView, true);
+	schoolsView.defaultView == 'map' ? schoolsView.updateView('list', false) : schoolsView.updateView('map', false);
+	
+	//bind button behaviors
+	$.each([schoolsView.$btnMap, schoolsView.$btnList], function(idx, ele){
+		var $btn = $(ele);
+		$btn.on('click', function(e){
+			e.preventDefault();
+			var view = $(this).data('view');
+			schoolsView.switchView(view);
+			schoolsView.selectedView = view;
+		});
+	});
+		
+	//bind responsive behavior
+	onResize();
+	$(window).on('resize.schoolsViewSwitch', onResize);
+	
+	//return API obj to DOM
+	return schoolsView;
 }
 /* ------------------------------------------------------------------------------ */
 /* init */
@@ -551,6 +678,8 @@ function initSchoolListing(){
 	initDioceseMap();
 	//initSchoolsFilter
 	Schools = new initSchoolsFilter();
+	//initSchoolsViewSwitch
+	Schools.view = new initSchoolsViewSwitch();
 }
 function initSchoolProfile(){
 	//school overview

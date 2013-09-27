@@ -3119,6 +3119,12 @@ body#school.listing #utilsTop {
 	#schoolListing .item.school.tile.hidden { display:none; }
 
 }
+@media only screen and (orientation:landscape) {
+
+	/* fit in landscape view */
+	#dioceseMap .mapContainer { padding-top:40%; }
+
+}
 
 
 /* ==========================================================================

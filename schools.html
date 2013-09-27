@@ -115,7 +115,7 @@
 		<div id="utilsTop">
 			<div class="padder clearfix">
 				<div class="colTitle">
-					<h2 class="utilsHeading">School Listing</h2>
+					<h2 id="schoolsViewLabel" class="utilsHeading">School Listing</h2>
 				</div>
 				<div class="colMain">
 					<form id="formFilter" class="formView mcenter" action="/">
@@ -132,15 +132,15 @@
 				</div>
 				<div class="colAside">
 					<div class="views"><!--
-						--><a class="btnIcon lite" href="#" data-view="list"><i class="icon icon-th"></i></a><!--
-						--><a class="btnIcon lite selected" href="#" data-view="map" data-default="1"><i class="icon icon-map-marker"></i></a><!--
+						--><a id="btnList" class="btnIcon lite" href="#" data-view="list"><i class="icon icon-th"></i></a><!--
+						--><a id="btnMap" class="btnIcon lite" href="#" data-view="map" data-default="1"><i class="icon icon-map-marker"></i></a><!--
 					--></div>
 				</div>
 			</div>
 		</div><!-- /UTILS -->
 		
 		<!-- MAP -->
-		<div id="dioceseMap" class="section">
+		<div id="dioceseMap" class="section" data-default-view="1">
 			<div id="dioceseMapContainer" class="mapContainer"
 				data-lat="-33.241716" 
 				data-lng="151.467268" 

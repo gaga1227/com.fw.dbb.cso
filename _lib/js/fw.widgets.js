@@ -190,6 +190,22 @@ function initMap(opts){
 		marker.setVisible(visible);
 	}
 	
+	/* map */
+	mapObj.refreshView = function(map){
+		//trigger map resize
+		google.maps.event.trigger(map, 'resize');
+	}
+	mapObj.updateBound = function(map, latlngList){
+		var bounds = new google.maps.LatLngBounds(),
+			listLength = latlngList.length,
+			i;
+		for (i=0; i < listLength; i++) {
+			bounds.extend (latlngList[i]);
+		}
+		map.fitBounds(bounds);
+		mapObj.bounds = bounds;
+	}
+	
 	/* -------------------------------------------------------------------------- */
 	//init
 	function init() {
@@ -237,8 +253,10 @@ function initMap(opts){
 			if (hasInfoWindow) infowindow.open(map, marker);
 		});
 		google.maps.event.addDomListener(window, 'resize', function() {
+			google.maps.event.trigger(map, 'resize');
 			if (hasInfoWindow) infowindow.close();
-			map.panTo(latlng);
+			map.panTo(mapObj.bounds.getCenter());
+			map.fitBounds(mapObj.bounds);
 		});
 	}
 	
