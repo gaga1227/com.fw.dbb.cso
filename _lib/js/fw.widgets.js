@@ -255,8 +255,12 @@ function initMap(opts){
 		google.maps.event.addDomListener(window, 'resize', function() {
 			google.maps.event.trigger(map, 'resize');
 			if (hasInfoWindow) infowindow.close();
-			map.panTo(mapObj.bounds.getCenter());
-			map.fitBounds(mapObj.bounds);
+			if (mapObj.bounds){
+				map.panTo(mapObj.bounds.getCenter());
+				map.fitBounds(mapObj.bounds);
+			} else {
+				map.panTo(latlng);	
+			}
 		});
 	}
 	
