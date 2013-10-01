@@ -170,7 +170,7 @@ function initMap(opts){
 	if (!opts.lat || !opts.lng) return false;
 	
 	//vars
-	var mapObj = {};
+	var mapObj = { opts: opts };
 	
 	/* -------------------------------------------------------------------------- */
 	//methods
@@ -188,6 +188,22 @@ function initMap(opts){
 	}
 	mapObj.toggleMarker = function(marker, visible){
 		marker.setVisible(visible);
+	}
+	
+	/* infoWindow */
+	mapObj.bindInfoWindow = function(data){		
+		var map = data.map,
+			marker = data.marker;
+		if (marker) {
+			google.maps.event.addListener(marker, 'click', function() {
+				if (mapObj.infoWindow) { mapObj.infoWindow.close(); }
+				mapObj.infoWindow = data.infoWindow;
+				mapObj.infoWindow.open(map, marker);
+			});
+		}
+	}
+	mapObj.closeInfoWindow = function(){
+		if (mapObj.infoWindow) mapObj.infoWindow.close();	
 	}
 	
 	/* map */
@@ -241,20 +257,18 @@ function initMap(opts){
 		
 		//events
 		google.maps.event.addListener(map, 'center_changed', function() {
-			// 3 seconds after the center of the map has changed, pan back to the
-			// marker.
-			/*
-			window.setTimeout(function() {
-				map.panTo(marker.getPosition());
-			}, 3000);
-			*/
+			
 		});
 		google.maps.event.addListener(marker, 'click', function() {
 			if (hasInfoWindow) infowindow.open(map, marker);
 		});
 		google.maps.event.addDomListener(window, 'resize', function() {
 			google.maps.event.trigger(map, 'resize');
+			//close defualt info window
 			if (hasInfoWindow) infowindow.close();
+			//close any info window attached to marker
+			mapObj.closeInfoWindow();
+			//fit to bounds, or pan to center
 			if (mapObj.bounds){
 				map.panTo(mapObj.bounds.getCenter());
 				map.fitBounds(mapObj.bounds);

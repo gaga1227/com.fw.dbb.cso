@@ -392,12 +392,14 @@ function initDioceseMap(){
 	if (!$mapContainer.length) return false;
 	
 	//update opts
+	opts.target = $mapContainer.attr('id');
 	opts.title = $mapContainer.data('title');
 	opts.lat = parseFloat($mapContainer.data('lat'));
 	opts.lng = parseFloat($mapContainer.data('lng'));
-	opts.zoom = 9;
 	opts.showCenter = $mapContainer.data('showCenter') == '1' ? true : false;
-	opts.target = $mapContainer.attr('id');
+	opts.zoom = 9;	
+	opts.infoWidth = 250;
+	opts.showInfo = false;
 	
 	//exit if no key data
 	if (isNaN(opts.lat) || isNaN(opts.lng) || !opts.title) return '[dioceseMap]: Abort on missing map data(lat, lng, title)';
@@ -415,6 +417,7 @@ function initSchoolsFilter(){
 		$select = $('#fmFilter'),
 		$btnFilter = $('#btnFilter'),
 		$items = $('#schoolListing').find('.item.school.tile'),
+		$mapInfoTmpl = $($('#dioceseMapInfoTmpl').html()),
 		hideCls = 'hidden';
 	
 	/* -------------------------------------------------------------------------- */
@@ -428,7 +431,8 @@ function initSchoolsFilter(){
 	$.each($items, function(idx, ele){
 		var $school = $(ele),
 			data = {};
-		//collect data
+		
+		//collect school data
 		data.lat = $school.data('lat');
 		data.lng = $school.data('lng');
 		data.latlng = new google.maps.LatLng(data.lat, data.lng);
@@ -437,6 +441,26 @@ function initSchoolsFilter(){
 		data.suburb = $.trim($school.find('.tag').text());
 		data.href = $school.find('a').attr('href');
 		data.type = $school.hasClass('primary') ? 'p' : $school.hasClass('secondary') ? 's' : 'k'; 
+		data.theme = $school.hasClass('primary') ? 'grn' : $school.hasClass('secondary') ? 'red' : 'ppl';
+		data.filter = $school.hasClass('primary') ? 'Primary School' : $school.hasClass('secondary') ? 'Secondary School' : 'K-12';
+		
+		//construct info window with school data
+		$mapInfoTmpl.removeClass('grn ppl red').addClass(data.theme);
+		$mapInfoTmpl.find('.header > .label').text(data.filter);
+		$mapInfoTmpl.find('.btnSchool').attr('href',data.href);
+		$mapInfoTmpl.find('.btnSchool .title').text(data.title);
+		$mapInfoTmpl.find('.btnSchool .address').text(data.address);
+		$mapInfoTmpl.find('> .content .padder').html( $school.find('.data').html() );
+		
+		//store info window in school data
+		data.info = $mapInfoTmpl[0].outerHTML;
+		
+		//create info window
+		data.infoWindow = new google.maps.InfoWindow({
+			content: 	data.info || '',
+			maxWidth: 	Map.opts.infoWidth || 250
+		}),	
+		
 		//update school list data
 		schoolsFilter.schools.push(data);
 		schoolsFilter.schoolVisibility[idx] = true;
@@ -484,8 +508,14 @@ function initSchoolsFilter(){
 					lat:		schoolData.lat, 
 					lng:		schoolData.lng, 
 					title:		schoolData.title,
-					icon:		'_lib/img/marker-' + schoolData.type + '.png',
+					icon:		'_lib/img/marker-' + schoolData.type + '.png'
 				});
+				//bind info window to marker
+				Map.bindInfoWindow({ 
+					map:		Map.map, 
+					marker:		schoolData.marker, 
+					infoWindow:	schoolData.infoWindow
+				});	
 			}
 			//update marker visibility
 			Map.toggleMarker(schoolData.marker, schoolIsVisible);
@@ -579,6 +609,8 @@ function initSchoolsViewSwitch(){
 		visible ? $view.slideDown() : $view.slideUp();
 		//refresh map view
 		if (view == 'map' && visible) {
+			//close map info window
+			Map.closeInfoWindow();
 			//refresh map
 			Map.refreshView(Map.map);
 			//update with current bounds
