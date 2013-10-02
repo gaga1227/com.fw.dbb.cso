@@ -2634,6 +2634,59 @@ body#home #banner #notice .item > .header .icon:before { font-size:21px; line-he
 	.mapInfoWindowContent .title { 
 		font-size:16px; font-weight:700; }
 
+/* -------------------------------------------------------------------------- */
+/* mapInfoBubbleBg */
+.mapInfoBubbleBg { }
+
+/* -------------------------------------------------------------------------- */
+/* mapInfoBubbleClose */
+.mapInfoBubbleClose { 
+	display:block; position:absolute; top:7px; right:6px; width:20px; height:20px; margin:0; padding:0; overflow:hidden; z-index:1;
+	color:#fff; background:none; font-size:14px; line-height:20px; }
+.ie7 .mapInfoBubbleClose { margin-top:23px; }
+
+/* -------------------------------------------------------------------------- */
+/* dioceseMapInfoWindow */
+#dioceseMapInfoWindow { max-width:300px; max-height:320px; margin:0; }
+
+	/* override gm styles */
+	#dioceseMapInfoWindow div,
+	#dioceseMapInfoWindow span,
+	#dioceseMapInfoWindow a { font-family:'Montserrat',sans-serif; font-size:13px; }
+
+	/* header */
+	#dioceseMapInfoWindow.item > .header { padding:0 25px 0 15px; }
+	
+	/* btnSchool */
+	#dioceseMapInfoWindow .btnSchool { 
+		display:block; position:relative; width:auto; height:auto; margin:0; padding:15px 30px 15px 15px; overflow:hidden;
+		color:#4c4c4c; background:#e8e9eb; }
+	.no-touch #dioceseMapInfoWindow .btnSchool:hover { 
+		background:#f2f2f2; }
+		
+		/* title */
+		#dioceseMapInfoWindow .btnSchool .title { font-size:16px; line-height:1.2em; padding:0 0 0.2em 0; }
+		#dioceseMapInfoWindow .btnSchool:hover .title { text-decoration:none; }
+		
+		/* address */
+		#dioceseMapInfoWindow .btnSchool .address { font-size:13px; line-height:1em; padding:0; }
+		
+		/* icon */
+		#dioceseMapInfoWindow .btnSchool .icon { top:50%; right:6px; width:20px; height:20px; margin:-10px 0 0 0; font-size:14px; line-height:20px; } 
+		
+	/* padder */
+	#dioceseMapInfoWindow .content > .padder { padding:15px 15px 5px 15px; }
+	#dioceseMapInfoWindow .content > .padder.contentViewport p { font-size:13px; line-height:16px; }
+	
+/* responsive */
+@media only screen and (max-width:640px) {
+	
+	/* hide details */
+	#dioceseMapInfoWindow .content { display:none; }
+	#dioceseMapInfoWindow .btnSchool { background:#fff!important; }
+
+}
+
 
 /* ==========================================================================
    section - HOME

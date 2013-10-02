@@ -398,7 +398,8 @@ function initDioceseMap(){
 	opts.lng = parseFloat($mapContainer.data('lng'));
 	opts.showCenter = $mapContainer.data('showCenter') == '1' ? true : false;
 	opts.zoom = 9;	
-	opts.infoWidth = 250;
+	opts.infoWidth = 300;
+	opts.infoHeight = 330;
 	opts.showInfo = false;
 	
 	//exit if no key data
@@ -455,10 +456,31 @@ function initSchoolsFilter(){
 		//store info window in school data
 		data.info = $mapInfoTmpl[0].outerHTML;
 		
-		//create info window
+		//create info window/bubble
+		/*
 		data.infoWindow = new google.maps.InfoWindow({
 			content: 	data.info || '',
 			maxWidth: 	Map.opts.infoWidth || 250
+		}),
+		// */
+		data.infoWindow = new InfoBubble({
+			content: 				data.info || '',
+			minWidth: 				Map.opts.infoWidth || 300,
+			maxWidth: 				Map.opts.infoWidth || 300,
+			maxHeight: 				Map.opts.infoHeight || 330,
+			/* infoBubble */
+			disableAutoPan: 		false,
+			hideCloseButton: 		false,
+			shadowStyle: 			1,
+			padding: 				0,
+			backgroundColor: 		'#ffffff',
+			backgroundClassName:	'mapInfoBubbleBg',
+			borderRadius: 			0,
+			borderWidth: 			0,
+			borderColor: 			'#ffffff',
+			arrowPosition: 			30,
+			arrowSize: 				15,
+			arrowStyle: 			0
 		}),	
 		
 		//update school list data
