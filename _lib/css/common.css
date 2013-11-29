@@ -2077,8 +2077,8 @@ body.landing #utilsBtm {
 
 /* -------------------------------------------------------------------------- */
 /* extend - school */
-.item.school 					{ background:#fafafa;}
-.item.school > .content 		{ border-top:1px solid #ddd; }
+.item.school 					{ background:#fff; }
+.item.school > .content 		{ background:#fafafa; border-top:1px solid #ddd; }
 .item.school > .content .title 	{ text-decoration:none!important; height:66px; overflow:hidden; }
 
 /* imgThumb */
@@ -2148,7 +2148,7 @@ body.landing #utilsBtm {
 	.item.tile > .header { position:relative; }
 	
 	/* item school */
-	.item.school { background:#fff; }
+	.item.school {  }
 		
 		/* hide header and imgThumb */
 		.item.school .header,
@@ -2157,7 +2157,7 @@ body.landing #utilsBtm {
 		.item.school.tile .imgThumb { display:none; }
 		
 		/* remove content top border */
-		.item.school > .content { border-top:none; }
+		.item.school > .content { background:#fff; border-top:none; }
 		.item.school > .content .title 	{ height:auto; overflow:visible; }
 		
 		/* update icon */
@@ -2166,6 +2166,22 @@ body.landing #utilsBtm {
 		.item.school .iconInline:before { font-size:21px; }
 
 }
+
+
+/* ==========================================================================
+   common - PROFILELISTING
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.profileListing { 
+	position:relative; width:auto; height:auto; margin:10px 0; padding:0; overflow:hidden; }
+
+/* item */
+.profileListing .item 						{ margin:0 0 25px 0; background:none; }
+.profileListing .item .profile 				{ border:none; }
+.profileListing .item .profile .padder 		{ margin:0 0 0 108px; padding:15px 0; }
+.profileListing .item .profile .padder p	{ padding-bottom:0; }
 
 
 /* ==========================================================================
@@ -3452,6 +3468,16 @@ body#school.profile #schoolMapContainer { padding-top:35%; }
 .cleft              { clear:left!important; }
 .cright             { clear:right!important; }
 .cboth              { clear:both!important; }
+
+.bgNone				{ background:none!important; }
+.bgColorNone		{ background-color:none!important; }
+.bgImgNone			{ background-image:none!important; }
+
+.bdrNone			{ border:none!important; }
+.bdrTopNone			{ border-top:none!important; }
+.bdrBtmNone			{ border-bottom:none!important; }
+.bdrLftNone			{ border-left:none!important; }
+.bdrRgtNone			{ border-right:none!important; }
 
 /* -------------------------------------------------------------------------- */
 /* margin */
