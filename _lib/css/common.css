@@ -336,7 +336,7 @@ html, body { height:100% }
 		.no-touch #nav .navItem.selected:focus,
 		.touch #nav .navItem.selected:active { 
 			color:#fff; border-bottom-color:#06b4c3; 
-			pointer-events:none; cursor:default; }
+			/*pointer-events:none;*/ cursor:default; }
 	
 /* ------------------------------------------------------------------------------ */
 /* nav responsive */
