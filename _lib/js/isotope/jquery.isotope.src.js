@@ -1434,17 +1434,42 @@ $.Isotope.prototype._masonryReset = function() {
 	this.masonry = {};
 	// FIXME shouldn't have to call this again
 	this._getCenteredMasonryColumns();
+	//corner stamp
+	//this._getSegments();
 	var i = this.masonry.cols;
 	this.masonry.colYs = [];
 	while (i--) {
 	  this.masonry.colYs.push( 0 );
+	}
+	//corner stamp
+	if ( this.options.masonry.cornerStampSelector ) {
+		var $cornerStamp = this.element.find( this.options.masonry.cornerStampSelector ),
+			stampWidth = $cornerStamp.outerWidth(true) - ( this.element.width() % this.masonry.columnWidth ),
+			cornerCols = Math.ceil( stampWidth / this.masonry.columnWidth ),
+			cornerStampHeight = $cornerStamp.outerHeight(true),
+			thisObj = this,
+			colDiff = Math.max( this.masonry.cols - cornerCols, cornerCols ),
+			updateCols = function(i){
+				thisObj.masonry.colYs[i] = cornerStampHeight;	
+			};
+		if ( this.masonry.cols == cornerCols == 1 ) {
+			updateCols(0);
+		} else {
+			for ( i = colDiff; i < this.masonry.cols; i++ ) {
+				updateCols(i);
+			}
+		}
+		//console.log('colDiff:', colDiff);
+		//console.log('Max of cols:', i);
+		//console.log('Masonry cols: ', this.masonry.cols);
 	}
 };
 $.Isotope.prototype._masonryResizeChanged = function() {
 	var prevColCount = this.masonry.cols;
 	// get updated colCount
 	this._getCenteredMasonryColumns();
-	return ( this.masonry.cols !== prevColCount );
+	return true;
+	//return ( this.masonry.cols !== prevColCount );
 };
 $.Isotope.prototype._masonryGetContainerSize = function() {
 	var unusedCols = 0,
